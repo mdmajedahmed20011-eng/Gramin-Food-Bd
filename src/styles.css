@@ -343,3 +343,101 @@ body {
     padding-inline: 2rem;
   }
 }
+
+/* Double-Bezel Hardware Architecture */
+.outer-bezel {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 2rem;
+  padding: 0.5rem;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.inner-bezel {
+  background: #FFFFFF;
+  border-radius: calc(2rem - 0.5rem);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.outer-bezel-dark {
+  background: rgba(14, 19, 27, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 2rem;
+  padding: 0.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.inner-bezel-dark {
+  background: #090C10;
+  border-radius: calc(2rem - 0.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Spring Interactive Curves */
+.spring-interactive {
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.spring-interactive:hover {
+  transform: translate3d(0, -4px, 0);
+}
+
+.spring-interactive:active {
+  transform: translate3d(0, 0, 0) scale(0.99);
+}
+
+/* Hologram & Gold Sheen */
+.hologram-border {
+  position: relative;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.5) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(212, 175, 55, 0.4) 100%);
+  padding: 1px;
+}
+
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+  }
+}
+
+.animate-pulse-live {
+  animation: pulse-live 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glassmorphism Frosted Pill */
+.glass-pill {
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+/* Button-in-Button Trailing Icon */
+.btn-nested-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.15);
+  margin-left: 0.5rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .btn-nested-icon {
+  transform: translate3d(3px, -1px, 0);
+}
