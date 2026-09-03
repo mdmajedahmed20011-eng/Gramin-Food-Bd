@@ -4,35 +4,28 @@ import { company, destinations, services } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#0A192F] text-white border-t border-slate-800 pt-16 pb-20 md:pb-16 text-xs">
+    <footer className="bg-[#090C10] text-white border-t border-[#1F2633] pt-16 pb-20 md:pb-16 text-xs">
       <div className="section-shell">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 pb-12 border-b border-[#1F2633]">
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="inline-flex items-center gap-3">
-              <BrandLogo size={46} />
-              <div>
-                <span className="block font-display text-lg font-extrabold text-white">
-                  {company.name}
-                </span>
-                <span className="block text-[0.65rem] font-bold uppercase tracking-[0.14em] text-[#00AEEF]">
-                  {company.slogan}
-                </span>
-              </div>
+              <BrandLogo size={48} withText textClassName="text-white" />
             </Link>
 
             <p className="text-slate-300 leading-relaxed max-w-sm">
-              Official British Council & IDP Registration Point and Mock Test Venue located in Maijdee Court, Noakhali. Empowering students with top-tier IELTS preparation, Spoken & Kids English, and 100% free study abroad counseling.
+              {company.legalName} is Bangladesh's premier study abroad consultancy. Guided by our motto <em className="text-[#F5D365]">"{company.motto}"</em> and core philosophy <strong className="text-white">{company.philosophy}</strong>, we provide 100% free profile evaluation, fast-track visa processing, and university admissions across the UK, Europe, Australia, Canada, New Zealand, Malaysia, and USA.
             </p>
 
-            <div className="rounded-2xl border border-slate-800 bg-[#112240] p-3.5 space-y-1">
-              <p className="font-bold text-sky-400">
-                📍 {company.address.line1}
+            <div className="rounded-2xl border border-[#D4AF37]/30 bg-[#0E131B] p-4 space-y-1.5 shadow-lg">
+              <p className="font-bold text-[#F5D365] flex items-center gap-1.5">
+                <span>📍</span>
+                <span>{company.address.full}</span>
               </p>
-              <p className="text-slate-300">
-                {company.address.line2}, {company.address.city}
+              <p className="text-slate-300 text-[0.72rem]">
+                Network Presence: <strong className="text-white">{company.presence}</strong>
               </p>
-              <p className="text-[0.7rem] text-slate-400 pt-1">
+              <p className="text-[0.7rem] text-slate-400 pt-0.5">
                 🕒 {company.hours}
               </p>
             </div>
@@ -42,40 +35,40 @@ export function SiteFooter() {
                 href={company.social.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-sky-500/30 bg-sky-950/40 px-3.5 py-1.5 font-bold text-sky-300 hover:bg-sky-900/50 transition-colors"
+                className="rounded-full border border-[#D4AF37]/40 bg-[#151A24] px-3.5 py-1.5 font-bold text-[#F5D365] hover:bg-[#D4AF37] hover:text-[#090C10] transition-all"
               >
-                📘 Facebook Official Page
+                📘 Facebook (285K+ Followers)
               </a>
               <a
-                href={`https://wa.me/${company.whatsapp}`}
+                href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}`}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-emerald-500/30 bg-emerald-950/40 px-3.5 py-1.5 font-bold text-emerald-400 hover:bg-emerald-900/50 transition-colors"
+                className="rounded-full border border-emerald-500/40 bg-emerald-950/40 px-3.5 py-1.5 font-bold text-emerald-400 hover:bg-emerald-900/50 transition-colors"
               >
-                💬 WhatsApp 01736-493995
+                💬 WhatsApp Chat Support
               </a>
             </div>
           </div>
 
-          {/* Col 2: Educational Programs */}
+          {/* Col 2: Admissions & Services */}
           <div className="space-y-3">
-            <span className="block font-display text-xs font-bold uppercase tracking-wider text-slate-400">
-              Courses & Programs
+            <span className="block font-display text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
+              Admissions & Visa Services
             </span>
             <ul className="space-y-2 text-slate-300">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link
                     to="/services"
-                    className="hover:text-[#00AEEF] transition-colors"
+                    className="hover:text-[#F5D365] transition-colors"
                   >
                     {s.title}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link to="/offers" className="text-[#ED1C24] font-bold hover:underline">
-                  🔥 ৳2,000 IELTS Cashback
+                <Link to="/offers" className="text-[#F5D365] font-bold hover:underline">
+                  🎓 Buckinghamshire New Univ. Session
                 </Link>
               </li>
             </ul>
@@ -83,7 +76,7 @@ export function SiteFooter() {
 
           {/* Col 3: Popular Study Destinations */}
           <div className="space-y-3">
-            <span className="block font-display text-xs font-bold uppercase tracking-wider text-slate-400">
+            <span className="block font-display text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
               Study Destinations
             </span>
             <ul className="space-y-2 text-slate-300">
@@ -92,7 +85,7 @@ export function SiteFooter() {
                   <Link
                     to="/study-in-{$country}"
                     params={{ country: d.slug }}
-                    className="hover:text-[#00AEEF] transition-colors flex items-center gap-1.5"
+                    className="hover:text-[#F5D365] transition-colors flex items-center gap-1.5"
                   >
                     <span>{d.flag}</span>
                     <span>Study in {d.name}</span>
@@ -102,31 +95,36 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Col 4: Direct Hotlines */}
+          {/* Col 4: Direct Hotlines & Social */}
           <div className="space-y-3">
-            <span className="block font-display text-xs font-bold uppercase tracking-wider text-slate-400">
-              Direct Hotlines & Support
+            <span className="block font-display text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
+              Direct Contact & Hotlines
             </span>
             <div className="space-y-2">
               {company.phones.map((p) => (
                 <a
                   key={p}
                   href={`tel:+880${p.replace(/[^0-9]/g, "").slice(-10)}`}
-                  className="block rounded-xl border border-slate-800 bg-[#112240] px-3 py-2 font-bold text-white hover:border-sky-400 hover:text-sky-400 transition-colors"
+                  className="block rounded-xl border border-[#1F2633] bg-[#0E131B] px-3 py-2 font-bold text-white hover:border-[#D4AF37] hover:text-[#F5D365] transition-colors"
                 >
                   📞 {p}
                 </a>
               ))}
               <a
-                href={`https://wa.me/${company.whatsapp}`}
+                href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}`}
                 target="_blank"
                 rel="noreferrer"
-                className="block rounded-xl border border-emerald-500/30 bg-emerald-950/40 px-3 py-2 font-bold text-emerald-400 hover:bg-emerald-900/50 transition-colors"
+                className="block rounded-xl border border-emerald-500/40 bg-emerald-950/40 px-3 py-2 font-bold text-emerald-400 hover:bg-emerald-900/50 transition-colors"
               >
-                💬 WhatsApp Chat Support
+                💬 WhatsApp {company.phones[0]}
               </a>
-              <div className="pt-2 text-[0.7rem] text-slate-400">
-                Email: <a href={`mailto:${company.email}`} className="text-sky-300 underline">{company.email}</a>
+              <div className="pt-2 text-[0.7rem] text-slate-400 space-y-1">
+                <div>
+                  Email: <a href={`mailto:${company.email}`} className="text-[#F5D365] underline">{company.email}</a>
+                </div>
+                <div>
+                  Alternative: <a href={`mailto:${company.contactEmail}`} className="text-slate-300 underline">{company.contactEmail}</a>
+                </div>
               </div>
             </div>
           </div>
@@ -135,7 +133,7 @@ export function SiteFooter() {
         {/* Bottom Copyright & Legal */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-[0.7rem]">
           <p>
-            © {new Date().getFullYear()} {company.name}. All Rights Reserved. Maijdee Court, Noakhali.
+            © {new Date().getFullYear()} {company.legalName}. All Rights Reserved. Khan Tower, 359 DIT Road, Dhaka 1219.
           </p>
           <div className="flex gap-4">
             <Link to="/privacy-policy" className="hover:text-white">

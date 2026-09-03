@@ -10,17 +10,17 @@ import { company } from "@/lib/site-data";
 export const Route = createFileRoute("/videos")({
   head: () => ({
     meta: [
-      { title: "Videos & Student Stories | Affordable International" },
+      { title: "Videos & Student Success Stories | Future Edge Education" },
       {
         name: "description",
         content:
-          "Watch classroom activities, IELTS mock test hall walkthroughs, orientation classes, and student feedback from Affordable International's official Facebook page.",
+          "Watch partner sessions, fast-track visa grant celebrations, and student visa feedback from Future Edge Education's official Facebook community (285K+ followers).",
       },
-      { property: "og:title", content: "Videos & Student Stories | Affordable International" },
+      { property: "og:title", content: "Videos & Student Stories | Future Edge Education" },
       {
         property: "og:description",
         content:
-          "Live orientation classes, IELTS prep tips, and study abroad guidance from our Maijdee campus.",
+          "Live university partner sessions, 3-day UK visa grants, and study abroad guidance from our Khan Tower Dhaka office.",
       },
     ],
   }),
@@ -29,28 +29,28 @@ export const Route = createFileRoute("/videos")({
 
 const videoHighlights = [
   {
-    title: "IELTS Orientation Free Class & Strategy Session",
-    desc: "Live orientation class breakdown covering listening, reading, writing, and speaking rubrics for candidates in Maijdee.",
-    category: "IELTS Orientation",
-    venue: "Ashfak Plaza (4th Floor), Maijdee",
+    title: "Buckinghamshire New University (BNU) Partner Session",
+    desc: "Highlights from our in-office session with Ms. Ayesha Rauf (Recruitment Advisor, BNU UK) conducting direct profile evaluations.",
+    category: "Partner Delegation",
+    venue: "Khan Tower, Dhaka Office",
   },
   {
-    title: "Affordable Mock Test Center Walkthrough",
-    desc: "Authentic exam-hall simulation with individual acoustic headphones and timed answer sheets under British Council standards.",
-    category: "Mock Test Center",
-    venue: "Authorized British Council Venue",
+    title: "LURS 2026 Student Research Conference Award",
+    desc: "Future Edge Education leadership honored on stage by Chief Guest Danobir Dr. Syed Ragib Ali for contributions to global education.",
+    category: "Academic Honor",
+    venue: "Conference Hall",
   },
   {
-    title: "Kids & Junior English Interactive Class Highlights",
-    desc: "Young learners engaging in phonics games, storytelling, and conversational practice without hesitation.",
-    category: "Kids English",
-    venue: "Junior Classroom",
+    title: "UK Student Visa Granted in 3 Working Days (MSc AI)",
+    desc: "Student sharing his seamless visa journey with senior counselor Moshiur for the University of East London.",
+    category: "Fast Visa Grant",
+    venue: "Dhaka Counseling Desk",
   },
   {
-    title: "Study Abroad in Europe & UK University Guidance",
-    desc: "Key updates on scholarships, admission requirements, and visa files for Bangladeshi students.",
-    category: "Study Abroad",
-    venue: "Counseling Desk",
+    title: "Study in Europe: Hungary, Denmark, Finland & Sweden",
+    desc: "Detailed video breakdown of University of Debrecen admissions and English medium (MOI) options without IELTS.",
+    category: "European Admissions",
+    venue: "Seminar Session",
   },
 ];
 
@@ -59,26 +59,26 @@ function Videos() {
     <>
       <PageHero
         eyebrow="Multimedia & Social Channels"
-        title="Student Stories & Campus Highlights"
-        subtitle="Watch real classroom sessions, orientation lectures, mock test walk-throughs, and student experiences from our official Facebook page."
-        image="/assets/affordable-banner.jpg"
-        imageAlt="Affordable International official video and multimedia showcase"
+        title="Student Stories & Delegation Highlights"
+        subtitle="Watch foreign university partner sessions, student visa success stories, and expert guidance directly from our official Facebook community of 285K+ members."
+        image="/brand-assets/banner.jpg"
+        imageAlt="Future Edge Education official video and multimedia showcase"
       >
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Student Stories" }]} />
       </PageHero>
 
       {/* Social Community Callout */}
       <section className="section-shell py-12">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl border border-[#D4AF37]/30 bg-white p-6 sm:p-8 shadow-sm">
           <div>
-            <span className="badge-clean badge-red">
-              Official Facebook Channel
+            <span className="badge-clean badge-gold">
+              Official Facebook Channel · 285K+ Followers
             </span>
             <h2 className="mt-2 font-display text-xl sm:text-2xl font-bold text-slate-900">
-              Follow Us on Facebook for Daily Updates
+              Follow @FEEducation on Facebook for Live Updates
             </h2>
             <p className="text-xs sm:text-sm text-slate-600">
-              Stay tuned for orientation class schedules, mock test dates, fee notices, and student success stories.
+              Stay tuned for direct university delegate visits, visa grants, European intake updates, and student reviews.
             </p>
           </div>
 
@@ -97,59 +97,60 @@ function Videos() {
               rel="noreferrer"
               className="rounded-full border border-slate-300 bg-white px-6 py-3 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-colors shadow-sm"
             >
-              🎬 Watch Facebook Reels
+              🎬 Watch Facebook Videos & Reels
             </a>
           </div>
         </div>
       </section>
 
-      {/* Highlights Grid */}
-      <section className="section-shell py-8 sm:py-12 border-t border-slate-200">
+      {/* Featured Video Topics Grid */}
+      <section className="section-shell py-10 sm:py-16">
         <SectionHeading
-          eyebrow="Media Highlights"
-          title="Inside Our Classroom & Event Sessions"
-          subtitle="Explore the active learning environment created at Affordable International in Maijdee Bazar, Noakhali."
+          eyebrow="Verified Content"
+          title="Featured Videos & Success Stories"
+          subtitle="Explore key sessions and student milestones documented on our official Facebook channel."
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {videoHighlights.map((v, i) => (
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          {videoHighlights.map((v) => (
             <div
-              key={i}
-              className="card-clean rounded-3xl p-6 flex flex-col justify-between"
+              key={v.title}
+              className="card-clean rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-slate-200 hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                  <span className="badge-clean badge-cyan">
+                  <span className="badge-clean badge-gold text-[0.68rem]">
                     {v.category}
                   </span>
-                  <span className="text-[0.68rem] text-slate-500 font-semibold">
+                  <span className="text-[0.68rem] font-semibold text-slate-500">
                     📍 {v.venue}
                   </span>
                 </div>
-                <h3 className="mt-4 font-display text-lg font-bold text-slate-900">
+
+                <h3 className="mt-4 font-display text-lg font-bold text-slate-900 leading-snug">
                   {v.title}
                 </h3>
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {v.desc}
                 </p>
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                 <a
-                  href={company.social.facebook}
+                  href={company.social.facebookVideos}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs font-bold text-[#ED1C24] hover:underline"
+                  className="text-xs font-bold text-[#1877F2] hover:underline flex items-center gap-1.5"
                 >
-                  Watch Video on Facebook ↗
+                  <span>▶ Watch on Facebook</span>
                 </a>
                 <a
-                  href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hello Affordable International, I want to attend the next ${v.category} session.`)}`}
+                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Future Edge Education, I saw your video on "${v.title}" and would like to learn more.`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="text-xs font-bold text-emerald-700 hover:underline"
                 >
-                  💬 Register via WhatsApp
+                  💬 Inquire on WhatsApp
                 </a>
               </div>
             </div>

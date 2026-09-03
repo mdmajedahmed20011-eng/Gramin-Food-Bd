@@ -2,17 +2,18 @@ import { useState } from "react";
 import { company, destinations } from "@/lib/site-data";
 
 const field =
-  "w-full rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm text-slate-900 outline-none transition-all hover:bg-white focus:border-[#ED1C24] focus:bg-white focus:ring-2 focus:ring-[#ED1C24]/10";
+  "w-full rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm text-slate-900 outline-none transition-all hover:bg-white focus:border-[#D4AF37] focus:bg-white focus:ring-2 focus:ring-[#D4AF37]/10";
 const label = "mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700";
 
 const serviceOptions = [
-  "IELTS Preparation (Academic / GT)",
-  "IELTS Mock Test Booking (Exam Hall + Headphones)",
-  "Official IELTS Exam Registration (৳2,000 Cashback)",
-  "Spoken English & Writing Fluency",
-  "Kids & Junior English Program",
-  "Free Study Abroad Career Counselling",
-  "University Admission & Visa Guidance",
+  "100% Free Profile Assessment & Counseling",
+  "Fast-Track UK Visa Filing (3-5 Day Grants)",
+  "Without IELTS (MOI) University Admission",
+  "Buckinghamshire New University (BNU) Admission",
+  "Europe / Hungary (Debrecen) Master's Admission",
+  "Malaysia Diploma Pathway (SSC/Dakhil Entry)",
+  "Australia & Canada Admission & Visa Guidance",
+  "Spouse & Dependent Family Visa Guidance",
 ];
 
 export function RegisterForm({ onDone }: { onDone?: () => void }) {
@@ -21,9 +22,9 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
     name: "",
     email: "",
     phone: "",
-    service: "IELTS Preparation (Academic / GT)",
+    service: "100% Free Profile Assessment & Counseling",
     destination: "United Kingdom",
-    currentStatus: "HSC Passed / Student",
+    currentStatus: "Bachelor's Graduate (Masters Aspirant)",
     message: "",
   });
 
@@ -32,17 +33,17 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
 
   const whatsappHref = () => {
     const lines = [
-      "✨ Free Consultation & Enrollment Request — Affordable International",
+      "✨ Free Consultation Request — Future Edge Education",
       `👤 Name: ${form.name}`,
       `📞 Phone: ${form.phone}`,
       form.email ? `✉️ Email: ${form.email}` : "",
-      `🎯 Interested Program: ${form.service}`,
-      `🌍 Preferred Country: ${form.destination}`,
-      `🎓 Current Status: ${form.currentStatus}`,
+      `🎯 Interested Service: ${form.service}`,
+      `🌍 Preferred Destination: ${form.destination}`,
+      `🎓 Academic Level: ${form.currentStatus}`,
       form.message ? `📝 Notes: ${form.message}` : "",
-      "\nI would like to speak with a mentor at your Ashfak Plaza, Maijdee office.",
+      "\nI would like to speak with senior counselors Moshiur / Tanvir at your Khan Tower, Dhaka office.",
     ].filter(Boolean);
-    return `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
+    return `https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(lines.join("\n"))}`;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -62,11 +63,11 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
           Request Submitted!
         </h3>
         <p className="mx-auto mt-2 max-w-md text-sm text-slate-600">
-          Thank you, <strong className="text-slate-900">{form.name}</strong>. An Affordable International advisor is preparing your customized roadmap.
+          Thank you, <strong className="text-slate-900">{form.name}</strong>. A {company.name} senior advisor is reviewing your profile.
         </p>
 
-        <div className="mt-6 rounded-2xl border border-sky-200 bg-sky-50/70 p-4 text-xs text-sky-900">
-          ⚡ <strong>Direct WhatsApp Support:</strong> If WhatsApp didn't open automatically, tap below to chat directly with our Maijdee counselor.
+        <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50/70 p-4 text-xs text-amber-900">
+          ⚡ <strong>Direct WhatsApp Support:</strong> If WhatsApp did not open automatically, tap below to chat directly with our Khan Tower Dhaka counseling desk.
         </div>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -105,7 +106,7 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
             required
             value={form.name}
             onChange={set("name")}
-            placeholder="e.g. Tanvir Ahmed"
+            placeholder="e.g. Golam Kibria"
             className={field}
           />
         </div>
@@ -120,7 +121,7 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
             required
             value={form.phone}
             onChange={set("phone")}
-            placeholder="e.g. 01736-XXXXXX"
+            placeholder="e.g. 01805-XXXXXX"
             className={field}
           />
         </div>
@@ -129,7 +130,7 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="reg-service" className={label}>
-            Interested Program / Service
+            Interested Service / Pathway
           </label>
           <select
             id="reg-service"
@@ -160,7 +161,6 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
                 {d.flag} Study in {d.name}
               </option>
             ))}
-            <option value="Only IELTS / Spoken Course">Only IELTS / Spoken / Kids English</option>
           </select>
         </div>
       </div>
@@ -176,10 +176,10 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
             onChange={set("currentStatus")}
             className={field}
           >
+            <option value="Bachelor's Graduate (Masters Aspirant)">Bachelor's Graduate (Masters Aspirant)</option>
             <option value="HSC Passed / College Student">HSC Passed / College Student</option>
+            <option value="SSC / Dakhil Passed (Diploma Aspirant)">SSC / Dakhil Passed (Diploma Aspirant)</option>
             <option value="University Undergraduate">University Undergraduate</option>
-            <option value="Bachelor's Graduate">Bachelor's Graduate (Masters Aspirant)</option>
-            <option value="School Student (Junior/Kids)">School Student (Junior / Kids)</option>
             <option value="Job Holder / Professional">Job Holder / Professional</option>
           </select>
         </div>
@@ -193,7 +193,7 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
             type="email"
             value={form.email}
             onChange={set("email")}
-            placeholder="tanvir@gmail.com"
+            placeholder="name@example.com"
             className={field}
           />
         </div>
@@ -201,21 +201,21 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
 
       <div>
         <label htmlFor="reg-msg" className={label}>
-          Your Specific Questions or Notes
+          Your Specific Profile Details or Questions
         </label>
         <textarea
           id="reg-msg"
           rows={2}
           value={form.message}
           onChange={set("message")}
-          placeholder="e.g. Want to know about upcoming IELTS batch dates and mock test fees..."
+          placeholder="e.g. Completed BBA with CGPA 3.2, interested in UK MSc without IELTS (MOI)..."
           className={field}
         />
       </div>
 
       <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-[0.7rem] text-slate-500 text-center sm:text-left">
-          🔒 100% Privacy. Official IDP & British Council Registration Point.
+          🔒 100% Free Profile Assessment. Zero File-Opening Charge.
         </p>
         <button
           type="submit"

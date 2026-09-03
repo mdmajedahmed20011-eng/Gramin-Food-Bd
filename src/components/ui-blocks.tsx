@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { company } from "@/lib/site-data";
 import { useRegisterModal } from "@/components/register-modal";
 
-// Clean Luxury SVG Icons (No Emojis!)
+// Clean Luxury SVG Icons
 export function IconGraduationCap({ className = "w-5 h-5" }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
@@ -80,16 +80,14 @@ export function IconWhatsApp({ className = "w-4 h-4" }: { className?: string }) 
 }
 
 export const globalPartners = [
-  { name: "IDP IELTS", type: "Official Registration Point", tag: "IDP Accredited" },
-  { name: "British Council", type: "Authorized Mock Venue", tag: "Venue Partner" },
-  { name: "Cambridge English", type: "Assessment Standard", tag: "Quality Standard" },
-  { name: "Pearson PTE", type: "Academic Partner", tag: "PTE Accepted" },
-  { name: "UK Universities", type: "1-Year Master's & PSW", tag: "Post-Study Work" },
-  { name: "USA Universities", type: "STEM OPT & Assistantships", tag: "3-Yr STEM OPT" },
-  { name: "Canada Institutions", type: "Public Unis & PGWP", tag: "PGWP Pathway" },
-  { name: "Australia Go8", type: "Group of Eight Admissions", tag: "Subclass 485" },
-  { name: "South Korea Unis", type: "100% Scholarships & KLP", tag: "GKS & Korean" },
-  { name: "Malaysia Campuses", type: "UK & Aussie Branches", tag: "Fast Visa" },
+  { name: "Buckinghamshire New Univ. (BNU)", type: "Official Partner Session", tag: "Direct Delegation" },
+  { name: "University of East London (UEL)", type: "MSc AI & Business", tag: "3-Day Visas" },
+  { name: "Southampton Solent University", type: "Global MBA & Computing", tag: "MOI Accepted" },
+  { name: "University of Debrecen", type: "Hungary European Degree", tag: "Without IELTS" },
+  { name: "Imperia College Malaysia", type: "Diploma Pathways", tag: "SSC / Dakhil" },
+  { name: "Australia Go8 & Regionals", type: "Subclass 485 Visa", tag: "PSW Opportunities" },
+  { name: "Canada Public DLIs", type: "Paid Co-ops & PGWP", tag: "3-Yr PGWP" },
+  { name: "New Zealand Universities", type: "Spouse & Family Visas", tag: "Open Work Rights" },
 ];
 
 export function RegisterButton({
@@ -128,9 +126,9 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#030712] via-[#0A192F] to-[#030712] text-white py-16 sm:py-24 border-b border-slate-800">
-      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-rose-600/15 blur-[120px] animate-float-slow" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-sky-500/15 blur-[120px]" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#090C10] via-[#0E131B] to-[#090C10] text-white py-16 sm:py-24 border-b border-[#1F2633]">
+      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-[#D4AF37]/15 blur-[120px] animate-float-slow" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-[#2563EB]/15 blur-[120px]" />
 
       {image ? (
         <div
@@ -143,7 +141,7 @@ export function PageHero({
         <div className={cn("grid items-center gap-12", image ? "lg:grid-cols-[1.2fr_0.8fr]" : "")}>
           <div>
             {eyebrow ? (
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-sky-300 backdrop-blur-md">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#F5D365] backdrop-blur-md">
                 <IconSparkles className="w-3.5 h-3.5" />
                 <span>{eyebrow}</span>
               </div>
@@ -164,7 +162,7 @@ export function PageHero({
 
           {image ? (
             <div className="relative hidden lg:block">
-              <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-slate-900/90 p-3 shadow-2xl backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/40 bg-slate-900/90 p-3 shadow-2xl backdrop-blur-xl">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-slate-950">
                   <img
                     src={image}
@@ -175,18 +173,18 @@ export function PageHero({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
-                    <span className="rounded-full bg-slate-950/85 px-3 py-1 font-bold backdrop-blur-md border border-white/20">
-                      Ashfak Plaza (4th Floor), Maijdee
+                    <span className="rounded-full bg-slate-950/85 px-3 py-1 font-bold backdrop-blur-md border border-white/20 text-[#F5D365]">
+                      Khan Tower, 359 DIT Road, Dhaka
                     </span>
-                    <span className="rounded-full bg-emerald-600 px-3 py-1 font-bold shadow-sm">
-                      ● Official Venue
+                    <span className="rounded-full bg-[#D4AF37] px-3 py-1 font-bold text-[#090C10] shadow-sm">
+                      ● Official Head Office
                     </span>
                   </div>
                 </div>
 
                 <div className="p-3 text-center">
-                  <p className="text-xs font-bold text-sky-300">Affordable International · Maijdee Bazar, Noakhali</p>
-                  <p className="text-[0.68rem] text-slate-400">IDP & British Council Registration Point · 01736-493995</p>
+                  <p className="text-xs font-bold text-[#F5D365]">{company.legalName} · Dhaka | Sylhet</p>
+                  <p className="text-[0.68rem] text-slate-400">100% Free Profile Assessment · Hotline: {company.phones[0]}</p>
                 </div>
               </div>
             </div>
@@ -204,11 +202,11 @@ export function Breadcrumbs({ items }: { items: { label: string; to?: string }[]
         <div key={item.label} className="flex items-center gap-2">
           {i > 0 && <span className="text-slate-600">/</span>}
           {item.to ? (
-            <Link to={item.to} className="transition-colors hover:text-white">
+            <Link to={item.to} className="transition-colors hover:text-[#F5D365]">
               {item.label}
             </Link>
           ) : (
-            <span className="font-semibold text-sky-400">{item.label}</span>
+            <span className="font-semibold text-[#F5D365]">{item.label}</span>
           )}
         </div>
       ))}
@@ -237,8 +235,8 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <div className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-3.5 py-1 text-xs font-bold text-[#E11D48]">
-          <IconSparkles className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#FCF8EE] px-3.5 py-1 text-xs font-bold text-[#8A6818]">
+          <IconSparkles className="w-3.5 h-3.5 text-[#8A6818]" />
           <span>{eyebrow}</span>
         </div>
       ) : null}
@@ -268,18 +266,18 @@ export function SectionHeading({
 
 export function StatsStrip() {
   return (
-    <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-sm">
+    <div className="rounded-3xl border border-[#D4AF37]/30 bg-white p-6 sm:p-8 shadow-sm">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
         {company.stats.map((s, idx) => (
           <div
             key={s.label}
             className={cn("text-center", idx > 0 ? "pt-4 sm:pt-0 sm:px-4" : "")}
           >
-            <div className="font-display text-3xl sm:text-4xl font-extrabold text-[#E11D48] tracking-tight">
+            <div className="font-display text-3xl sm:text-4xl font-extrabold text-[#AA771C] tracking-tight">
               {s.value}
             </div>
             <div className="mt-1 text-xs sm:text-sm font-bold text-slate-800">{s.label}</div>
-            <span className="mt-2 inline-block rounded-full bg-slate-100 px-3 py-0.5 text-[0.68rem] font-semibold text-slate-600">
+            <span className="mt-2 inline-block rounded-full bg-[#FCF8EE] border border-[#D4AF37]/30 px-3 py-0.5 text-[0.68rem] font-semibold text-[#8A6818]">
               {s.badge}
             </span>
           </div>
@@ -305,7 +303,7 @@ export function FaqList({
             key={idx}
             className={cn(
               "overflow-hidden rounded-2xl border transition-all shadow-sm",
-              isOpen ? "border-slate-300 bg-white" : "border-slate-200 bg-white/80 hover:border-slate-300",
+              isOpen ? "border-[#D4AF37] bg-white" : "border-slate-200 bg-white/80 hover:border-slate-300",
             )}
           >
             <button
@@ -317,7 +315,7 @@ export function FaqList({
               <span
                 className={cn(
                   "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-base font-bold transition-transform duration-300",
-                  isOpen ? "bg-red-50 text-[#E11D48] rotate-45" : "bg-slate-100 text-slate-600",
+                  isOpen ? "bg-[#FCF8EE] text-[#8A6818] rotate-45 border border-[#D4AF37]/40" : "bg-slate-100 text-slate-600",
                 )}
               >
                 +
@@ -338,13 +336,12 @@ export function FaqList({
 export function UniversityMarquee() {
   return (
     <section className="relative border-y border-slate-200 bg-white py-6 overflow-hidden">
-      {/* Soft Bilateral Fade Masks */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
 
       <div className="section-shell mb-3 text-center">
-        <p className="text-[0.68rem] font-bold uppercase tracking-wider text-slate-400">
-          Official Test Partners & Premier Global University Destinations
+        <p className="text-[0.68rem] font-bold uppercase tracking-wider text-[#8A6818]">
+          International University Partners & Study Abroad Delegations
         </p>
       </div>
 
@@ -354,9 +351,9 @@ export function UniversityMarquee() {
             key={`${partner.name}-${i}`}
             className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/60 px-5 py-2.5 shadow-sm whitespace-nowrap"
           >
-            <span className="flex h-2 w-2 rounded-full bg-[#E11D48]" />
+            <span className="flex h-2 w-2 rounded-full bg-[#D4AF37]" />
             <span className="text-xs sm:text-sm font-bold text-slate-900">{partner.name}</span>
-            <span className="rounded-full bg-white px-2 py-0.5 text-[0.65rem] font-semibold text-sky-700 border border-slate-200">
+            <span className="rounded-full bg-[#FCF8EE] px-2 py-0.5 text-[0.65rem] font-semibold text-[#8A6818] border border-[#D4AF37]/30">
               {partner.tag}
             </span>
           </div>
@@ -371,8 +368,8 @@ export function BulletList({ items }: { items: readonly string[] }) {
     <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-2.5">
-          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-[0.65rem] font-bold">
-            <IconCheck className="w-3 h-3 text-emerald-700" />
+          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FCF8EE] text-[#8A6818] text-[0.65rem] font-bold border border-[#D4AF37]/30">
+            <IconCheck className="w-3 h-3 text-[#8A6818]" />
           </span>
           <span className="leading-relaxed">{item}</span>
         </li>
@@ -385,22 +382,22 @@ export function CtaBand() {
   const { open } = useRegisterModal();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-[#030712] via-[#0A192F] to-[#030712] text-white py-16 sm:py-24 border-t border-slate-800">
-      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-rose-600/15 blur-[120px] animate-float-slow" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-sky-500/15 blur-[120px]" />
+    <section className="relative overflow-hidden bg-gradient-to-r from-[#090C10] via-[#10141D] to-[#090C10] text-white py-16 sm:py-24 border-t border-[#1F2633]">
+      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-[#D4AF37]/15 blur-[120px] animate-float-slow" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-[#2563EB]/15 blur-[120px]" />
 
       <div className="section-shell relative z-10 text-center max-w-3xl mx-auto space-y-6">
-        <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-sky-300">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#F5D365]">
           <IconGlobe className="w-3.5 h-3.5" />
-          <span>Ashfak Plaza (4th Floor), Maijdee Bazar, Noakhali</span>
+          <span>{company.address.full}</span>
         </div>
 
         <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-          Ready to Start Your Global Journey?
+          Fulfill Your Study Abroad Dream With Us!
         </h2>
 
         <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
-          Book your free profile evaluation, attend our weekly Friday IELTS orientation, or walk in to our headphone-equipped mock test hall in Maijdee Bazar.
+          Book your 100% free profile assessment with senior counselors Moshiur & Tanvir at our Khan Tower Dhaka office or connect on WhatsApp for fast-track university and visa guidance.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
@@ -413,13 +410,13 @@ export function CtaBand() {
             <IconArrowRight className="w-4 h-4" />
           </button>
           <a
-            href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Hello Affordable International, I would like to book a consultation.")}`}
+            href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello Future Edge Education, I would like to book a 100% free consultation session.")}`}
             target="_blank"
             rel="noreferrer"
             className="btn-luxury-secondary text-xs sm:text-sm py-3.5 px-7 shadow-xl"
           >
             <IconWhatsApp className="w-4 h-4 text-emerald-600" />
-            <span>WhatsApp 01736-493995</span>
+            <span>WhatsApp {company.phones[0]}</span>
           </a>
         </div>
       </div>

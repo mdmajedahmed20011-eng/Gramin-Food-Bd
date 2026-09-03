@@ -5,14 +5,14 @@ import { company } from "@/lib/site-data";
 export const Route = createFileRoute("/terms-of-use")({
   head: () => ({
     meta: [
-      { title: "Terms of Use | Affordable International Maijdee" },
+      { title: "Terms of Use | Future Edge Education & Consultancy" },
       {
         name: "description",
         content:
-          "Terms and conditions governing educational services, IELTS coaching, mock tests, and free study abroad counseling at Affordable International in Maijdee Court, Noakhali.",
+          "Terms and conditions governing educational advisory services, admissions processing, and free study abroad counseling at Future Edge Education in Dhaka & Sylhet.",
       },
-      { property: "og:title", content: "Terms of Use | Affordable International" },
-      { property: "og:description", content: "Terms governing our language coaching and study abroad counseling." },
+      { property: "og:title", content: "Terms of Use | Future Edge Education" },
+      { property: "og:description", content: "Terms governing our overseas education counseling and visa processing guidance." },
     ],
   }),
   component: TermsPage,
@@ -20,24 +20,24 @@ export const Route = createFileRoute("/terms-of-use")({
 
 const sections = [
   {
-    title: "1. Scope of Our Services",
-    body: "Affordable International provides IELTS coaching, authorized British Council and IDP test registration, mock tests, Spoken and Kids English training, and 100% free study abroad counselling and visa file assistance. Third-party statutory fees (such as official British Council exam fees, embassy visa fees, medical tests, and courier charges) are direct costs payable by the candidate.",
+    title: "1. Scope of Advisory Services",
+    body: "Future Edge Education & Consultancy provides 100% free profile evaluation, university selection, admission application processing, and student visa file preparation. We operate on a zero file-opening fee basis. Statutory third-party costs (such as university tuition deposits, official embassy visa fees, tuberculosis medical screening, and courier charges) are paid directly to the respective institutions or authorities.",
   },
   {
-    title: "2. Document Authenticity & Student Responsibility",
-    body: "Applicants are solely responsible for the legal validity and authenticity of all educational certificates, transcripts, test score cards, and bank sponsor papers submitted. Providing fraudulent documents will lead to immediate cancellation of mentorship.",
+    title: "2. Document Authenticity & Applicant Responsibility",
+    body: "Applicants are solely responsible for the authenticity and legality of all academic certificates, marksheets, medium of instruction (MOI) certificates, and financial sponsorship documents submitted. Future Edge maintains a strict zero-tolerance policy against fraudulent documentation.",
   },
   {
     title: "3. Admissions & Visa Decisions Disclaimer",
-    body: "University admissions and scholarships are awarded solely at the discretion of the partner institutions. Student visa grants are determined entirely by the respective foreign embassies and high commissions. Affordable International ensures transparent guidance, profile matching, and comprehensive interview preparation, but does not guarantee visa outcomes or sell visas.",
+    body: "University admissions and scholarships are decided exclusively by the respective international universities. Student visa approvals are determined solely by sovereign immigration authorities (such as the UK Visas and Immigration, Australian Department of Home Affairs, and Canadian IRCC). While Future Edge has a proven track record of approvals in as fast as 3 to 5 days, we provide advisory mentorship and do not guarantee or sell visa outcomes.",
   },
   {
-    title: "4. Exam Fees & Schedule Currency",
-    body: "Official IELTS exam registration fees are established by IDP and the British Council and are subject to official revisions (such as the September 2026 fee schedule updates). We ensure complete transparency and provide eligible promotional cashbacks as announced.",
+    title: "4. University Partner Sessions",
+    body: "Partner delegation sessions (such as visits by Buckinghamshire New University UK representatives) are subject to scheduling by the institutions. Registered attendees receive priority on-spot evaluation and guidance.",
   },
   {
     title: "5. Contact & Inquiries",
-    body: `If you have questions regarding these terms, email ${company.email}, call ${company.phones[0]}, or visit our main office at ${company.address.line1}, ${company.address.line2}, ${company.address.city}.`,
+    body: `If you have questions regarding these terms, email ${company.emails[0]}, call ${company.phones[0]}, or visit our corporate office at ${company.address.full}.`,
   },
 ];
 

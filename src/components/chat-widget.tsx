@@ -6,11 +6,11 @@ export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [showCallMenu, setShowCallMenu] = useState(false);
 
-  const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
-    "Hello Affordable International! I want to know about IELTS coaching, Mock Test booking, and Study Abroad opportunities.",
+  const whatsappUrl = `https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+    "Hello Future Edge Education! I would like to get a 100% free profile evaluation and study abroad counseling session.",
   )}`;
 
-  const messengerUrl = "https://m.me/affordableinternationalofficial";
+  const messengerUrl = company.social.messenger;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3 select-none">
@@ -20,7 +20,7 @@ export function ChatWidget() {
           {/* Action 1: Facebook Messenger */}
           <div className="group relative flex items-center">
             <span className="pointer-events-none absolute right-full mr-3 hidden rounded-xl bg-slate-900/90 px-3 py-1.5 text-xs font-bold text-white shadow-md backdrop-blur whitespace-nowrap opacity-0 transition-all group-hover:opacity-100 sm:block">
-              Facebook Messenger
+              Facebook Messenger (@FEEducation)
             </span>
             <a
               href={messengerUrl}
@@ -44,7 +44,7 @@ export function ChatWidget() {
               type="button"
               onClick={() => setShowCallMenu(!showCallMenu)}
               aria-label="Direct Phone Hotlines"
-              className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-[#10B981] text-white shadow-lg border-2 border-white transition-all duration-200 hover:scale-110 hover:shadow-xl hover:bg-[#059669] cursor-pointer"
+              className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-[#D4AF37] text-[#090C10] shadow-lg border-2 border-white transition-all duration-200 hover:scale-110 hover:shadow-xl hover:bg-[#F5D365] cursor-pointer font-bold"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
@@ -53,16 +53,16 @@ export function ChatWidget() {
 
             {/* Quick Hotline Selection Sub-menu */}
             {showCallMenu && (
-              <div className="absolute right-full mr-3 bottom-0 w-52 rounded-2xl border border-slate-200 bg-white p-3 shadow-2xl animate-in fade-in duration-150">
+              <div className="absolute right-full mr-3 bottom-0 w-56 rounded-2xl border border-slate-200 bg-white p-3 shadow-2xl animate-in fade-in duration-150">
                 <p className="text-[0.68rem] font-bold uppercase tracking-wider text-slate-500 mb-2">
-                  মাইজদী হটলাইন নম্বর:
+                  Future Edge হটলাইন নম্বর:
                 </p>
                 <div className="space-y-1.5">
                   {company.phones.map((p) => (
                     <a
                       key={p}
                       href={`tel:+880${p.replace(/[^0-9]/g, "").slice(-10)}`}
-                      className="block rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-center text-xs font-bold text-slate-800 hover:border-[#ED1C24] hover:text-[#ED1C24] transition-colors"
+                      className="block rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-center text-xs font-bold text-slate-800 hover:border-[#D4AF37] hover:text-[#8A6818] transition-colors"
                     >
                       📞 {p}
                     </a>
@@ -75,7 +75,7 @@ export function ChatWidget() {
           {/* Action 3: Direct WhatsApp Instant Chat */}
           <div className="group relative flex items-center">
             <span className="pointer-events-none absolute right-full mr-3 hidden rounded-xl bg-slate-900/90 px-3 py-1.5 text-xs font-bold text-white shadow-md backdrop-blur whitespace-nowrap opacity-0 transition-all group-hover:opacity-100 sm:block">
-              WhatsApp: 01736-493995
+              WhatsApp: {company.phones[0]}
             </span>
             <a
               href={whatsappUrl}
@@ -101,10 +101,10 @@ export function ChatWidget() {
         }}
         aria-label="Toggle Quick Communication Menu"
         className={cn(
-          "group relative flex h-14 w-14 sm:h-15 sm:w-15 items-center justify-center rounded-full text-white shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-white",
+          "group relative flex h-14 w-14 sm:h-15 sm:w-15 items-center justify-center rounded-full text-[#090C10] shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 border-[#D4AF37]",
           isOpen
-            ? "bg-slate-900 rotate-90"
-            : "bg-gradient-to-r from-[#ED1C24] via-[#00AEEF] to-[#0A192F] shadow-[#ED1C24]/30",
+            ? "bg-[#090C10] text-[#F5D365] rotate-90"
+            : "bg-gradient-to-tr from-[#B38827] via-[#E5B842] to-[#F5D365] shadow-[0_10px_25px_rgba(212,175,55,0.4)]",
         )}
       >
         {isOpen ? (
@@ -118,8 +118,8 @@ export function ChatWidget() {
         {/* Pulse Indicator when Closed */}
         {!isOpen && (
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border border-white" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75" />
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-[#D4AF37] border border-white" />
           </span>
         )}
       </button>

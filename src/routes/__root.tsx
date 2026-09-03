@@ -82,14 +82,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Affordable International" },
+      { name: "author", content: "Future Edge Education" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Affordable International" },
+      { property: "og:site_name", content: "Future Edge Education & Consultancy" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/assets/affordable-logo.jpg", type: "image/jpeg" },
+      { rel: "icon", href: "/brand-assets/logo.jpg", type: "image/jpeg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -103,16 +103,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
-          name: company.name,
+          name: company.legalName,
           slogan: company.slogan,
           description:
-            "Affordable International is an authorized IDP and British Council Registration Point & Mock Test Venue in Maijdee Court, Noakhali, providing IELTS coaching, Spoken English, Kids English, and 100% free study abroad counseling.",
+            "Future Edge Education is Bangladesh's premier study abroad consultancy based in Khan Tower, 359 DIT Road, Dhaka, providing fast-track visa processing, without IELTS (MOI) admissions, scholarship guidance, and international partner university delegations for UK, Europe, Australia, Canada, New Zealand, Malaysia & USA.",
           foundingDate: company.established,
           areaServed: "Bangladesh",
           email: company.email,
           telephone: company.phones.map((p) => `+880${p.replace(/[^0-9]/g, "").slice(-10)}`),
-          openingHours: "Mo-Sa 09:30-19:30",
-          sameAs: [company.social.facebook],
+          openingHours: "Mo-Su 10:00-19:00",
+          sameAs: [company.social.facebook, company.social.instagram, company.social.linkedin],
           hasMap: company.mapsUrl,
           geo: {
             "@type": "GeoCoordinates",
@@ -121,8 +121,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           },
           address: {
             "@type": "PostalAddress",
-            streetAddress: `${company.address.line1}, ${company.address.line2}`,
-            addressLocality: "Maijdee Court, Noakhali",
+            streetAddress: `${company.address.building}, ${company.address.street}`,
+            addressLocality: "Dhaka",
+            postalCode: "1219",
             addressCountry: "BD",
           },
         }),

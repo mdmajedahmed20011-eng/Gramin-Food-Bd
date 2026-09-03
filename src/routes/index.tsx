@@ -12,39 +12,37 @@ import {
   FaqList,
   UniversityMarquee,
   IconGraduationCap,
-  IconHeadphones,
-  IconMic,
-  IconSparkles,
   IconGlobe,
   IconCheck,
   IconArrowRight,
   IconPhone,
   IconWhatsApp,
+  IconSparkles,
 } from "@/components/ui-blocks";
 import {
   company,
   destinations,
   faqs,
   services,
-  liveOffers,
   processSteps,
+  verifiedEventsAndPartners,
 } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Affordable International | IELTS, Mock Test & Study Abroad | Maijdee, Noakhali" },
+      { title: "Future Edge Education | Top Study Abroad Consultant in BD | UK, Europe, Aus & Canada" },
       {
         name: "description",
         content:
-          "Affordable International — Authorized IDP & British Council Registration Point & Mock Test Venue in Maijdee Court, Noakhali. IELTS Coaching, Spoken English, Kids English & 100% Free Study Abroad Counseling. Call 01736-493995.",
+          "Future Edge Education & Consultancy — Top Study Abroad Consultant in Bangladesh. Fast-track UK visa processing (3-5 day grants), without IELTS (MOI) admissions, scholarship guidance, and partner universities across UK, Europe, Australia, Canada, New Zealand, Malaysia & USA.",
       },
-      { property: "og:title", content: "Affordable International | IELTS & Study Abroad Maijdee" },
+      { property: "og:title", content: "Future Edge Education | Top Study Abroad Consultant in BD" },
       {
         property: "og:description",
         content:
-          "Explore More, Spend Less. Official British Council & IDP registration point, IELTS coaching with ৳2,000 cashback, audio mock center, Spoken & Kids English, and study abroad counseling for UK, USA, Canada, Australia, Korea, and Europe.",
+          "Fulfill Your Study Abroad Dream With Us! 100% Free Profile Assessment with senior counselors Moshiur & Tanvir. Khan Tower, 359 DIT Road, Dhaka. Hotline: 01805-041710.",
       },
     ],
   }),
@@ -54,53 +52,52 @@ export const Route = createFileRoute("/")({
 const heroMediaTabs = [
   {
     id: "banner",
-    label: "Billboard Banner",
-    badge: "Official Billboard",
-    image: "/assets/affordable-banner.jpg",
-    title: "Explore Your Global Future",
-    desc: "Study in UK, USA, Canada, Australia, Korea, Malaysia, and Europe.",
+    label: "Global Destinations",
+    badge: "Official Banner",
+    image: "/brand-assets/banner.jpg",
+    title: "Fulfill Your Study Abroad Dream With Us!",
+    desc: "UK, Australia, New Zealand, Canada, Malaysia, Europe (Hungary, Denmark, Finland, Sweden).",
   },
   {
-    id: "venue",
-    label: "IELTS Mock Venue",
-    badge: "British Council Venue",
-    image: "/assets/ielts-orientation-poster.jpg",
-    title: "Authorized Mock Test Hall",
-    desc: "Individual acoustic headphones and real test-day environment.",
+    id: "bnu-session",
+    label: "BNU Partner Session",
+    badge: "International Partner",
+    image: "/brand-assets/772204691_122282788340103184_9204887386025201573_n.jpg",
+    title: "Session on BNU with Ms. Ayesha Rauf",
+    desc: "Direct delegation from Buckinghamshire New University UK at our Dhaka office.",
   },
   {
-    id: "kids",
-    label: "Kids English Class",
-    badge: "Junior Fluency",
-    image: "/assets/kids-class-1.jpg",
-    title: "Kids & Junior Spoken English",
-    desc: "Joyful phonics, vocabulary games, and natural conversation.",
+    id: "europe",
+    label: "Study in Europe",
+    badge: "European Admissions",
+    image: "/brand-assets/787160278_122284754246103184_2179868027112497957_n.jpg",
+    title: "Denmark, Finland, Sweden & Hungary",
+    desc: "University of Debrecen Master's with & without IELTS (MOI accepted).",
   },
   {
-    id: "team",
-    label: "Faculty Mentors",
-    badge: "Expert Mentors",
-    image: "/assets/team-instructors.jpg",
-    title: "Dedicated Academic Instructors",
-    desc: "Certified trainers supporting IELTS candidates and visa applicants.",
+    id: "team-expo",
+    label: "Counselor Team",
+    badge: "FE Leadership",
+    image: "/brand-assets/766952914_122282362520103184_2941471200207168176_n.jpg",
+    title: "Your Future Beyond Borders",
+    desc: "Senior counseling team guiding students with complete honesty and transparency.",
+  },
+  {
+    id: "award",
+    label: "Conference Award",
+    badge: "LURS 2026 Honor",
+    image: "/brand-assets/768667718_122282362400103184_8409750641330812941_n.jpg",
+    title: "LURS 2026 Student Research Recognition",
+    desc: "Honored on stage by Chief Guest Danobir Dr. Syed Ragib Ali.",
   },
 ];
-
-const serviceIconMap: Record<string, typeof IconGraduationCap> = {
-  ielts: IconGraduationCap,
-  "mock-test": IconHeadphones,
-  spoken: IconMic,
-  kids: IconSparkles,
-  "study-abroad": IconGlobe,
-  admissions: IconGlobe,
-};
 
 function Home() {
   const [activeMediaTab, setActiveMediaTab] = useState(0);
   const [activeServiceTab, setActiveServiceTab] = useState(0);
   const [activeRegion, setActiveRegion] = useState<string>("All");
 
-  const regions = ["All", "Europe", "North America", "East Asia", "Southeast Asia", "Oceania"];
+  const regions = ["All", "Europe", "North America", "Southeast Asia", "Oceania"];
 
   const filteredDestinations =
     activeRegion === "All"
@@ -113,62 +110,61 @@ function Home() {
 
   const currentMedia = heroMediaTabs[activeMediaTab];
   const currentService = services[activeServiceTab];
-  const CurrentServiceIcon = serviceIconMap[currentService.slug] || IconGraduationCap;
 
   return (
     <>
       {/* 1. Ultra-Clean Executive Hero Section */}
       <section className="relative overflow-hidden bg-[#FAFAFC] border-b border-slate-200/80 pt-12 pb-16 sm:pt-18 sm:pb-24">
         {/* Soft Ambient Floating Glows */}
-        <div className="pointer-events-none absolute -left-28 -top-20 h-[500px] w-[500px] rounded-full bg-rose-500/8 blur-[120px] animate-float-slow" />
-        <div className="pointer-events-none absolute right-0 top-1/4 h-[460px] w-[460px] rounded-full bg-sky-500/8 blur-[120px]" />
+        <div className="pointer-events-none absolute -left-28 -top-20 h-[500px] w-[500px] rounded-full bg-[#D4AF37]/10 blur-[120px] animate-float-slow" />
+        <div className="pointer-events-none absolute right-0 top-1/4 h-[460px] w-[460px] rounded-full bg-blue-500/10 blur-[120px]" />
 
         <div className="section-shell relative z-10">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            {/* Left Column: Authoritative Messaging & Unified Hierarchy */}
+            {/* Left Column: Authoritative Messaging */}
             <div className="space-y-6">
               {/* Single Refined Venue Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-rose-50/80 px-4 py-1.5 text-xs font-bold text-[#E11D48]">
-                <span className="flex h-2 w-2 rounded-full bg-[#E11D48] animate-ping" />
-                <span>Authorized IDP & British Council Registration Point & Mock Venue</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#FCF8EE] px-4 py-1.5 text-xs font-bold text-[#8A6818]">
+                <span className="flex h-2 w-2 rounded-full bg-[#D4AF37] animate-ping" />
+                <span>Top Study Abroad Consultant in BD · 285K+ Followers · 100% Recommend</span>
               </div>
 
               {/* High-Contrast Editorial Headline */}
               <h1 className="font-display text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-                Elevate Your English. <br />
-                <span className="text-[#E11D48]">Reach Global Universities.</span>
+                Fulfill Your Study Abroad <br />
+                <span className="text-[#AA771C]">Dream With Us!</span>
               </h1>
 
               {/* Slogan & Location Line */}
               <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-semibold">
-                <span className="rounded-full bg-[#0A192F] px-3.5 py-1 text-white shadow-sm font-bold">
-                  "{company.slogan}"
+                <span className="rounded-full bg-[#090C10] px-3.5 py-1 text-[#F5D365] border border-[#D4AF37]/40 shadow-sm font-bold">
+                  "{company.motto}"
                 </span>
                 <span className="text-slate-500">·</span>
                 <span className="text-slate-700">
-                  Ashfak Plaza (4th Floor), Maijdee Bazar, Noakhali
+                  Khan Tower, 359 DIT Road, Dhaka 1219
                 </span>
               </div>
 
               {/* Spacious Body Text */}
               <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate-600">
-                Noakhali's premier educational institute for authentic IELTS coaching, official mock test hall with individual acoustic headphones, conversational Spoken English, joyful Kids English, and 100% free study abroad counseling.
+                Bangladesh's premier higher education consultancy. Connect directly with senior advisors Moshiur and Tanvir for 100% free profile evaluations, fast-track UK visa processing (with proven 3 to 5-day approvals), and without IELTS (MOI) university admissions.
               </p>
 
               {/* Unified CTA Hierarchy */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <RegisterButton
-                  label="Book Free Consultation / Mock Test"
+                  label="Book Free Profile Assessment"
                   className="px-8 py-4 text-sm font-bold shadow-lg"
                 />
                 <a
-                  href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Hello Affordable International! I want to inquire about your courses and study abroad counseling.")}`}
+                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello Future Edge Education! I want to book a 100% free counseling session.")}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-luxury-secondary text-sm font-bold shadow-sm"
                 >
                   <IconWhatsApp className="w-4 h-4 text-emerald-600" />
-                  <span>WhatsApp 01736-493995</span>
+                  <span>WhatsApp {company.phones[0]}</span>
                 </a>
               </div>
 
@@ -179,23 +175,23 @@ function Home() {
                   <span>100% Free File</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <IconCheck className="w-4 h-4 text-rose-600 shrink-0" />
-                  <span>৳২,০০০ Cashback</span>
+                  <IconCheck className="w-4 h-4 text-[#AA771C] shrink-0" />
+                  <span>3-5 Day UK Visas</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <IconCheck className="w-4 h-4 text-sky-600 shrink-0" />
-                  <span>Headphone Hall</span>
+                  <IconCheck className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span>Without IELTS (MOI)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <IconCheck className="w-4 h-4 text-slate-600 shrink-0" />
-                  <span>British Council Venue</span>
+                  <IconCheck className="w-4 h-4 text-slate-700 shrink-0" />
+                  <span>BNU / UEL Partners</span>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Architectural Media Showcase Card */}
             <div className="relative">
-              <div className="card-luxury p-3 sm:p-4 shadow-xl">
+              <div className="card-luxury p-3 sm:p-4 shadow-xl border border-[#D4AF37]/30">
                 {/* Switcher Tab Pills */}
                 <div className="flex gap-1.5 overflow-x-auto pb-2 mb-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   {heroMediaTabs.map((tab, idx) => (
@@ -206,7 +202,7 @@ function Home() {
                       className={cn(
                         "rounded-full px-3.5 py-1.5 text-xs font-bold transition-all whitespace-nowrap cursor-pointer",
                         activeMediaTab === idx
-                          ? "bg-[#0A192F] text-white shadow-sm"
+                          ? "bg-[#090C10] text-[#F5D365] shadow-sm border border-[#D4AF37]"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200",
                       )}
                     >
@@ -229,11 +225,11 @@ function Home() {
 
                   {/* Badges on Image */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-xs">
-                    <span className="rounded-full bg-slate-950/85 px-3 py-1 font-bold text-sky-300 backdrop-blur-md border border-white/20">
+                    <span className="rounded-full bg-slate-950/85 px-3 py-1 font-bold text-[#F5D365] backdrop-blur-md border border-[#D4AF37]/40">
                       {currentMedia.badge}
                     </span>
-                    <span className="rounded-full bg-emerald-600 px-3 py-1 font-bold text-white shadow-sm">
-                      Verified
+                    <span className="rounded-full bg-[#D4AF37] px-3 py-1 font-bold text-[#090C10] shadow-sm">
+                      ● Verified Asset
                     </span>
                   </div>
 
@@ -248,19 +244,19 @@ function Home() {
                 </div>
 
                 {/* Direct Hotlines Strip */}
-                <div className="mt-3.5 rounded-2xl bg-slate-50 p-3.5 border border-slate-200/80">
+                <div className="mt-3.5 rounded-2xl bg-[#FCF8EE] p-3.5 border border-[#D4AF37]/30">
                   <div className="flex items-center justify-between text-xs mb-2">
-                    <span className="font-bold text-slate-800">Direct Desk (মাইজদী বাজার):</span>
-                    <span className="text-slate-500 font-medium">Ashfak Plaza (4th Floor)</span>
+                    <span className="font-bold text-slate-800">Direct Counseling Desk:</span>
+                    <span className="text-[#8A6818] font-bold">Khan Tower, 359 DIT Road</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     {company.phones.map((p) => (
                       <a
                         key={p}
                         href={`tel:+880${p.replace(/[^0-9]/g, "").slice(-10)}`}
-                        className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white py-2 font-bold text-slate-800 hover:border-[#E11D48] hover:text-[#E11D48] transition-colors shadow-sm"
+                        className="flex items-center justify-center gap-1.5 rounded-xl border border-[#D4AF37]/40 bg-white py-2 font-bold text-slate-800 hover:border-[#D4AF37] hover:text-[#8A6818] transition-colors shadow-sm"
                       >
-                        <IconPhone className="w-3.5 h-3.5 text-slate-500" />
+                        <IconPhone className="w-3.5 h-3.5 text-[#AA771C]" />
                         <span>{p}</span>
                       </a>
                     ))}
@@ -272,23 +268,23 @@ function Home() {
         </div>
       </section>
 
-      {/* 2. Global University & Testing Authority Marquee */}
+      {/* 2. Global University & Partner Marquee */}
       <UniversityMarquee />
 
-      {/* 3. Live ৳2,000 IELTS Cashback Card */}
+      {/* 3. Verified BNU Partner Delegation & Live Spotlight */}
       <section className="section-shell py-8 sm:py-12">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#030712] via-[#0A192F] to-[#030712] text-white p-6 sm:p-10 border border-slate-800 shadow-xl">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#090C10] via-[#151A24] to-[#090C10] text-white p-6 sm:p-10 border border-[#D4AF37]/40 shadow-2xl">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
             <div className="space-y-2 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full bg-rose-500/20 border border-rose-500/30 px-3.5 py-1 text-xs font-bold text-rose-300">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 px-3.5 py-1 text-xs font-bold text-[#F5D365]">
                 <IconSparkles className="w-3.5 h-3.5" />
-                <span>Active IELTS Promotion · Official British Council & IDP Venue</span>
+                <span>Featured Partner Delegation · Direct In-Office Assessment</span>
               </div>
               <h2 className="font-display text-xl sm:text-3xl font-extrabold tracking-tight text-white">
-                Register for IELTS Exam & Get Instant ৳২,০০০ Cashback + ২ Free Mock Tests!
+                Buckinghamshire New University (BNU) Session with Ms. Ayesha Rauf
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
-                Book your official British Council or IDP IELTS exam date directly from our Ashfak Plaza office. Includes 2 full mock tests in our headphone-equipped hall, plus 100% free study abroad counseling and visa file assistance.
+                Meet foreign university delegates directly at Future Edge Education. On-spot profile evaluations, without IELTS (MOI) admissions for eligible applicants, and scholarship grants for Bachelor's and Master's degrees.
               </p>
             </div>
 
@@ -297,7 +293,7 @@ function Home() {
                 to="/offers"
                 className="btn-luxury-primary text-xs py-3 px-6 shadow-md"
               >
-                <span>View Full Offer Details</span>
+                <span>View Partner Sessions</span>
                 <IconArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -310,48 +306,45 @@ function Home() {
         <StatsStrip />
       </section>
 
-      {/* 5. Core Educational Programs (Interactive Executive View) */}
+      {/* 5. Core Admissions & Visa Services */}
       <section className="section-shell py-14 sm:py-20 border-t border-slate-200">
         <SectionHeading
-          eyebrow="Academic Programs"
-          title="Designed for Language Mastery & Global Acceptance"
-          subtitle="Explore our certified IELTS coaching, acoustic mock test center, conversational English, kids junior program, and foreign university admissions."
+          eyebrow="Admissions & Visa Services"
+          title="Empower • Educate • Elevate"
+          subtitle="Discover our genuine study abroad services — from 100% free profile assessment to fast-track 3-day UK visa processing, MOI pathways without IELTS, and spouse visa support."
         />
 
         {/* Tab Selector Segmented Bar */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          {services.map((s, idx) => {
-            const TabIcon = serviceIconMap[s.slug] || IconGraduationCap;
-            return (
-              <button
-                key={s.slug}
-                type="button"
-                onClick={() => setActiveServiceTab(idx)}
-                className={cn(
-                  "flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all cursor-pointer",
-                  activeServiceTab === idx
-                    ? "bg-[#0A192F] text-white shadow-md ring-2 ring-slate-900/10"
-                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100",
-                )}
-              >
-                <TabIcon className="w-4 h-4" />
-                <span>{s.title.split(" ")[0]} {s.title.split(" ")[1] || ""}</span>
-              </button>
-            );
-          })}
+          {services.map((s, idx) => (
+            <button
+              key={s.slug}
+              type="button"
+              onClick={() => setActiveServiceTab(idx)}
+              className={cn(
+                "flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all cursor-pointer",
+                activeServiceTab === idx
+                  ? "bg-[#090C10] text-[#F5D365] shadow-md border border-[#D4AF37]"
+                  : "bg-white border border-slate-200 text-slate-700 hover:bg-[#FCF8EE] hover:text-[#8A6818]",
+              )}
+            >
+              <span>{s.icon}</span>
+              <span>{s.title.split(" ")[0]} {s.title.split(" ")[1] || ""}</span>
+            </button>
+          ))}
         </div>
 
-        {/* Featured Program Showcase Card */}
-        <div className="mt-8 card-luxury p-6 sm:p-10 border border-slate-200">
+        {/* Featured Service Showcase Card */}
+        <div className="mt-8 card-luxury p-6 sm:p-10 border border-[#D4AF37]/30">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-50 text-[#E11D48] shadow-sm border border-rose-100">
-                  <CurrentServiceIcon className="w-6 h-6" />
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FCF8EE] text-[#8A6818] shadow-sm border border-[#D4AF37]/40 text-2xl">
+                  {currentService.icon}
                 </span>
                 <div>
-                  <span className="badge-clean badge-red text-[0.68rem]">
-                    {currentService.highlightBadge || "Certified Program"}
+                  <span className="badge-clean badge-gold text-[0.68rem]">
+                    {currentService.highlightBadge || "Verified Service"}
                   </span>
                   <span className="ml-2 text-xs font-bold text-slate-500">
                     ⏱ {currentService.timeline}
@@ -368,12 +361,12 @@ function Home() {
 
               <div className="mt-6 rounded-2xl bg-slate-50 p-5 border border-slate-200 space-y-2">
                 <p className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                  Program Highlights & Outcomes:
+                  Key Service Highlights:
                 </p>
                 <div className="grid gap-2 sm:grid-cols-2 pt-1">
                   {currentService.points.map((pt, i) => (
                     <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
-                      <IconCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <IconCheck className="w-4 h-4 text-[#8A6818] shrink-0 mt-0.5" />
                       <span>{pt}</span>
                     </div>
                   ))}
@@ -382,11 +375,11 @@ function Home() {
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <RegisterButton
-                  label={`Enroll for ${currentService.title.split(" ")[0]}`}
+                  label={`Book ${currentService.title.split(" ")[0]} Consultation`}
                   className="px-7 py-3 text-xs font-bold"
                 />
                 <a
-                  href={`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hello Affordable International! I want to enroll in ${currentService.title}.`)}`}
+                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Future Edge Education! I would like to consult about ${currentService.title}.`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-luxury-secondary px-6 py-3 text-xs font-bold shadow-sm"
@@ -398,13 +391,13 @@ function Home() {
             </div>
 
             {/* Right Card Summary Box */}
-            <div className="rounded-3xl bg-[#0A192F] p-7 text-white space-y-4 shadow-xl border border-slate-800">
+            <div className="rounded-3xl bg-[#090C10] p-7 text-white space-y-4 shadow-xl border border-[#D4AF37]/40">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <span className="font-display text-xs font-bold uppercase tracking-wider text-sky-400">
-                  Official Facility
+                <span className="font-display text-xs font-bold uppercase tracking-wider text-[#F5D365]">
+                  Counseling Desk
                 </span>
                 <span className="text-xs font-semibold text-slate-300">
-                  Ashfak Plaza, Maijdee Bazar
+                  Khan Tower, Dhaka
                 </span>
               </div>
               <p className="text-sm font-semibold text-slate-200 leading-relaxed">
@@ -412,16 +405,16 @@ function Home() {
               </p>
               <div className="space-y-2.5 text-xs text-slate-300 pt-2 border-t border-slate-800">
                 <div className="flex justify-between">
-                  <span>Batch Schedule:</span>
-                  <span className="font-bold text-white">Morning & Evening Batches</span>
+                  <span>Lead Counselors:</span>
+                  <span className="font-bold text-[#F5D365]">Moshiur & Tanvir</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Venue:</span>
-                  <span className="font-bold text-white">Ashfak Plaza (Level 4)</span>
+                  <span className="font-bold text-white">Khan Tower, 359 DIT Road</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Evaluation:</span>
-                  <span className="font-bold text-emerald-400">1-on-1 Feedback Included</span>
+                  <span>File-Opening Fee:</span>
+                  <span className="font-bold text-emerald-400">100% Free (Zero Taka)</span>
                 </div>
               </div>
               <div className="pt-2">
@@ -429,7 +422,7 @@ function Home() {
                   to="/services"
                   className="flex items-center justify-center gap-2 w-full text-center rounded-2xl bg-white/10 hover:bg-white/20 py-2.5 text-xs font-bold text-white transition-colors"
                 >
-                  <span>View All Course Syllabi</span>
+                  <span>Explore Full Service Matrix</span>
                   <IconArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -447,8 +440,8 @@ function Home() {
       <section className="section-shell py-14 sm:py-20 border-t border-slate-200">
         <SectionHeading
           eyebrow="Global Education Network"
-          title="Where Would You Like to Study?"
-          subtitle="Explore world-renowned university destinations across the UK, USA, Canada, Australia, South Korea, Malaysia, and Europe."
+          title="Verified Study Destinations"
+          subtitle="Explore world-renowned university destinations featured on our official banner: UK, Europe (Hungary, Denmark, Finland, Sweden), Australia, Canada, New Zealand, Malaysia, and USA."
         />
 
         {/* Region Filter Buttons */}
@@ -461,7 +454,7 @@ function Home() {
               className={cn(
                 "rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer",
                 activeRegion === reg
-                  ? "bg-[#0A192F] text-white shadow-md"
+                  ? "bg-[#090C10] text-[#F5D365] shadow-md border border-[#D4AF37]"
                   : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100",
               )}
             >
@@ -475,7 +468,7 @@ function Home() {
           {filteredDestinations.map((d) => (
             <article
               key={d.slug}
-              className="card-luxury p-6 flex flex-col justify-between"
+              className="card-luxury p-6 flex flex-col justify-between border border-slate-200 hover:border-[#D4AF37]"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3.5">
@@ -490,7 +483,7 @@ function Home() {
                       </span>
                     </div>
                   </div>
-                  <span className="rounded-full bg-rose-50 border border-rose-200 px-2.5 py-0.5 text-[0.65rem] font-bold text-[#E11D48]">
+                  <span className="rounded-full bg-[#FCF8EE] border border-[#D4AF37]/40 px-2.5 py-0.5 text-[0.65rem] font-bold text-[#8A6818]">
                     {d.pswv}
                   </span>
                 </div>
@@ -510,7 +503,7 @@ function Home() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Scholarship:</span>
-                    <span className="font-bold text-amber-700">{d.scholarships}</span>
+                    <span className="font-bold text-[#8A6818]">{d.scholarships}</span>
                   </div>
                 </div>
               </div>
@@ -528,7 +521,7 @@ function Home() {
                 <Link
                   to="/study-in-{$country}"
                   params={{ country: d.slug }}
-                  className="flex items-center gap-1 text-xs font-bold text-[#00AEEF] hover:underline"
+                  className="flex items-center gap-1 text-xs font-bold text-[#AA771C] hover:underline"
                 >
                   <span>View Guide</span>
                   <IconArrowRight className="w-3.5 h-3.5" />
@@ -543,21 +536,21 @@ function Home() {
       <section className="section-shell py-14 sm:py-20 border-t border-slate-200">
         <SectionHeading
           eyebrow="Milestone Roadmap"
-          title="From Consultation to Arrival Abroad"
-          subtitle="A structured, transparent pathway with complete guidance at every milestone."
+          title="From Free Profile Assessment to Flight Departure"
+          subtitle="A transparent, proven pathway guided directly by senior counselors Moshiur & Tanvir."
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {processSteps.map((step) => (
             <div
               key={step.step}
-              className="card-luxury p-6 relative overflow-hidden"
+              className="card-luxury p-6 relative overflow-hidden border border-slate-200 hover:border-[#D4AF37]"
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="font-display text-3xl font-black text-slate-200">
                   {step.step}
                 </span>
-                <span className="badge-clean badge-red">
+                <span className="badge-clean badge-gold">
                   {step.badge}
                 </span>
               </div>
@@ -572,12 +565,12 @@ function Home() {
         </div>
       </section>
 
-      {/* 9. Authentic Campus, Classroom & Event Gallery */}
+      {/* 9. Authentic Campus, Partner & Event Gallery */}
       <section className="section-shell py-14 sm:py-20 border-t border-slate-200">
         <SectionHeading
-          eyebrow="Inside Affordable International"
-          title="Our Maijdee Campus & Active Learning"
-          subtitle="Take a look at our IELTS mock test center, classroom speaking sessions, kids English activities, and campus outreach."
+          eyebrow="Inside Future Edge Education"
+          title="Partner Sessions, Awards & Life at Future Edge"
+          subtitle="Explore authentic photos from our Buckinghamshire New University delegation session, education expos, student research conference honors, and counseling desks."
         />
         <div className="mt-10">
           <OfficeGallery />
@@ -592,7 +585,7 @@ function Home() {
         <SectionHeading
           eyebrow="Got Questions?"
           title="Frequently Asked Questions"
-          subtitle="Common questions from students and guardians regarding our IELTS coaching, mock tests, fee structures, and study abroad counseling in Maijdee."
+          subtitle="Clear answers regarding our 100% free counseling, 3-day UK visa track record, without IELTS (MOI) admissions, and European opportunities."
         />
         <div className="mt-10 max-w-3xl mx-auto">
           <FaqList items={faqs} />
