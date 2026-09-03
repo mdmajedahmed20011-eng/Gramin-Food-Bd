@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "sdk_version": "0.28.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "maxim-study-world",
+      "version": "0.2.0",
+      "title": "Maxim Study World"
+    },
+    "tools": [
+      {
+        "name": "list_study_destinations",
+        "title": "List study destinations",
+        "description": "List all 18 Maxim Study World study destinations with region, tagline and popular fields of study. Optionally fetch the full guide for one destination by slug.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "description": "Destination slug such as 'australia' or 'uk'. Omit to list all destinations.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_services",
+        "title": "List services",
+        "description": "List Maxim Study World's services (free counselling, university admission, scholarship guidance, student visa filing, IELTS/English support, pre-departure briefing) with the steps included in each.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "description": "Service slug such as 'admission-support' or 'visa-services'. Omit to list all services.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_reels",
+        "title": "List Facebook reels",
+        "description": "List the official Maxim Study World Facebook reels embedded on the site, with their Facebook URLs and the page they appear on.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_company_and_contact",
+        "title": "Get company info and contact details",
+        "description": "Get Maxim Study World's verified contact details — Khilgaon (Dhaka) office address, phone numbers, email, opening hours, social profiles, Google Maps link, company stats and FAQs.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
