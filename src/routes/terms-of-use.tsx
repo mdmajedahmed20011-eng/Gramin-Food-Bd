@@ -5,14 +5,14 @@ import { company } from "@/lib/site-data";
 export const Route = createFileRoute("/terms-of-use")({
   head: () => ({
     meta: [
-      { title: "Terms of Use | Future Edge Education & Consultancy" },
+      { title: "Terms of Use | Alex Global Consultancy" },
       {
         name: "description",
         content:
-          "Terms and conditions governing educational advisory services, admissions processing, and free study abroad counseling at Future Edge Education in Dhaka & Sylhet.",
+          "Terms and conditions governing educational advisory services, admissions processing, and free study abroad counseling at Alex Global Consultancy.",
       },
-      { property: "og:title", content: "Terms of Use | Future Edge Education" },
-      { property: "og:description", content: "Terms governing our overseas education counseling and visa processing guidance." },
+      { property: "og:title", content: "Terms of Use | Alex Global Consultancy" },
+      { property: "og:description", content: "Terms governing our overseas education counseling, language academy, and visa processing guidance." },
     ],
   }),
   component: TermsPage,
@@ -21,30 +21,30 @@ export const Route = createFileRoute("/terms-of-use")({
 const sections = [
   {
     title: "1. Scope of Advisory Services",
-    body: "Future Edge Education & Consultancy provides 100% free profile evaluation, university selection, admission application processing, and student visa file preparation. We operate on a zero file-opening fee basis. Statutory third-party costs (such as university tuition deposits, official embassy visa fees, tuberculosis medical screening, and courier charges) are paid directly to the respective institutions or authorities.",
+    body: "Alex Global Consultancy (AGC) provides 100% free profile evaluation, university selection, admission application processing, language academy enrollment, and visa file preparation across our 8 service categories. We operate on a zero file-opening fee basis. Statutory third-party costs (such as university tuition deposits, official embassy visa fees, tuberculosis medical screening, and courier charges) are paid directly to the respective institutions or authorities.",
   },
   {
     title: "2. Document Authenticity & Applicant Responsibility",
-    body: "Applicants are solely responsible for the authenticity and legality of all academic certificates, marksheets, medium of instruction (MOI) certificates, and financial sponsorship documents submitted. Future Edge maintains a strict zero-tolerance policy against fraudulent documentation.",
+    body: "Applicants are solely responsible for the authenticity and legality of all academic certificates, marksheets, medium of instruction (MOI) certificates, and financial sponsorship documents submitted. AGC maintains a strict zero-tolerance policy against fraudulent documentation.",
   },
   {
     title: "3. Admissions & Visa Decisions Disclaimer",
-    body: "University admissions and scholarships are decided exclusively by the respective international universities. Student visa approvals are determined solely by sovereign immigration authorities (such as the UK Visas and Immigration, Australian Department of Home Affairs, and Canadian IRCC). While Future Edge has a proven track record of approvals in as fast as 3 to 5 days, we provide advisory mentorship and do not guarantee or sell visa outcomes.",
+    body: "University admissions and scholarships are decided exclusively by the respective international universities. Visa approvals are determined solely by sovereign immigration authorities (such as UKVI, IRCC, Australian Home Affairs, and European Embassies). While Alex Global Consultancy provides comprehensive preparation and consular mock interviews, sovereign decisions remain with the respective government bodies.",
   },
   {
-    title: "4. University Partner Sessions",
-    body: "Partner delegation sessions (such as visits by Buckinghamshire New University UK representatives) are subject to scheduling by the institutions. Registered attendees receive priority on-spot evaluation and guidance.",
+    title: "4. Language Academy Terms",
+    body: "Students enrolled in our IELTS Preparation, Spoken English, or Kids English programs receive personalized materials and scheduled interactive mock tests. Batch schedules and online session links are coordinated by our Dhaka academic wing.",
   },
   {
     title: "5. Contact & Inquiries",
-    body: `If you have questions regarding these terms, email ${company.emails[0]}, call ${company.phones[0]}, or visit our corporate office at ${company.address.full}.`,
+    body: `If you have questions regarding these terms, email ${company.emails[0]}, call ${company.phones[0]} / UK ${company.offices.london.phone}, or visit our Dhaka Corporate Office at ${company.offices.dhaka.address}.`,
   },
 ];
 
 function TermsPage() {
   return (
     <>
-      <PageHero eyebrow="Legal & Conditions" title="Terms of Use" subtitle="Last updated: August 2026">
+      <PageHero eyebrow="Legal & Conditions" title="Terms of Use" subtitle="Last updated: September 2026">
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Terms of Use" }]} />
       </PageHero>
 
@@ -61,3 +61,4 @@ function TermsPage() {
     </>
   );
 }
+

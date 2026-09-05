@@ -3,6 +3,7 @@ import { type ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
 import { company } from "@/lib/site-data";
 import { useRegisterModal } from "@/components/register-modal";
+import { motion } from "framer-motion";
 
 // Clean Luxury SVG Icons
 export function IconGraduationCap({ className = "w-5 h-5" }: { className?: string }) {
@@ -80,18 +81,18 @@ export function IconWhatsApp({ className = "w-4 h-4" }: { className?: string }) 
 }
 
 export const globalPartners = [
-  { name: "Buckinghamshire New Univ. (BNU)", type: "Official Partner Session", tag: "Direct Delegation" },
-  { name: "University of East London (UEL)", type: "MSc AI & Business", tag: "3-Day Visas" },
-  { name: "Southampton Solent University", type: "Global MBA & Computing", tag: "MOI Accepted" },
-  { name: "University of Debrecen", type: "Hungary European Degree", tag: "Without IELTS" },
-  { name: "Imperia College Malaysia", type: "Diploma Pathways", tag: "SSC / Dakhil" },
-  { name: "Australia Go8 & Regionals", type: "Subclass 485 Visa", tag: "PSW Opportunities" },
-  { name: "Canada Public DLIs", type: "Paid Co-ops & PGWP", tag: "3-Yr PGWP" },
-  { name: "New Zealand Universities", type: "Spouse & Family Visas", tag: "Open Work Rights" },
+  { name: "United Kingdom Universities", type: "1-Yr Master's & 2-Yr PSW", tag: "London Office Care" },
+  { name: "Canada Public DLIs", type: "Co-op & 3-Year PGWP", tag: "Fast Permits" },
+  { name: "Australia Top Universities", type: "High Student Wages", tag: "Subclass 500" },
+  { name: "Cyprus English Universities", type: "Affordable €3,000–€5,000", tag: "High Visa Ratio" },
+  { name: "Germany Public Universities", type: "Low / Free Tuition", tag: "18-Mo Job Seeker" },
+  { name: "Finland UAS Network", type: "English Master's Degrees", tag: "Happiest Country" },
+  { name: "USA Accredited Campuses", type: "STEM OPT 3-Year Extension", tag: "F-1 Mock Prep" },
+  { name: "Malaysia Partner Colleges", type: "SSC / Dakhil Entry", tag: "Fast EMGS" },
 ];
 
 export function RegisterButton({
-  label = "Book Free Session",
+  label = "Book Free Assessment",
   className,
 }: {
   label?: string;
@@ -126,9 +127,9 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#090C10] via-[#0E131B] to-[#090C10] text-white py-16 sm:py-24 border-b border-[#1F2633]">
-      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-[#D4AF37]/15 blur-[120px] animate-float-slow" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-[#2563EB]/15 blur-[120px]" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-12 sm:py-16 lg:py-20 border-b border-slate-800">
+      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-red-600/15 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-blue-600/15 blur-[120px]" />
 
       {image ? (
         <div
@@ -138,31 +139,31 @@ export function PageHero({
       ) : null}
 
       <div className="section-shell relative z-10">
-        <div className={cn("grid items-center gap-12", image ? "lg:grid-cols-[1.2fr_0.8fr]" : "")}>
+        <div className={cn("grid items-center gap-8 lg:gap-12", image ? "lg:grid-cols-[1.2fr_0.8fr]" : "")}>
           <div>
             {eyebrow ? (
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#F5D365] backdrop-blur-md">
-                <IconSparkles className="w-3.5 h-3.5" />
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-500/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-red-400 backdrop-blur-md">
+                <IconSparkles className="w-3.5 h-3.5 text-red-400" />
                 <span>{eyebrow}</span>
               </div>
             ) : null}
 
-            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+            <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
               {title}
             </h1>
 
             {subtitle ? (
-              <p className="mt-4 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-slate-300">
+              <p className="mt-3 sm:mt-4 max-w-2xl text-xs sm:text-sm lg:text-base leading-relaxed text-slate-300 font-medium">
                 {subtitle}
               </p>
             ) : null}
 
-            {children ? <div className="mt-8">{children}</div> : null}
+            {children ? <div className="mt-6 sm:mt-8">{children}</div> : null}
           </div>
 
           {image ? (
             <div className="relative hidden lg:block">
-              <div className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/40 bg-slate-900/90 p-3 shadow-2xl backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-red-500/30 bg-slate-900/90 p-3 shadow-2xl backdrop-blur-xl">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-slate-950">
                   <img
                     src={image}
@@ -173,18 +174,18 @@ export function PageHero({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
-                    <span className="rounded-full bg-slate-950/85 px-3 py-1 font-bold backdrop-blur-md border border-white/20 text-[#F5D365]">
-                      Khan Tower, 359 DIT Road, Dhaka
+                    <span className="rounded-full bg-slate-950/85 px-3 py-1 font-bold backdrop-blur-md border border-white/20 text-red-400">
+                      Dhaka (Aftabnagar) & London E16
                     </span>
-                    <span className="rounded-full bg-[#D4AF37] px-3 py-1 font-bold text-[#090C10] shadow-sm">
-                      ● Official Head Office
+                    <span className="rounded-full bg-red-600 px-3 py-1 font-bold text-white shadow-sm">
+                      ● Official Brand Hub
                     </span>
                   </div>
                 </div>
 
                 <div className="p-3 text-center">
-                  <p className="text-xs font-bold text-[#F5D365]">{company.legalName} · Dhaka | Sylhet</p>
-                  <p className="text-[0.68rem] text-slate-400">100% Free Profile Assessment · Hotline: {company.phones[0]}</p>
+                  <p className="text-xs font-bold text-white">{company.name} · Education & Travel Advisor</p>
+                  <p className="text-[0.68rem] text-slate-400">100% Free Profile Assessment · Hotline: 01886 91 33 91</p>
                 </div>
               </div>
             </div>
@@ -202,11 +203,11 @@ export function Breadcrumbs({ items }: { items: { label: string; to?: string }[]
         <div key={item.label} className="flex items-center gap-2">
           {i > 0 && <span className="text-slate-600">/</span>}
           {item.to ? (
-            <Link to={item.to} className="transition-colors hover:text-[#F5D365]">
+            <Link to={item.to} className="transition-colors hover:text-red-500">
               {item.label}
             </Link>
           ) : (
-            <span className="font-semibold text-[#F5D365]">{item.label}</span>
+            <span className="font-semibold text-red-600">{item.label}</span>
           )}
         </div>
       ))}
@@ -235,15 +236,15 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#FCF8EE] px-3.5 py-1 text-xs font-bold text-[#8A6818]">
-          <IconSparkles className="w-3.5 h-3.5 text-[#8A6818]" />
+        <div className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-3.5 py-1 text-xs font-bold text-red-700">
+          <IconSparkles className="w-3.5 h-3.5 text-red-600" />
           <span>{eyebrow}</span>
         </div>
       ) : null}
 
       <h2
         className={cn(
-          "font-display text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl leading-tight",
+          "font-display text-2xl font-black tracking-tight sm:text-3xl lg:text-4xl leading-tight",
           dark ? "text-white" : "text-slate-900",
         )}
       >
@@ -253,7 +254,7 @@ export function SectionHeading({
       {subtitle ? (
         <p
           className={cn(
-            "text-sm leading-relaxed sm:text-base",
+            "text-sm leading-relaxed sm:text-base font-medium",
             dark ? "text-slate-300" : "text-slate-600",
           )}
         >
@@ -266,24 +267,29 @@ export function SectionHeading({
 
 export function StatsStrip() {
   return (
-    <div className="rounded-3xl border border-[#D4AF37]/30 bg-white p-6 sm:p-8 shadow-sm">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
+    >
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-        {company.stats.map((s, idx) => (
+        {company.stats.slice(0, 4).map((s, idx) => (
           <div
             key={s.label}
             className={cn("text-center", idx > 0 ? "pt-4 sm:pt-0 sm:px-4" : "")}
           >
-            <div className="font-display text-3xl sm:text-4xl font-extrabold text-[#AA771C] tracking-tight">
+            <div className="font-display text-3xl sm:text-4xl font-black text-red-600 tracking-tight">
               {s.value}
             </div>
             <div className="mt-1 text-xs sm:text-sm font-bold text-slate-800">{s.label}</div>
-            <span className="mt-2 inline-block rounded-full bg-[#FCF8EE] border border-[#D4AF37]/30 px-3 py-0.5 text-[0.68rem] font-semibold text-[#8A6818]">
+            <span className="mt-2 inline-block rounded-full bg-red-50 border border-red-200 px-3 py-0.5 text-[0.68rem] font-bold text-red-700">
               {s.badge}
             </span>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -300,32 +306,44 @@ export function FaqList({
         const isOpen = openIndex === idx;
         return (
           <div
-            key={idx}
+            key={item.q}
             className={cn(
-              "overflow-hidden rounded-2xl border transition-all shadow-sm",
-              isOpen ? "border-[#D4AF37] bg-white" : "border-slate-200 bg-white/80 hover:border-slate-300",
+              "rounded-2xl border transition-all duration-300 overflow-hidden",
+              isOpen
+                ? "bg-white border-red-500 shadow-md ring-1 ring-red-500/20"
+                : "bg-white/80 border-slate-200 hover:border-slate-300 hover:bg-white",
             )}
           >
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : idx)}
-              className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left font-display text-sm sm:text-base font-bold text-slate-900 transition-colors"
+              className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer active:scale-[0.99] transition-transform"
             >
-              <span>{item.q}</span>
+              <span className="font-display text-sm sm:text-base font-bold text-slate-900">
+                {item.q}
+              </span>
               <span
                 className={cn(
-                  "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-base font-bold transition-transform duration-300",
-                  isOpen ? "bg-[#FCF8EE] text-[#8A6818] rotate-45 border border-[#D4AF37]/40" : "bg-slate-100 text-slate-600",
+                  "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-transform duration-300",
+                  isOpen ? "bg-red-600 text-white rotate-180" : "bg-slate-100 text-slate-600",
                 )}
               >
-                +
+                ↓
               </span>
             </button>
-            {isOpen && (
-              <div className="border-t border-slate-100 bg-slate-50/50 p-5 sm:p-6 text-xs sm:text-sm leading-relaxed text-slate-600">
-                {item.a}
+
+            <div
+              className={cn(
+                "grid transition-all duration-300 ease-in-out",
+                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+              )}
+            >
+              <div className="overflow-hidden">
+                <div className="px-4 pb-5 sm:px-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3 font-medium">
+                  <p>{item.a}</p>
+                </div>
               </div>
-            )}
+            </div>
           </div>
         );
       })}
@@ -335,29 +353,41 @@ export function FaqList({
 
 export function UniversityMarquee() {
   return (
-    <section className="relative border-y border-slate-200 bg-white py-6 overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
-
-      <div className="section-shell mb-3 text-center">
-        <p className="text-[0.68rem] font-bold uppercase tracking-wider text-[#8A6818]">
-          International University Partners & Study Abroad Delegations
+    <section className="relative border-y border-slate-200/80 bg-white py-14 sm:py-20 overflow-hidden">
+      <div className="section-shell text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-200 px-3.5 py-1 text-xs font-bold text-[#043E8B] mb-3">
+          <span>TRUSTED PARTNERS</span>
+        </div>
+        <h2 className="font-display text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          Our Partner <span className="text-[#043E8B]">Universities</span>
+        </h2>
+        <p className="text-xs sm:text-sm text-slate-600 font-medium mt-2 leading-relaxed">
+          We have partnerships with prestigious universities across the UK, Canada, Australia, Cyprus, and Europe to help you achieve your study abroad dreams with confidence and excellence.
         </p>
       </div>
 
-      <div className="marquee-track flex items-center gap-4 py-1">
-        {[...globalPartners, ...globalPartners].map((partner, i) => (
-          <div
-            key={`${partner.name}-${i}`}
-            className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/60 px-5 py-2.5 shadow-sm whitespace-nowrap"
-          >
-            <span className="flex h-2 w-2 rounded-full bg-[#D4AF37]" />
-            <span className="text-xs sm:text-sm font-bold text-slate-900">{partner.name}</span>
-            <span className="rounded-full bg-[#FCF8EE] px-2 py-0.5 text-[0.65rem] font-semibold text-[#8A6818] border border-[#D4AF37]/30">
-              {partner.tag}
-            </span>
-          </div>
-        ))}
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
+
+        <motion.div 
+          animate={{ x: [0, -50 + "%"] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="marquee-track flex items-center gap-4 py-2"
+        >
+          {[...globalPartners, ...globalPartners].map((partner, i) => (
+            <div
+              key={`${partner.name}-${i}`}
+              className="flex items-center gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/80 px-5 py-3 shadow-xs hover:shadow-md hover:bg-white transition-all whitespace-nowrap"
+            >
+              <span className="flex h-2 w-2 rounded-full bg-red-600" />
+              <span className="text-xs sm:text-sm font-bold text-slate-900">{partner.name}</span>
+              <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[0.68rem] font-bold text-[#043E8B] border border-blue-200">
+                {partner.tag}
+              </span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
@@ -368,10 +398,10 @@ export function BulletList({ items }: { items: readonly string[] }) {
     <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-2.5">
-          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FCF8EE] text-[#8A6818] text-[0.65rem] font-bold border border-[#D4AF37]/30">
-            <IconCheck className="w-3 h-3 text-[#8A6818]" />
+          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-600 text-[0.65rem] font-bold border border-red-200">
+            <IconCheck className="w-3 text-red-600" />
           </span>
-          <span className="leading-relaxed">{item}</span>
+          <span className="leading-relaxed font-medium">{item}</span>
         </li>
       ))}
     </ul>
@@ -382,44 +412,51 @@ export function CtaBand() {
   const { open } = useRegisterModal();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-[#090C10] via-[#10141D] to-[#090C10] text-white py-16 sm:py-24 border-t border-[#1F2633]">
-      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-[#D4AF37]/15 blur-[120px] animate-float-slow" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-[#2563EB]/15 blur-[120px]" />
+    <section className="relative overflow-hidden bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-16 sm:py-24 border-t border-slate-800">
+      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-red-600/15 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-blue-600/15 blur-[120px]" />
 
-      <div className="section-shell relative z-10 text-center max-w-3xl mx-auto space-y-6">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#F5D365]">
-          <IconGlobe className="w-3.5 h-3.5" />
-          <span>{company.address.full}</span>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        className="section-shell relative z-10 text-center max-w-3xl mx-auto space-y-6"
+      >
+        <div className="inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-red-400">
+          <IconGlobe className="w-3.5 h-3.5 text-red-400" />
+          <span>Dual Hubs: Dhaka (Aftabnagar) 🇧🇩 & London (Cranberry Lane) 🇬🇧</span>
         </div>
 
-        <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-          Fulfill Your Study Abroad Dream With Us!
+        <h2 className="font-display text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+          Ready to Start Your Journey Abroad?
         </h2>
 
-        <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
-          Book your 100% free profile assessment with senior counselors Moshiur & Tanvir at our Khan Tower Dhaka office or connect on WhatsApp for fast-track university and visa guidance.
+        <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed font-medium">
+          Book your 100% free profile evaluation or language training diagnostic session with Alex Global Consultancy. Zero file-opening charge, complete admissions, visa guidance, and London post-arrival care.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <button
             type="button"
             onClick={open}
-            className="btn-luxury-primary text-xs sm:text-sm py-3.5 px-8 shadow-xl"
+            className="btn-luxury-primary text-xs sm:text-sm py-3.5 px-8 shadow-xl hover:shadow-red-600/30 active:scale-95 cursor-pointer"
           >
             <span>Book Free Appointment</span>
             <IconArrowRight className="w-4 h-4" />
           </button>
           <a
-            href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello Future Edge Education, I would like to book a 100% free consultation session.")}`}
+            href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+              "Hello Alex Global Consultancy! I would like to book a 100% free profile assessment.",
+            )}`}
             target="_blank"
             rel="noreferrer"
-            className="btn-luxury-secondary text-xs sm:text-sm py-3.5 px-7 shadow-xl"
+            className="btn-luxury-secondary text-xs sm:text-sm py-3.5 px-7 shadow-xl text-slate-900 active:scale-95 cursor-pointer"
           >
             <IconWhatsApp className="w-4 h-4 text-emerald-600" />
             <span>WhatsApp {company.phones[0]}</span>
           </a>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

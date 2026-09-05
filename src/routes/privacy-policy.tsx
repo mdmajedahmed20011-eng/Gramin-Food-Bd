@@ -5,13 +5,13 @@ import { company } from "@/lib/site-data";
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy | Future Edge Education & Consultancy" },
+      { title: "Privacy Policy | Alex Global Consultancy" },
       {
         name: "description",
         content:
-          "How Future Edge Education & Consultancy collects, uses, stores, and protects the personal information of students who register for our study abroad counseling and visa services in Dhaka & Sylhet.",
+          "How Alex Global Consultancy collects, protects, and handles personal data for study abroad counseling, language academy students, and visa processing.",
       },
-      { property: "og:title", content: "Privacy Policy | Future Edge Education" },
+      { property: "og:title", content: "Privacy Policy | Alex Global Consultancy" },
       { property: "og:description", content: "Our commitment to protecting your personal information and academic records." },
     ],
   }),
@@ -21,30 +21,30 @@ export const Route = createFileRoute("/privacy-policy")({
 const sections = [
   {
     title: "1. Information We Collect",
-    body: "When you register with Future Edge Education or request a free consultation, we collect your name, phone number, email address, preferred destination (UK, Europe, Australia, Canada, New Zealand, Malaysia, USA), academic transcripts, certificates, medium of instruction (MOI) letters, test scores (if any), and passport details. We also collect basic web analytics to improve your experience.",
+    body: "When you register with Alex Global Consultancy (AGC) for study abroad admissions, language academy courses (IELTS, Spoken English, Kids English), or visa processing, we collect relevant personal details such as your name, phone/WhatsApp number, email address, academic qualifications, test scores, passports, and destination preferences. We also collect minimal anonymous web analytics to ensure website security and performance.",
   },
   {
     title: "2. How We Use Your Information",
-    body: "Your information is used exclusively to assess academic and visa eligibility, conduct university course shortlisting, coordinate direct partner delegations (such as Buckinghamshire New University), submit admission applications, and assemble complete student visa files with foreign embassies and high commissions.",
+    body: "Your information is used strictly to provide profile evaluations, course shortlisting, university application submissions, IELTS and language coaching scheduling, and visa processing across our 8 official service categories. All handling is coordinated securely between our Dhaka Corporate Office and London Branch.",
   },
   {
     title: "3. Information Sharing & Third Parties",
-    body: "To process your admission and visa applications, your documents are shared only with designated partner universities, awarding bodies, and relevant visa authorities. We NEVER sell, rent, or trade your personal information with third-party advertisers or lead-generation brokers.",
+    body: "We share your documents solely with designated partner universities, awarding bodies, and official immigration authorities (e.g. UKVI, IRCC, Australian Home Affairs). We NEVER sell, rent, or trade your personal information with third-party marketers or brokers.",
   },
   {
     title: "4. Data Storage & Confidentiality",
-    body: "All student files and records are maintained securely in systems accessible only to authorized senior advisors at our Khan Tower, 359 DIT Road, Dhaka office. We retain records only as long as necessary to complete your university admissions and visa processing.",
+    body: "Student and client records are stored securely in protected digital repositories accessible only to authorized AGC senior counselors. Physical and electronic records are maintained with high confidentiality.",
   },
   {
     title: "5. Your Privacy Rights",
-    body: `You may request a review of your profile records, request data correction, or ask to delete your personal information at any time by emailing ${company.emails[0]} or calling our direct hotline at ${company.phones[0]}.`,
+    body: `You may request access to, correction of, or deletion of your records at any time by emailing ${company.emails[0]} or contacting our hotlines at ${company.phones[0]} / UK ${company.offices.london.phone}.`,
   },
 ];
 
 function PrivacyPage() {
   return (
     <>
-      <PageHero eyebrow="Legal & Trust" title="Privacy Policy" subtitle="Last updated: August 2026">
+      <PageHero eyebrow="Legal & Trust" title="Privacy Policy" subtitle="Last updated: September 2026">
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Privacy Policy" }]} />
       </PageHero>
 
@@ -61,3 +61,4 @@ function PrivacyPage() {
     </>
   );
 }
+

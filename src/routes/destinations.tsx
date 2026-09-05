@@ -6,17 +6,17 @@ import { company, destinations } from "@/lib/site-data";
 export const Route = createFileRoute("/destinations")({
   head: () => ({
     meta: [
-      { title: "Study Abroad Destinations | Future Edge Education & Consultancy" },
+      { title: "Study Abroad Destinations | Alex Global Consultancy — Dhaka & London" },
       {
         name: "description",
         content:
-          "Explore premier study abroad destinations processed by Future Edge Education: UK, Europe (Hungary, Denmark, Finland, Sweden), Australia, Canada, New Zealand, Malaysia, and USA. Verified tuition fees, post-study work visas, and without IELTS (MOI) options.",
+          "Explore premier study abroad destinations processed by Alex Global Consultancy: UK, Canada, Australia, Cyprus, Germany, Finland, USA, and Malaysia. Verified tuition fees, post-study work visas, scholarships, and London office support.",
       },
-      { property: "og:title", content: "Study Abroad Destinations | Future Edge Education" },
+      { property: "og:title", content: "Study Abroad Destinations | Alex Global Consultancy" },
       {
         property: "og:description",
         content:
-          "Fulfill Your Study Abroad Dream With Us! Complete verified guide to international universities, scholarships, and student visas in Dhaka & Sylhet.",
+          "আপনার স্বপ্নের বিশ্ববিদ্যালয়ের পথে বিশ্বস্ত সঙ্গী! Complete verified guide to international universities, scholarships, and student visas in Dhaka & London.",
       },
     ],
   }),
@@ -27,7 +27,7 @@ function Destinations() {
   const [activeRegion, setActiveRegion] = useState<string>("All");
   const [search, setSearch] = useState<string>("");
 
-  const regions = ["All", "Europe", "North America", "Southeast Asia", "Oceania"];
+  const regions = ["All", "Europe", "North America", "Oceania", "Middle East", "Southeast Asia"];
 
   const filtered = destinations.filter((d) => {
     const matchesRegion =
@@ -44,11 +44,11 @@ function Destinations() {
   return (
     <>
       <PageHero
-        eyebrow="Global Education Directory"
-        title="Verified Study Destinations"
-        subtitle="Explore admission criteria, post-study work rights (PSW), average living costs, scholarships, and without IELTS (MOI) pathways across the countries represented by Future Edge Education."
-        image="/brand-assets/banner.jpg"
-        imageAlt="Future Edge Education official global destinations banner"
+        eyebrow="Global University Network"
+        title="Verified Study Abroad Portals"
+        subtitle="Explore admission criteria, post-study work rights (PSW), average living costs, scholarships, and without IELTS (MOI) options across 100+ partner universities represented by Alex Global Consultancy."
+        image="/latest-assets/banner.png"
+        imageAlt="Alex Global Consultancy official global destinations banner"
       >
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Destinations" }]} />
       </PageHero>
@@ -65,7 +65,7 @@ function Destinations() {
                 onClick={() => setActiveRegion(reg)}
                 className={`rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                   activeRegion === reg
-                    ? "bg-[#090C10] text-[#F5D365] border border-[#D4AF37] shadow-sm"
+                    ? "bg-slate-900 text-white shadow-sm border border-slate-800"
                     : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-100"
                 }`}
               >
@@ -80,19 +80,19 @@ function Destinations() {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="🔍 Search country or field..."
-              className="w-full rounded-full border border-slate-300 bg-white px-4 py-2 text-xs text-slate-800 outline-none shadow-sm focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/10"
+              placeholder="🔍 Search country or program..."
+              className="w-full rounded-full border border-slate-300 bg-white px-4 py-2 text-xs text-slate-800 outline-none shadow-sm focus:border-red-500 focus:ring-2 focus:ring-red-500/10"
             />
           </div>
         </div>
 
         {/* Results Counter */}
-        <div className="mt-6 flex items-center justify-between text-xs text-slate-500">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
           <p>
             Showing <strong>{filtered.length}</strong> of {destinations.length} verified destinations
           </p>
-          <span className="text-[#8A6818] font-bold">
-            ✓ 100% Free Profile Assessment at our Khan Tower Dhaka Office
+          <span className="text-red-600 font-bold">
+            ✓ 100% Free Profile Assessment at our Dhaka Aftabnagar Office & London Hub
           </span>
         </div>
 
@@ -101,25 +101,25 @@ function Destinations() {
           {filtered.map((d) => (
             <article
               key={d.slug}
-              className="card-clean rounded-3xl p-6 flex flex-col justify-between border border-slate-200 hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all"
+              className="rounded-3xl p-6 flex flex-col justify-between border border-slate-200 bg-white hover:border-red-500/50 shadow-sm hover:shadow-md transition-all"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">{d.flag}</span>
                     <div>
-                      <h3 className="font-display text-lg font-bold text-slate-900">
+                      <h3 className="font-display text-lg font-black text-slate-900">
                         {d.name}
                       </h3>
                       <span className="text-xs font-semibold text-slate-500">{d.region}</span>
                     </div>
                   </div>
-                  <span className="rounded-full bg-[#FCF8EE] border border-[#D4AF37]/40 px-2.5 py-0.5 text-xs font-bold text-[#8A6818]">
+                  <span className="rounded-full bg-red-50 border border-red-200 px-2.5 py-0.5 text-xs font-bold text-red-700">
                     {d.pswv}
                   </span>
                 </div>
 
-                <p className="mt-4 text-xs text-slate-600 leading-relaxed">
+                <p className="mt-4 text-xs text-slate-600 leading-relaxed font-medium">
                   {d.intro}
                 </p>
 
@@ -138,43 +138,32 @@ function Destinations() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-medium">Scholarships:</span>
-                    <span className="font-bold text-[#8A6818]">{d.scholarships}</span>
+                    <span className="font-bold text-red-600">{d.scholarships}</span>
                   </div>
                 </div>
 
-                {/* Popular Programs */}
-                <div className="mt-4">
-                  <span className="text-[0.68rem] font-bold uppercase tracking-wider text-slate-400">
-                    Popular Fields of Study:
-                  </span>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {d.popularFields.map((f) => (
-                      <span
-                        key={f}
-                        className="rounded-lg bg-slate-100 px-2 py-0.5 text-[0.68rem] font-medium text-slate-700"
-                      >
-                        {f}
-                      </span>
-                    ))}
-                  </div>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {d.popularFields.slice(0, 3).map((f) => (
+                    <span
+                      key={f}
+                      className="rounded-lg bg-slate-100 px-2 py-1 text-[0.68rem] font-medium text-slate-700"
+                    >
+                      {f}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <a
-                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Future Edge Education, I am interested in studying in ${d.name}.`)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs font-bold text-emerald-700 hover:underline"
-                >
-                  💬 WhatsApp
-                </a>
+              <div className="mt-6 border-t border-slate-100 pt-4 flex items-center justify-between">
+                <span className="text-xs text-slate-500">
+                  {d.withoutIelts ? "✅ MOI Accepted" : "IELTS Required"}
+                </span>
                 <Link
                   to="/study-in-{$country}"
                   params={{ country: d.slug }}
-                  className="btn-primary text-xs py-2 px-4 shadow-sm"
+                  className="rounded-full bg-red-600 px-4 py-1.5 text-xs font-bold text-white hover:bg-red-700 transition-colors"
                 >
-                  Country Guide →
+                  Explore Guide →
                 </Link>
               </div>
             </article>
@@ -182,7 +171,6 @@ function Destinations() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <CtaBand />
     </>
   );

@@ -82,19 +82,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Future Edge Education" },
+      { name: "author", content: "Alex Global Consultancy" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Future Edge Education & Consultancy" },
+      { property: "og:site_name", content: "Alex Global Consultancy (AGC)" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/brand-assets/logo.jpg", type: "image/jpeg" },
+      { rel: "icon", href: "/latest-assets/logo.jpg", type: "image/jpeg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
       },
     ],
     scripts: [
@@ -106,14 +106,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: company.legalName,
           slogan: company.slogan,
           description:
-            "Future Edge Education is Bangladesh's premier study abroad consultancy based in Khan Tower, 359 DIT Road, Dhaka, providing fast-track visa processing, without IELTS (MOI) admissions, scholarship guidance, and international partner university delegations for UK, Europe, Australia, Canada, New Zealand, Malaysia & USA.",
+            "Alex Global Consultancy is a premier dual-hub study abroad consultancy and language academy with corporate headquarters in Aftabnagar, Dhaka, and an international branch in London, UK. Providing higher education admissions, IELTS Preparation, Spoken English, Kids English, and 8 processed visa categories.",
           foundingDate: company.established,
-          areaServed: "Bangladesh",
+          areaServed: ["Bangladesh", "United Kingdom", "Worldwide"],
           email: company.email,
           telephone: company.phones.map((p) => `+880${p.replace(/[^0-9]/g, "").slice(-10)}`),
-          openingHours: "Mo-Su 10:00-19:00",
+          openingHours: "Sa-Th 10:00-19:00",
           sameAs: [company.social.facebook, company.social.instagram, company.social.linkedin],
-          hasMap: company.mapsUrl,
+          hasMap: company.offices?.dhaka?.mapsUrl || company.dhakaOffice.mapsUrl,
           geo: {
             "@type": "GeoCoordinates",
             latitude: company.geo.lat,
@@ -121,9 +121,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           },
           address: {
             "@type": "PostalAddress",
-            streetAddress: `${company.address.building}, ${company.address.street}`,
+            streetAddress: company.offices?.dhaka?.address || company.dhakaOffice.full,
             addressLocality: "Dhaka",
-            postalCode: "1219",
+            postalCode: "1212",
             addressCountry: "BD",
           },
         }),
@@ -143,7 +143,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="overflow-x-hidden w-full max-w-[100vw]">
         {children}
         <Scripts />
       </body>
@@ -157,9 +157,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <RegisterModalProvider>
-        <div className="flex min-h-screen flex-col font-sans">
+        <div className="flex min-h-screen flex-col font-sans w-full overflow-x-clip pb-16 md:pb-0">
           <SiteHeader />
-          <main id="content" className="flex-1">
+          <main id="content" className="flex-1 w-full">
             <Outlet />
           </main>
           <SiteFooter />

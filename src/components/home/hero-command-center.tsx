@@ -1,289 +1,299 @@
 import { useState, useEffect } from "react";
 import { company } from "@/lib/site-data";
 import { useRegisterModal } from "@/components/register-modal";
-import { IconWhatsApp, IconArrowRight, IconSparkles, IconCheck, IconPhone } from "@/components/ui-blocks";
+import { IconArrowRight, IconPhone } from "@/components/ui-blocks";
 import { cn } from "@/lib/utils";
+import { Link } from "@tanstack/react-router";
+import { SlideIn } from "@/components/motion-wrapper";
 
-const liveVisaUpdates = [
-  { flag: "🇬🇧", country: "United Kingdom", desc: "Tier 4 Visa Granted in 4 Days", uni: "Buckinghamshire New University (BNU)", tag: "MOI Accepted" },
-  { flag: "🇦🇺", country: "Australia", desc: "Master of IT Offer Issued", uni: "Deakin University", tag: "30% Scholarship" },
-  { flag: "🇩🇪", country: "Germany / Europe", desc: "Zero Tuition Admission Approved", uni: "University of Debrecen", tag: "Without IELTS" },
-  { flag: "🇨🇦", country: "Canada", desc: "Study Permit & 3-Yr PGWP Path", uni: "Seneca Polytechnic", tag: "Fast Vetted" },
+interface SlideData {
+  country: string;
+  code: string;
+  flag: string;
+  slogan: string;
+  perks: string[];
+  image: string;
+  uniCount: string;
+  intakes: string;
+  slug: string;
+}
+
+const heroSlides: SlideData[] = [
+  {
+    country: "United Kingdom",
+    code: "GB",
+    flag: "🇬🇧",
+    slogan: "World-class Russell Group universities, 1-year Master's, 2-Year Post-Study Work Visa, and direct local support from our London branch.",
+    perks: ["100% Free Processing", "Russell Group Representation", "Direct London Arrival Care", "Scholarships up to £4,000"],
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "150+ Universities",
+    intakes: "Jan & Sep 2026 Intakes Open",
+    slug: "uk",
+  },
+  {
+    country: "Canada",
+    code: "CA",
+    flag: "🇨🇦",
+    slogan: "Top public Designated Learning Institutions (DLIs), paid co-op internships, and up to 3-year Post-Graduation Work Permits (PGWP).",
+    perks: ["Direct DLI Admissions", "Paid Co-Op Internships", "Up to 3-Year PGWP", "Spouse Work Permit Eligible"],
+    image: "https://images.unsplash.com/photo-1517935703635-2717090c2210?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "80+ DLIs & Universities",
+    intakes: "Jan, May & Sep 2026 Open",
+    slug: "canada",
+  },
+  {
+    country: "Australia",
+    code: "AU",
+    flag: "🇦🇺",
+    slogan: "World-ranking universities, lucrative student work rights, vibrant multicultural cities, and attractive regional migration pathways.",
+    perks: ["Go8 & Top Universities", "High Student Hourly Wages", "Subclass 500 Fast-Track", "Regional PR Pathways"],
+    image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "45+ Universities",
+    intakes: "Feb & Jul 2026 Open",
+    slug: "australia",
+  },
+  {
+    country: "Cyprus (Europe)",
+    code: "CY",
+    flag: "🇨🇾",
+    slogan: "Affordable European higher education with 100% English-medium curricula, flexible entry criteria, and a high visa issuance ratio.",
+    perks: ["Low Tuition (€3,000–€5,000)", "High Visa Grant Ratio", "100% English-Medium Degrees", "No Blocked Account Required"],
+    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "25+ Universities",
+    intakes: "Feb & Oct 2026 Open",
+    slug: "cyprus",
+  },
+  {
+    country: "Germany",
+    code: "DE",
+    flag: "🇩🇪",
+    slogan: "Tuition-free public universities, world-leading research in engineering and IT, and an 18-month post-study jobseeker residence permit.",
+    perks: ["Tuition-Free Public Higher Ed", "English-Taught Master's", "18-Month Jobseeker Permit", "Top Engineering Hub of Europe"],
+    image: "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "70+ Public Universities",
+    intakes: "Summer & Winter 2026 Open",
+    slug: "germany",
+  },
+  {
+    country: "Finland",
+    code: "FI",
+    flag: "🇫🇮",
+    slogan: "The world's happiest country offering high-tech innovation, generous student work benefits, and clear family relocation policies.",
+    perks: ["World #1 Education Standard", "Post-Study Residence Rights", "Family Relocation Permitted", "Thriving Tech & Clean Energy Sector"],
+    image: "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "35+ Universities",
+    intakes: "Autumn 2026 Open",
+    slug: "finland",
+  },
+  {
+    country: "USA",
+    code: "US",
+    flag: "🇺🇸",
+    slogan: "Home to Ivy League and Tier-1 research institutions, 3-year STEM OPT extensions, and life-changing global networking opportunities.",
+    perks: ["Tier-1 Global Institutions", "3-Year STEM OPT Extension", "1-on-1 Visa Mock Preparation", "Merit-Based Scholarships"],
+    image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "120+ Universities",
+    intakes: "Spring & Fall 2026 Open",
+    slug: "usa",
+  },
 ];
 
-const heroVisuals = [
-  {
-    id: "bnu",
-    label: "BNU Partner Session",
-    tag: "Official Delegation",
-    image: "/brand-assets/772204691_122282788340103184_9204887386025201573_n.jpg",
-    title: "Direct Delegation with Ms. Ayesha Rauf",
-    highlight: "Spot Evaluations · Partner University UK",
-  },
-  {
-    id: "banner",
-    label: "Global Admissions",
-    tag: "Official Network",
-    image: "/brand-assets/banner.jpg",
-    title: "Fulfill Your Study Abroad Dream With Us",
-    highlight: "UK, Australia, Europe, Canada, USA & Malaysia",
-  },
-  {
-    id: "counselors",
-    label: "Counseling Desk",
-    tag: "Khan Tower, Dhaka",
-    image: "/brand-assets/766952914_122282362520103184_2941471200207168176_n.jpg",
-    title: "Lead Advisors: Moshiur & Tanvir",
-    highlight: "100% Free File Opening · Transparent Guidance",
-  },
-  {
-    id: "award",
-    label: "Conference Award",
-    tag: "LURS 2026 Honor",
-    image: "/brand-assets/768667718_122282362400103184_8409750641330812941_n.jpg",
-    title: "Research Recognition on Stage",
-    highlight: "Honored by Chief Guest Dr. Syed Ragib Ali",
-  },
-];
-
-const destinationShortcuts = [
-  { id: "uk", name: "United Kingdom", flag: "🇬🇧", perk: "3-5 Day Visa · MOI" },
-  { id: "aus", name: "Australia", flag: "🇦🇺", perk: "Up to 30% Schol." },
-  { id: "eu", name: "Europe (Schengen)", flag: "🇪🇺", perk: "Zero Tuition" },
-  { id: "can", name: "Canada", flag: "🇨🇦", perk: "3-Yr PGWP Co-Op" },
-  { id: "usa", name: "United States", flag: "🇺🇸", perk: "STEM OPT Career" },
+const liveSuccessToasts = [
+  { student: "Ahmed", action: "enrolled at University of Birmingham", countryCode: "GB", flag: "🇬🇧", time: "8 minutes ago" },
+  { student: "Nadia", action: "granted Study Permit for Canada", countryCode: "CA", flag: "🇨🇦", time: "14 minutes ago" },
+  { student: "Tanvir", action: "accepted at University of Melbourne", countryCode: "AU", flag: "🇦🇺", time: "22 minutes ago" },
+  { student: "Sadia", action: "received Visa for Cyprus", countryCode: "CY", flag: "🇨🇾", time: "35 minutes ago" },
+  { student: "Farhan", action: "admitted to TU Munich, Germany", countryCode: "DE", flag: "🇩🇪", time: "42 minutes ago" },
+  { student: "Raihan", action: "admitted to Aalto University, Finland", countryCode: "FI", flag: "🇫🇮", time: "50 minutes ago" },
 ];
 
 export function HeroCommandCenter() {
   const { open } = useRegisterModal();
-  const [tickerIndex, setTickerIndex] = useState(0);
-  const [activeVisual, setActiveVisual] = useState(0);
-  const [selectedDestination, setSelectedDestination] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [toastIndex, setToastIndex] = useState(0);
 
-  // Auto cycle the live visa feed smoothly
+  // Auto advance slide every 5.5 seconds
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTickerIndex((prev) => (prev + 1) % liveVisaUpdates.length);
-    }, 4500);
-    return () => clearInterval(timer);
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5500);
+    return () => clearInterval(slideTimer);
   }, []);
 
-  const currentUpdate = liveVisaUpdates[tickerIndex];
-  const activeMedia = heroVisuals[activeVisual];
+  // Auto rotate toast every 4.5 seconds
+  useEffect(() => {
+    const toastTimer = setInterval(() => {
+      setToastIndex((prev) => (prev + 1) % liveSuccessToasts.length);
+    }, 4500);
+    return () => clearInterval(toastTimer);
+  }, []);
+
+  const slide = heroSlides[currentSlide];
+  const activeToast = liveSuccessToasts[toastIndex];
 
   return (
-    <section className="relative overflow-hidden bg-[#FAFAFC] pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-slate-200/80">
-      {/* Cinematic Ambient Glow Orbs */}
-      <div className="pointer-events-none absolute -left-24 top-0 h-96 w-96 rounded-full bg-[#D4AF37]/15 blur-[100px] animate-float-slow" />
-      <div className="pointer-events-none absolute right-0 top-12 h-96 w-96 rounded-full bg-blue-600/10 blur-[120px]" />
-      <div className="pointer-events-none absolute left-1/3 bottom-0 h-72 w-72 rounded-full bg-emerald-500/10 blur-[100px]" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F0F5FC]/60 via-[#FAFAFC] to-[#FAFAFC] pt-8 pb-14 sm:pt-14 sm:pb-20 border-b border-slate-200/80">
+      {/* Subtle Ambient Backdrop Glows */}
+      <div className="pointer-events-none absolute -left-28 -top-28 h-96 w-96 rounded-full bg-blue-500/10 blur-[130px]" />
+      <div className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-red-500/8 blur-[130px]" />
 
       <div className="section-shell relative z-10">
-        {/* Top: Live Pulsing Visa Acceptance Radar */}
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 bg-white/90 px-3.5 py-1.5 text-xs font-semibold text-slate-800 shadow-xs backdrop-blur-md">
-            <span className="relative flex h-2.5 w-2.5 items-center justify-center">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            <span className="font-bold text-slate-900">Live Visa Feed:</span>
-            <span className="text-slate-600">
-              {currentUpdate.flag} {currentUpdate.country} — <strong className="text-slate-900">{currentUpdate.desc}</strong> ({currentUpdate.uni})
-            </span>
-            <span className="hidden sm:inline-flex rounded-full bg-emerald-50 px-2 py-0.5 text-[0.65rem] font-bold text-emerald-700 border border-emerald-200">
-              {currentUpdate.tag}
-            </span>
-          </div>
-
-          <div className="hidden md:flex items-center gap-2 text-xs font-bold text-slate-600">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-            <span>285K+ Verified Followers</span>
-            <span className="text-slate-300">·</span>
-            <span>Khan Tower, Dhaka</span>
-          </div>
-        </div>
-
-        {/* Main 2-Column Hero Grid */}
-        <div className="grid gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
-          {/* Left Column: Bold Editorial Positioning */}
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#FCF8EE] px-4 py-1.5 text-xs font-extrabold text-[#8A6818]">
-              <IconSparkles className="w-3.5 h-3.5 text-[#AA771C]" />
-              <span>Future Edge Education · Fast-Track Global Admissions</span>
+        {/* Main 2-Column Hero Showcase */}
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center min-h-[500px]">
+          {/* Left Column: DSA-Style Editorial Text Hierarchy (Slides in from Left) */}
+          <SlideIn direction="left" distance={45} className="space-y-6">
+            {/* Top Brand Over-Title */}
+            <div className="flex items-center gap-2">
+              <span className="text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#043E8B]">
+                — ALEX GLOBAL CONSULTANCY · DHAKA & LONDON —
+              </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight text-slate-950 leading-[1.08]">
-              Where Ambition Meets{" "}
-              <span className="relative inline-block text-[#AA771C]">
-                Global Acceptance
-                <svg className="absolute -bottom-2 left-0 w-full text-[#D4AF37]/40 h-2.5" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 50 12, 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
-                </svg>
-              </span>
-            </h1>
+            {/* Signature Editorial Serif Headline */}
+            <div className="space-y-1">
+              <p className="font-serif-editorial italic text-3xl sm:text-5xl lg:text-6xl text-slate-500 font-normal leading-tight">
+                Study in
+              </p>
+              <h1 className="font-serif-editorial text-4xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-none tracking-tight">
+                {slide.country}
+              </h1>
+              {/* Red Accent Bar */}
+              <div className="h-1.5 w-24 bg-gradient-to-r from-red-600 to-transparent rounded-full mt-3 mb-4" />
+            </div>
 
-            <p className="max-w-xl text-base sm:text-lg font-medium text-slate-600 leading-relaxed">
-              Experience transparent, zero-file-fee study abroad guidance. Connect with senior advisors Moshiur & Tanvir for proven 3 to 5-day UK visa processing, MOI pathways without IELTS, and scholarship access.
+            {/* Live Applications Intake Pill */}
+            <div className="inline-flex items-center gap-2.5 rounded-full bg-blue-50 border border-blue-200/80 px-4 py-1.5 text-xs font-bold text-[#043E8B] shadow-xs">
+              <span className="beacon-dot">
+                <span className="beacon-ping bg-blue-500" />
+                <span className="beacon-core bg-[#043E8B]" />
+              </span>
+              <span>Applications Open Now · {slide.intakes}</span>
+            </div>
+
+            {/* Destination Description */}
+            <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-xl">
+              {slide.slogan}
             </p>
 
-            {/* Interactive Destination Selector Chips */}
-            <div className="pt-1">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5">
-                Explore Direct Pathways:
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {destinationShortcuts.map((dest, idx) => (
-                  <button
-                    key={dest.id}
-                    type="button"
-                    onClick={() => setSelectedDestination(idx)}
-                    className={cn(
-                      "flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer",
-                      selectedDestination === idx
-                        ? "bg-[#090C10] text-[#F5D365] shadow-sm border border-[#D4AF37]"
-                        : "bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50"
-                    )}
-                  >
-                    <span>{dest.flag}</span>
-                    <span>{dest.name}</span>
-                    <span className="hidden sm:inline text-[0.65rem] opacity-75 font-normal">({dest.perk})</span>
-                  </button>
-                ))}
-              </div>
+            {/* High Impact Perks Bullet Pills */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              {slide.perks.map((perk) => (
+                <span
+                  key={perk}
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-white border border-slate-200/80 px-3 py-1.5 text-[0.73rem] sm:text-xs font-semibold text-slate-700 shadow-xs hover:border-red-300 transition-colors"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-red-600" />
+                  <span>{perk}</span>
+                </span>
+              ))}
             </div>
 
-            {/* Dual CTA Actions */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Main Action CTAs */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 type="button"
-                onClick={() => open()}
-                className="group btn-luxury-primary text-sm font-extrabold px-8 py-3.5 shadow-lg cursor-pointer"
+                onClick={open}
+                className="btn-shimmer inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 hover:bg-red-700 text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-lg hover:shadow-red-600/30 transition-all cursor-pointer active:scale-95"
               >
-                <span>Book Free Profile Evaluation</span>
-                <span className="btn-nested-icon">
-                  <IconArrowRight className="w-3.5 h-3.5 text-[#090C10]" />
-                </span>
+                <span>Start Your Journey</span>
+                <IconArrowRight className="w-4 h-4" />
               </button>
 
               <a
-                href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello Future Edge! I want to check my eligibility for study abroad.")}`}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-luxury-secondary text-sm font-bold shadow-xs hover:border-[#D4AF37]"
+                href="tel:01886913391"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 px-5 py-3.5 text-xs sm:text-sm font-bold transition-all shadow-xs active:scale-95"
               >
-                <IconWhatsApp className="w-4 h-4 text-emerald-600" />
-                <span>WhatsApp Advisor</span>
+                <IconPhone className="w-3.5 h-3.5 text-red-600" />
+                <span>Or Call: 01886 91 33 91</span>
               </a>
             </div>
 
-            {/* Key Trust Signals */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-200/80 text-xs font-bold text-slate-800">
-              <div className="flex items-center gap-2">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                  <IconCheck className="w-3.5 h-3.5" />
+            {/* Social Trust Line */}
+            <div className="pt-2 text-xs text-slate-500 font-medium">
+              Join 2,500+ successful students.{" "}
+              <button
+                type="button"
+                onClick={open}
+                className="text-red-600 font-bold hover:underline cursor-pointer inline-flex items-center gap-1"
+              >
+                <span>Get Free Consultation</span>
+                <span>→</span>
+              </button>
+            </div>
+          </SlideIn>
+
+          {/* Right Column: Large Rounded Photography Card & Country Badge (Slides in from Right) */}
+          <SlideIn direction="right" distance={45} className="relative">
+            <div className="relative overflow-hidden rounded-[2.2rem] sm:rounded-[2.8rem] shadow-2xl border-4 border-white aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4] bg-slate-100 group">
+              {/* Scenic Destination Photography */}
+              <img
+                key={slide.country}
+                src={slide.image}
+                alt={`Study in ${slide.country} - Alex Global Consultancy`}
+                className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
+                loading="eager"
+              />
+
+              {/* Gradient Scrim */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+
+              {/* Floating Country Code Badge (Top-Right) */}
+              <div className="absolute top-5 right-5 rounded-2xl bg-white/95 backdrop-blur-md px-4 py-3 shadow-xl border border-white/80 text-center min-w-[78px] hover-lift">
+                <div className="font-sans text-xl sm:text-2xl font-black text-slate-900 tracking-wider leading-none">
+                  {slide.code}
                 </div>
-                <span>100% Free File Opening</span>
+                <div className="text-[0.62rem] font-extrabold uppercase tracking-widest text-slate-500 mt-1">
+                  {slide.country.split(" ")[0]}
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 text-amber-800">
-                  <IconCheck className="w-3.5 h-3.5" />
-                </div>
-                <span>3-5 Day UK Visa Record</span>
+
+              {/* Floating University Count Badge (Bottom-Left) */}
+              <div className="absolute bottom-5 left-5 rounded-xl bg-black/60 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-white border border-white/20 flex items-center gap-2">
+                <span>🎓</span>
+                <span>{slide.uniCount}</span>
               </div>
-              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-blue-700">
-                  <IconCheck className="w-3.5 h-3.5" />
-                </div>
-                <span>Without IELTS (MOI)</span>
+
+              {/* Slider Arrow Controls (Bottom-Right) */}
+              <div className="absolute bottom-5 right-5 flex items-center gap-2">
+                <button
+                  type="button"
+                  aria-label="Previous Slide"
+                  onClick={() =>
+                    setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))
+                  }
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-md text-slate-800 shadow-md hover:bg-white hover:scale-105 transition-all cursor-pointer font-bold active:scale-95"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next Slide"
+                  onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-md text-slate-800 shadow-md hover:bg-white hover:scale-105 transition-all cursor-pointer font-bold active:scale-95"
+                >
+                  ›
+                </button>
               </div>
             </div>
-          </div>
 
-          {/* Right Column: Holographic Digital Visa Card & Authentic Visual Reel */}
-          <div className="relative">
-            {/* Double-Bezel Hardware Architecture */}
-            <div className="outer-bezel">
-              <div className="inner-bezel p-4 sm:p-5 relative overflow-hidden bg-slate-900 text-white shadow-xl">
-                {/* Visual Switcher Pills */}
-                <div className="flex gap-1.5 overflow-x-auto pb-3 mb-3 border-b border-white/10 [scrollbar-width:none]">
-                  {heroVisuals.map((vis, idx) => (
-                    <button
-                      key={vis.id}
-                      type="button"
-                      onClick={() => setActiveVisual(idx)}
-                      className={cn(
-                        "rounded-full px-3 py-1 text-xs font-bold transition-all whitespace-nowrap cursor-pointer",
-                        activeVisual === idx
-                          ? "bg-[#F5D365] text-[#090C10] shadow-sm font-extrabold"
-                          : "bg-white/10 text-slate-300 hover:bg-white/20"
-                      )}
-                    >
-                      {vis.label}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Main Visual Image Window */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-black shadow-inner">
-                  <img
-                    key={activeMedia.id}
-                    src={activeMedia.image}
-                    alt={activeMedia.title}
-                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-
-                  {/* Holographic Verification Chips on Image */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                    <span className="glass-pill rounded-full px-3 py-1 text-[0.68rem] font-bold">
-                      {activeMedia.tag}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/90 text-white px-3 py-1 text-[0.68rem] font-bold shadow-sm backdrop-blur-md">
-                      <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-                      <span>Verified Evidence</span>
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <h3 className="font-display text-base sm:text-lg font-bold text-white drop-shadow-sm">
-                      {activeMedia.title}
-                    </h3>
-                    <p className="text-xs text-[#F5D365] font-semibold mt-0.5">
-                      {activeMedia.highlight}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Digital Visa Hologram Passport Strip */}
-                <div className="mt-4 rounded-2xl bg-white/5 p-3.5 border border-white/10 backdrop-blur-md">
-                  <div className="flex items-center justify-between text-xs pb-2 border-b border-white/10">
-                    <div className="flex items-center gap-2">
-                      <span className="text-base">🎓</span>
-                      <span className="font-bold text-white">Direct Counseling Desk</span>
-                    </div>
-                    <span className="text-[#F5D365] font-semibold">Khan Tower, 359 DIT Road</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 pt-2.5 text-xs">
-                    <a
-                      href="tel:+8801805041710"
-                      className="flex items-center justify-center gap-1.5 rounded-xl bg-white/10 py-2 font-bold text-white hover:bg-white/20 transition-colors"
-                    >
-                      <IconPhone className="w-3.5 h-3.5 text-[#F5D365]" />
-                      <span>01805-041710</span>
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => open()}
-                      className="flex items-center justify-center gap-1.5 rounded-xl bg-[#D4AF37] py-2 font-extrabold text-[#090C10] hover:bg-[#F5D365] transition-colors cursor-pointer"
-                    >
-                      <span>Get Free Assessment</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
+            {/* Slider Dots Indicator */}
+            <div className="flex items-center justify-center gap-1.5 mt-4">
+              {heroSlides.map((s, idx) => (
+                <button
+                  key={s.country}
+                  type="button"
+                  aria-label={`Go to slide ${s.country}`}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300 cursor-pointer",
+                    currentSlide === idx
+                      ? "w-8 bg-red-600"
+                      : "w-2 bg-slate-300 hover:bg-slate-400",
+                  )}
+                />
+              ))}
             </div>
-          </div>
+          </SlideIn>
         </div>
       </div>
     </section>

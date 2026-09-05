@@ -1,74 +1,133 @@
-import { Reveal } from "@/components/reveal";
-import { SectionHeading, IconCheck } from "@/components/ui-blocks";
+import { useState } from "react";
 import { verifiedStudentReviews } from "@/lib/site-data";
-
-function Card({ t }: { t: (typeof verifiedStudentReviews)[number] }) {
-  const initials = t.name
-    .split(" ")
-    .map((w) => w[0])
-    .slice(0, 2)
-    .join("");
-
-  return (
-    <figure className="mx-3 flex w-[21rem] shrink-0 flex-col justify-between rounded-3xl border border-[#D4AF37]/25 bg-white p-6 shadow-sm transition-all hover:border-[#D4AF37] hover:shadow-md sm:w-[25rem]">
-      <div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1 text-[#D4AF37] text-sm" aria-label={`${t.rating} out of 5 stars`}>
-            {Array.from({ length: t.rating }).map((_, i) => (
-              <span key={i}>★</span>
-            ))}
-          </div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FCF8EE] border border-[#D4AF37]/40 px-2.5 py-0.5 text-[0.65rem] font-bold text-[#8A6818]">
-            <IconCheck className="w-3 h-3 text-[#8A6818]" />
-            <span>{t.highlight}</span>
-          </span>
-        </div>
-
-        <blockquote className="mt-4 text-xs sm:text-sm leading-relaxed text-slate-700">
-          “{t.text}”
-        </blockquote>
-      </div>
-
-      <figcaption className="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
-        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#090C10] to-[#151A24] text-xs font-bold text-[#F5D365] shadow-sm border border-[#D4AF37]/40">
-          {initials}
-        </span>
-        <div className="min-w-0 flex-1">
-          <span className="block truncate text-sm font-bold text-slate-900">{t.name}</span>
-          <span className="block truncate text-xs text-slate-500">
-            {t.course}
-          </span>
-          <span className="block text-xs font-semibold text-[#8A6818]">
-            {t.flag} {t.destination}
-          </span>
-        </div>
-      </figcaption>
-    </figure>
-  );
-}
+import { MotionHeading, StaggerContainer, StaggerItem } from "@/components/motion-wrapper";
 
 export function Testimonials() {
-  const loop = [...verifiedStudentReviews, ...verifiedStudentReviews];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const reviews = verifiedStudentReviews.map((r) => ({
+    name: r.name,
+    role: "Student",
+    university: r.destination ? `${r.course} (${r.destination})` : r.course,
+    quote: r.text,
+    stars: 5,
+    countryCode: r.destination?.includes("UK") ? "GB" : r.destination?.includes("Canada") ? "CA" : r.destination?.includes("Australia") ? "AU" : "BD",
+    initials: r.name
+      .split(" ")
+      .map((n) => n[0])
+      .slice(0, 2)
+      .join(""),
+  }));
+
+  const maxIndex = Math.max(0, reviews.length - 3);
+
+  const prev = () => setCurrentIndex((p) => Math.max(0, p - 1));
+  const next = () => setCurrentIndex((p) => Math.min(maxIndex, p + 1));
 
   return (
-    <section className="overflow-hidden bg-[#FAFAFC] py-16 sm:py-24 border-y border-slate-200">
-      <Reveal className="section-shell">
-        <SectionHeading
-          eyebrow="Verified Facebook Reviews (100% Recommended)"
-          title="Student & Guardian Success Stories"
-          subtitle="Real reviews from students granted 3-day UK visas and admissions across University of East London, Southampton Solent, BNU, and European universities guided by Future Edge Education."
+    <section className="relative py-16 sm:py-24 bg-[#FAFAFC] border-b border-slate-200/80 overflow-hidden">
+      <div className="section-shell">
+        {/* Animated Section Header */}
+        <MotionHeading
+          tag="— VERIFIED REVIEWS —"
+          title="What our students"
+          highlight="say"
+          description="Real feedback from students successfully enrolled at leading institutions across the UK, Canada, Australia, and Europe."
+          tagColor="text-red-600"
+          highlightColor="text-[#043E8B]"
         />
-      </Reveal>
 
-      <Reveal delay={120} className="group relative mt-10">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#FAFAFC] to-transparent sm:w-28" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#FAFAFC] to-transparent sm:w-28" />
-        <div className="marquee-track py-2 [animation-duration:45s] group-hover:[animation-play-state:paused]">
-          {loop.map((t, i) => (
-            <Card key={`${t.name}-${i}`} t={t} />
-          ))}
+        {/* Testimonials Carousel Container with Navigation Arrows */}
+        <div className="relative">
+          {/* Arrow Buttons on Left and Right */}
+          <button
+            type="button"
+            aria-label="Previous Testimonial"
+            onClick={prev}
+            disabled={currentIndex === 0}
+            className="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:bg-slate-50 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer font-bold active:scale-95"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            aria-label="Next Testimonial"
+            onClick={next}
+            disabled={currentIndex >= maxIndex}
+            className="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:bg-slate-50 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer font-bold active:scale-95"
+          >
+            ›
+          </button>
+
+          {/* Cards Grid with Stagger Entrance */}
+          <StaggerContainer
+            key={currentIndex}
+            staggerDelay={0.1}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {reviews.slice(currentIndex, currentIndex + 3).map((r) => (
+              <StaggerItem key={r.name} className="h-full">
+                <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full hover-lift">
+                  <div>
+                    {/* Top Quote Icon & 5 Red Stars */}
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="font-serif-editorial text-4xl text-slate-300 leading-none select-none">
+                        “
+                      </span>
+                      <div className="flex items-center gap-1 text-red-600 text-sm">
+                        {Array.from({ length: r.stars }).map((_, i) => (
+                          <span key={i}>★</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Review Text */}
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                      "{r.quote}"
+                    </p>
+                  </div>
+
+                  {/* Bottom Author Row */}
+                  <div className="flex items-center justify-between border-t border-slate-100 pt-5 mt-6">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#043E8B] to-slate-900 text-white font-bold text-xs shadow-xs">
+                        {r.initials}
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-sm font-bold text-slate-900 truncate">
+                          {r.name}
+                        </div>
+                        <div className="text-[0.7rem] text-slate-500 truncate">
+                          {r.university}
+                        </div>
+                      </div>
+                    </div>
+
+                    <span className="shrink-0 rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-black text-slate-700 border border-slate-200">
+                      {r.countryCode}
+                    </span>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          {/* Mobile Carousel Indicators */}
+          <div className="flex sm:hidden items-center justify-center gap-1.5 mt-6">
+            {reviews.slice(0, 5).map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setCurrentIndex(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  currentIndex === idx ? "w-6 bg-red-600" : "w-2 bg-slate-300"
+                }`}
+              />
+            ))}
+          </div>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }
+
