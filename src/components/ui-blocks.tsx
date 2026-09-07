@@ -81,14 +81,14 @@ export function IconWhatsApp({ className = "w-4 h-4" }: { className?: string }) 
 }
 
 export const globalPartners = [
-  { name: "United Kingdom Universities", type: "1-Yr Master's & 2-Yr PSW", tag: "London Office Care" },
-  { name: "Canada Public DLIs", type: "Co-op & 3-Year PGWP", tag: "Fast Permits" },
-  { name: "Australia Top Universities", type: "High Student Wages", tag: "Subclass 500" },
-  { name: "Cyprus English Universities", type: "Affordable €3,000–€5,000", tag: "High Visa Ratio" },
-  { name: "Germany Public Universities", type: "Low / Free Tuition", tag: "18-Mo Job Seeker" },
-  { name: "Finland UAS Network", type: "English Master's Degrees", tag: "Happiest Country" },
-  { name: "USA Accredited Campuses", type: "STEM OPT 3-Year Extension", tag: "F-1 Mock Prep" },
-  { name: "Malaysia Partner Colleges", type: "SSC / Dakhil Entry", tag: "Fast EMGS" },
+  { name: "University of Padova & Italian Public Universities", type: "Tuition Waiver & DSU Scholarship", tag: "Italy Specialist" },
+  { name: "Universitaly Registered Institutions", type: "English-Taught Bachelors & Masters", tag: "Official Portal" },
+  { name: "Sweden & Finland Public Universities", type: "Post-Study Residence & Tech Degrees", tag: "Nordic Study" },
+  { name: "United Kingdom Top Universities", type: "1-Yr Master's & 2-Yr PSW", tag: "British Council" },
+  { name: "Canada Public DLIs", type: "Co-op & 3-Year PGWP", tag: "Direct Admission" },
+  { name: "USA Accredited Campuses", type: "F-1 Visa Interview Prep & STEM OPT", tag: "Embassy Ready" },
+  { name: "Malaysia Partner Universities", type: "Affordable Global Transfer Options", tag: "Fast Visa" },
+  { name: "British Council & IDP IELTS Centers", type: "Band 7+ Specialized Coaching", tag: "Authorized Partner" },
 ];
 
 export function RegisterButton({
@@ -105,7 +105,7 @@ export function RegisterButton({
       onClick={open}
       className={cn("btn-luxury-primary", className)}
     >
-      <IconSparkles className="w-4 h-4" />
+      <IconSparkles className="w-4 h-4 text-slate-950" />
       <span>{label}</span>
     </button>
   );
@@ -127,13 +127,13 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-12 sm:py-16 lg:py-20 border-b border-slate-800">
-      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-red-600/15 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-blue-600/15 blur-[120px]" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#08182B] via-[#0C2340] to-[#08182B] text-white py-12 sm:py-16 lg:py-20 border-b border-amber-500/20">
+      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-amber-400/10 blur-[130px]" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-[130px]" />
 
       {image ? (
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none mix-blend-luminosity"
+          className="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none mix-blend-luminosity"
           style={{ backgroundImage: `url(${image})` }}
         />
       ) : null}
@@ -142,8 +142,8 @@ export function PageHero({
         <div className={cn("grid items-center gap-8 lg:gap-12", image ? "lg:grid-cols-[1.2fr_0.8fr]" : "")}>
           <div>
             {eyebrow ? (
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-500/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-red-400 backdrop-blur-md">
-                <IconSparkles className="w-3.5 h-3.5 text-red-400" />
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-300 backdrop-blur-md">
+                <IconSparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>{eyebrow}</span>
               </div>
             ) : null}
@@ -153,7 +153,7 @@ export function PageHero({
             </h1>
 
             {subtitle ? (
-              <p className="mt-3 sm:mt-4 max-w-2xl text-xs sm:text-sm lg:text-base leading-relaxed text-slate-300 font-medium">
+              <p className="mt-3 sm:mt-4 max-w-2xl text-xs sm:text-sm lg:text-base leading-relaxed text-slate-200 font-medium">
                 {subtitle}
               </p>
             ) : null}
@@ -163,7 +163,7 @@ export function PageHero({
 
           {image ? (
             <div className="relative hidden lg:block">
-              <div className="relative overflow-hidden rounded-3xl border border-red-500/30 bg-slate-900/90 p-3 shadow-2xl backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-[#0C2340]/90 p-3 shadow-2xl backdrop-blur-xl">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-slate-950">
                   <img
                     src={image}
@@ -174,18 +174,18 @@ export function PageHero({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
-                    <span className="rounded-full bg-slate-950/85 px-3 py-1 font-bold backdrop-blur-md border border-white/20 text-red-400">
-                      Dhaka (Aftabnagar) & London E16
+                    <span className="rounded-full bg-slate-950/85 px-3 py-1 font-bold backdrop-blur-md border border-amber-400/30 text-amber-300">
+                      Finlay Square (7th Fl), 2 No. Gate, Chattogram
                     </span>
-                    <span className="rounded-full bg-red-600 px-3 py-1 font-bold text-white shadow-sm">
-                      ● Official Brand Hub
+                    <span className="rounded-full bg-amber-400 px-3 py-1 font-bold text-slate-950 shadow-sm">
+                      ● Official HQ
                     </span>
                   </div>
                 </div>
 
                 <div className="p-3 text-center">
-                  <p className="text-xs font-bold text-white">{company.name} · Education & Travel Advisor</p>
-                  <p className="text-[0.68rem] text-slate-400">100% Free Profile Assessment · Hotline: 01886 91 33 91</p>
+                  <p className="text-xs font-bold text-white">{company.name} · Study Abroad & Language Academy</p>
+                  <p className="text-[0.68rem] text-amber-200/80">100% Free Profile Assessment · Hotline: 01859-870936</p>
                 </div>
               </div>
             </div>
@@ -203,11 +203,11 @@ export function Breadcrumbs({ items }: { items: { label: string; to?: string }[]
         <div key={item.label} className="flex items-center gap-2">
           {i > 0 && <span className="text-slate-600">/</span>}
           {item.to ? (
-            <Link to={item.to} className="transition-colors hover:text-red-500">
+            <Link to={item.to} className="transition-colors hover:text-amber-500">
               {item.label}
             </Link>
           ) : (
-            <span className="font-semibold text-red-600">{item.label}</span>
+            <span className="font-semibold text-amber-600">{item.label}</span>
           )}
         </div>
       ))}
@@ -236,8 +236,8 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <div className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-3.5 py-1 text-xs font-bold text-red-700">
-          <IconSparkles className="w-3.5 h-3.5 text-red-600" />
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1 text-xs font-bold text-amber-900">
+          <IconSparkles className="w-3.5 h-3.5 text-amber-600" />
           <span>{eyebrow}</span>
         </div>
       ) : null}
@@ -279,11 +279,11 @@ export function StatsStrip() {
             key={s.label}
             className={cn("text-center", idx > 0 ? "pt-4 sm:pt-0 sm:px-4" : "")}
           >
-            <div className="font-display text-3xl sm:text-4xl font-black text-red-600 tracking-tight">
+            <div className="font-display text-3xl sm:text-4xl font-black text-[#0C2340] tracking-tight">
               {s.value}
             </div>
             <div className="mt-1 text-xs sm:text-sm font-bold text-slate-800">{s.label}</div>
-            <span className="mt-2 inline-block rounded-full bg-red-50 border border-red-200 px-3 py-0.5 text-[0.68rem] font-bold text-red-700">
+            <span className="mt-2 inline-block rounded-full bg-amber-50 border border-amber-200 px-3 py-0.5 text-[0.68rem] font-bold text-amber-800">
               {s.badge}
             </span>
           </div>
@@ -310,7 +310,7 @@ export function FaqList({
             className={cn(
               "rounded-2xl border transition-all duration-300 overflow-hidden",
               isOpen
-                ? "bg-white border-red-500 shadow-md ring-1 ring-red-500/20"
+                ? "bg-white border-amber-400 shadow-md ring-1 ring-amber-400/20"
                 : "bg-white/80 border-slate-200 hover:border-slate-300 hover:bg-white",
             )}
           >
@@ -325,7 +325,7 @@ export function FaqList({
               <span
                 className={cn(
                   "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-transform duration-300",
-                  isOpen ? "bg-red-600 text-white rotate-180" : "bg-slate-100 text-slate-600",
+                  isOpen ? "bg-[#0C2340] text-amber-300 rotate-180" : "bg-slate-100 text-slate-600",
                 )}
               >
                 ↓
@@ -355,14 +355,14 @@ export function UniversityMarquee() {
   return (
     <section className="relative border-y border-slate-200/80 bg-white py-14 sm:py-20 overflow-hidden">
       <div className="section-shell text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-200 px-3.5 py-1 text-xs font-bold text-[#043E8B] mb-3">
-          <span>TRUSTED PARTNERS</span>
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3.5 py-1 text-xs font-bold text-amber-900 mb-3">
+          <span>TRUSTED GLOBAL INSTITUTIONS</span>
         </div>
         <h2 className="font-display text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-          Our Partner <span className="text-[#043E8B]">Universities</span>
+          Our Global Partner <span className="text-[#0C2340]">Universities & Portals</span>
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 font-medium mt-2 leading-relaxed">
-          We have partnerships with prestigious universities across the UK, Canada, Australia, Cyprus, and Europe to help you achieve your study abroad dreams with confidence and excellence.
+          We process genuine admissions through official university portals and embassy systems across Italy, Sweden, Finland, the UK, Canada, USA, and Malaysia.
         </p>
       </div>
 
@@ -372,7 +372,7 @@ export function UniversityMarquee() {
 
         <motion.div 
           animate={{ x: [0, -50 + "%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
           className="marquee-track flex items-center gap-4 py-2"
         >
           {[...globalPartners, ...globalPartners].map((partner, i) => (
@@ -380,9 +380,9 @@ export function UniversityMarquee() {
               key={`${partner.name}-${i}`}
               className="flex items-center gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/80 px-5 py-3 shadow-xs hover:shadow-md hover:bg-white transition-all whitespace-nowrap"
             >
-              <span className="flex h-2 w-2 rounded-full bg-red-600" />
+              <span className="flex h-2 w-2 rounded-full bg-amber-500" />
               <span className="text-xs sm:text-sm font-bold text-slate-900">{partner.name}</span>
-              <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[0.68rem] font-bold text-[#043E8B] border border-blue-200">
+              <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[0.68rem] font-bold text-amber-800 border border-amber-200">
                 {partner.tag}
               </span>
             </div>
@@ -398,8 +398,8 @@ export function BulletList({ items }: { items: readonly string[] }) {
     <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-2.5">
-          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-600 text-[0.65rem] font-bold border border-red-200">
-            <IconCheck className="w-3 text-red-600" />
+          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-700 text-[0.65rem] font-bold border border-amber-200">
+            <IconCheck className="w-3 text-amber-600" />
           </span>
           <span className="leading-relaxed font-medium">{item}</span>
         </li>
@@ -412,9 +412,9 @@ export function CtaBand() {
   const { open } = useRegisterModal();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-16 sm:py-24 border-t border-slate-800">
-      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-red-600/15 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-blue-600/15 blur-[120px]" />
+    <section className="relative overflow-hidden bg-gradient-to-r from-[#08182B] via-[#0C2340] to-[#08182B] text-white py-16 sm:py-24 border-t border-amber-500/20">
+      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-amber-400/10 blur-[130px]" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-[130px]" />
 
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
@@ -422,31 +422,31 @@ export function CtaBand() {
         viewport={{ once: true }}
         className="section-shell relative z-10 text-center max-w-3xl mx-auto space-y-6"
       >
-        <div className="inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-red-400">
-          <IconGlobe className="w-3.5 h-3.5 text-red-400" />
-          <span>Dual Hubs: Dhaka (Aftabnagar) 🇧🇩 & London (Cranberry Lane) 🇬🇧</span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-300">
+          <IconGlobe className="w-3.5 h-3.5 text-amber-400" />
+          <span>Chattogram Finlay Square HQ & Zeenat Abad Branch · Direct Hotlines</span>
         </div>
 
         <h2 className="font-display text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-          Ready to Start Your Journey Abroad?
+          Ready to Advance Your Education Abroad?
         </h2>
 
-        <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed font-medium">
-          Book your 100% free profile evaluation or language training diagnostic session with Alex Global Consultancy. Zero file-opening charge, complete admissions, visa guidance, and London post-arrival care.
+        <p className="text-xs sm:text-sm text-slate-200 max-w-xl mx-auto leading-relaxed font-medium">
+          Book your 100% free profile evaluation or Language Academy diagnostic session with Academic Allies. Direct European portal applications, zero fake visa risks, official IELTS coaching, and complete pre-departure support.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <button
             type="button"
             onClick={open}
-            className="btn-luxury-primary text-xs sm:text-sm py-3.5 px-8 shadow-xl hover:shadow-red-600/30 active:scale-95 cursor-pointer"
+            className="btn-luxury-primary text-xs sm:text-sm py-3.5 px-8 shadow-xl hover:shadow-amber-400/30 active:scale-95 cursor-pointer text-slate-950 font-bold"
           >
             <span>Book Free Appointment</span>
             <IconArrowRight className="w-4 h-4" />
           </button>
           <a
             href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-              "Hello Alex Global Consultancy! I would like to book a 100% free profile assessment.",
+              "Hello Academic Allies! I would like to book a 100% free study abroad and language training profile assessment.",
             )}`}
             target="_blank"
             rel="noreferrer"

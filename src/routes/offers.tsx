@@ -11,17 +11,17 @@ import { company, upcomingIntakesAndOffers } from "@/lib/site-data";
 export const Route = createFileRoute("/offers")({
   head: () => ({
     meta: [
-      { title: "Upcoming Intakes & Admissions Offers | Alex Global Consultancy" },
+      { title: "Upcoming Intakes & Scholarship Drives | Academic Allies" },
       {
         name: "description",
         content:
-          "Explore upcoming intakes (Jan, May, Sep) for the UK, Canada, Australia, Cyprus, USA, and Europe, alongside new IELTS and Kids English batch schedules at Alex Global Consultancy.",
+          "Explore upcoming European intakes (Italy Padova, Sweden, Finland, UK, Canada), regional DSU scholarship drives (€7,000/yr), and new IELTS batch schedules at Academic Allies in Chattogram.",
       },
-      { property: "og:title", content: "Upcoming Intakes & Offers | Alex Global Consultancy" },
+      { property: "og:title", content: "Upcoming Intakes & Drives | Academic Allies" },
       {
         property: "og:description",
         content:
-          "Secure scholarships, fast-track offer letters, and join new IELTS batches at Alex Global Consultancy Dhaka (Aftabnagar) & London (Cranberry Lane).",
+          "Secure Italian DSU scholarships, university offer letters, and join certified IELTS batches at Academic Allies Finlay Square Chattogram corporate headquarters.",
       },
     ],
   }),
@@ -32,11 +32,11 @@ function Offers() {
   return (
     <>
       <PageHero
-        eyebrow="Admissions & Special Intakes"
-        title="Upcoming Intakes & Academy Admissions"
-        subtitle="Explore active study abroad application deadlines, partner university bursaries, and new IELTS & Kids English coaching schedules across our Dhaka and London network."
-        image="/latest-assets/banner.png"
-        imageAlt="Alex Global Consultancy active admissions and intakes"
+        eyebrow="Admissions, Scholarships & Batch Drives"
+        title="Upcoming European Intakes & Academy Batches"
+        subtitle="Explore active study abroad application deadlines, Italian DSU scholarship drives (€7,000/year + €0 tuition), and new IELTS & Kids English coaching schedules at our Chattogram headquarters."
+        image="/assets/banner.jpg"
+        imageAlt="Academic Allies active admissions and scholarship drives"
       >
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Intakes & Offers" }]} />
       </PageHero>
@@ -45,19 +45,19 @@ function Offers() {
       <section className="section-shell py-14 sm:py-20">
         <SectionHeading
           eyebrow="Active Campaigns"
-          title="Current Intakes, Drives & Academy Batches"
-          subtitle="All sessions below are actively accepting applications with complete transparency, zero file-opening fees, and dedicated Dhaka & London advisory."
+          title="Current Intakes, Scholarship Drives & Academy Batches"
+          subtitle="All sessions below are actively accepting applications with complete transparency, 100% genuine portal processing, and dedicated Chattogram counselor support."
         />
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {upcomingIntakesAndOffers.map((item) => (
             <div
               key={item.id}
-              className="card-clean rounded-3xl p-8 flex flex-col justify-between border border-slate-200 hover:border-red-300 shadow-sm hover:shadow-md transition-all bg-white"
+              className="card-clean rounded-3xl p-8 flex flex-col justify-between border border-slate-200 hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all bg-white"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                  <span className="badge-clean badge-red">
+                  <span className="badge-clean badge-navy">
                     {item.badge}
                   </span>
                   <span className="text-xs font-semibold text-slate-500">
@@ -74,7 +74,7 @@ function Offers() {
 
                 {item.benefits && (
                   <div className="mt-5 rounded-2xl bg-slate-50 p-4 border border-slate-200/80">
-                    <p className="text-[0.68rem] font-bold uppercase tracking-wider text-red-700 mb-2">
+                    <p className="text-[0.68rem] font-bold uppercase tracking-wider text-[#0C2340] mb-2">
                       Key Highlights & Inclusions:
                     </p>
                     <BulletList items={item.benefits} />
@@ -84,7 +84,7 @@ function Offers() {
 
               <div className="mt-8 pt-4 border-t border-slate-100">
                 <a
-                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Alex Global Consultancy, I want to apply / register for: "${item.title}".`)}`}
+                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Academic Allies, I want to apply / register for: "${item.title}".`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-emerald w-full text-center text-xs py-3 shadow-sm"
@@ -102,4 +102,3 @@ function Offers() {
     </>
   );
 }
-

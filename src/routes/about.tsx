@@ -15,17 +15,17 @@ import { company } from "@/lib/site-data";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us | Alex Global Consultancy | Dhaka & London" },
+      { title: "About Us | Academic Allies | Chattogram, Bangladesh" },
       {
         name: "description",
         content:
-          "Learn about Alex Global Consultancy (AGC) — dual-hub study abroad consultancy and language academy with offices in Dhaka (Aftabnagar) and London (Cranberry Lane).",
+          "Learn about Academic Allies — Chittagong's premier European study abroad consultancy and certified language academy headquartered at Finlay Square (7th Floor), CDA Avenue, East Nasirabad, Chattogram.",
       },
-      { property: "og:title", content: "About Alex Global Consultancy | From Dhaka to the World" },
+      { property: "og:title", content: "About Academic Allies | Advancing Education" },
       {
         property: "og:description",
         content:
-          "Official profile of Alex Global Consultancy. 100% free counseling, IELTS Preparation, Spoken English, Kids English, and 8 processed visa categories.",
+          "Official profile of Academic Allies. 100% genuine portal processing, European higher education (Italy, Sweden, Finland, UK, Canada, USA), DSU scholarships, and British Council certified IELTS.",
       },
     ],
   }),
@@ -34,32 +34,32 @@ export const Route = createFileRoute("/about")({
 
 const advisoryWings = [
   {
-    title: "Overseas Admissions & University Matching",
-    hub: "Dhaka & London Hubs",
-    badge: "Study Abroad",
-    icon: "🎓",
-    desc: "Dedicated advisors evaluate academic background, GPA gap, budget, and career goals to secure direct offer letters across 100+ global partner institutions in the UK, Canada, Australia, Cyprus, USA, and Europe.",
+    title: "European Admissions & DSU Scholarship Cell",
+    hub: "Chattogram HQ (Finlay Square)",
+    badge: "Europe Direct",
+    icon: "🏛️",
+    desc: "Specialized advisors for Italian Universitaly portals, University of Padova applications, DOV/CIMEA verification, and regional DSU scholarship filing for up to €7,000/year living stipends and 100% tuition waiver.",
   },
   {
-    title: "IELTS & Language Academy Faculty",
-    hub: "Dhaka Campus & Online",
+    title: "Academic Allies Language Academy",
+    hub: "Executive Language Labs",
     badge: "Language Academy",
     icon: "🎯",
-    desc: "Certified trainers conducting intensive IELTS preparation (target Band 7.0+), practical Spoken English fluency for adults, and joyful Kids English & Spoken Foundation courses for young learners.",
+    desc: "British Council & IDP certified faculty delivering intensive IELTS preparation (target Band 7.0+), practical Spoken English fluency for career growth, and engaging Kids English Foundation programs.",
   },
   {
-    title: "Visa Compliance & Embassy Documentation Cell",
-    hub: "Executive Desk",
-    badge: "8 Visa Types",
+    title: "Embassy Visa Integrity & Portal Filing Cell",
+    hub: "Compliance Wing",
+    badge: "100% Genuine",
     icon: "🛂",
-    desc: "Thorough documentation auditing, financial sponsorship verification, and 1-on-1 embassy mock interviews for Student, Spouse, Tourist, Business, and Work categories with maximum approval rates.",
+    desc: "Strict anti-fraud protocol ('Dalaler Fake Visa Noy'). Every student dossier is verified and submitted directly through official embassy and university portals with rigorous 1-on-1 mock interview preparation.",
   },
   {
-    title: "Pre-Departure & UK Student Welfare Desk",
-    hub: "London Office (E16 4BJ)",
-    badge: "London Liaison",
-    icon: "🇬🇧",
-    desc: "Direct on-ground assistance in London for airport pick-up coordination, student accommodation search, bank file assistance, and post-arrival settlement across the UK.",
+    title: "Pre-Departure & Global Scholar Care Desk",
+    hub: "Chattogram HQ & Branch",
+    badge: "Scholar Care",
+    icon: "✈️",
+    desc: "Comprehensive pre-departure briefings, currency exchange guidance, European student accommodation assistance, Italian Codice Fiscale, and post-arrival settlement support in Europe.",
   },
 ];
 
@@ -67,11 +67,11 @@ function About() {
   return (
     <>
       <PageHero
-        eyebrow="Our Story & Dual Global Hubs"
-        title="From Dhaka to the World"
-        subtitle="Alex Global Consultancy (AGC) bridges ambitious students and families to world-class higher education, comprehensive visa solutions, and English language mastery through dedicated offices in Dhaka and London."
-        image="/latest-assets/banner.png"
-        imageAlt="Alex Global Consultancy corporate banner and dual global hubs"
+        eyebrow="Our Story & Educational Mission"
+        title="Advancing Education Across Borders"
+        subtitle="Academic Allies is Chittagong's premier European higher education consultancy and language academy, empowering ambitious scholars through genuine university admissions, regional scholarships, and English mastery."
+        image="/assets/banner.jpg"
+        imageAlt="Academic Allies corporate headquarters and student orientations"
       >
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "About Us" }]} />
       </PageHero>
@@ -85,7 +85,7 @@ function About() {
               <BrandLogo size={56} />
               <div>
                 <h3 className="font-display text-xl font-bold text-slate-900">{company.name}</h3>
-                <span className="inline-block rounded-full bg-red-50 border border-red-200 px-3 py-0.5 text-xs font-bold text-red-700 mt-1">
+                <span className="inline-block rounded-full bg-amber-50 border border-amber-200 px-3 py-0.5 text-xs font-bold text-amber-900 mt-1">
                   {company.presence}
                 </span>
               </div>
@@ -97,28 +97,28 @@ function About() {
                 <dd className="font-bold text-slate-900 text-right">{company.legalName}</dd>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-3">
-                <dt className="text-slate-500 font-medium">Dhaka Corporate Office</dt>
+                <dt className="text-slate-500 font-medium">Chattogram Corporate HQ</dt>
                 <dd className="font-bold text-slate-900 text-right max-w-[240px]">
-                  {company.offices.dhaka.address}
+                  {company.headquarters.full}
                 </dd>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-3">
-                <dt className="text-slate-500 font-medium">London Branch Office</dt>
-                <dd className="font-bold text-blue-900 text-right max-w-[240px]">
-                  {company.offices.london.address}
+                <dt className="text-slate-500 font-medium">Chattogram Branch</dt>
+                <dd className="font-bold text-[#0C2340] text-right max-w-[240px]">
+                  {company.offices.chattogramBranch.address}
                 </dd>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-3">
                 <dt className="text-slate-500 font-medium">Language Academy</dt>
-                <dd className="font-bold text-red-700 text-right">IELTS • Spoken • Kids English</dd>
+                <dd className="font-bold text-amber-800 text-right">IELTS Band 7+ • Spoken • Kids English</dd>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-3">
                 <dt className="text-slate-500 font-medium">Core Philosophy</dt>
                 <dd className="font-bold text-slate-900">{company.philosophy}</dd>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-3">
-                <dt className="text-slate-500 font-medium">Consulting Fee</dt>
-                <dd className="font-bold text-emerald-700">100% Free (Zero File-Opening Charge)</dd>
+                <dt className="text-slate-500 font-medium">Consulting Integrity</dt>
+                <dd className="font-bold text-emerald-700">100% Genuine Portals (Zero Fake Visas)</dd>
               </div>
               <div className="flex justify-between pt-1">
                 <dt className="text-slate-500 font-medium">Hotlines & WhatsApp</dt>
@@ -128,23 +128,23 @@ function About() {
 
             <div className="mt-8 rounded-2xl bg-slate-50 p-4 border border-slate-200">
               <p className="text-xs font-bold text-slate-900 mb-1">Official Motto:</p>
-              <p className="text-xs italic text-red-700">"{company.slogan}" · {company.taglineBn}</p>
+              <p className="text-xs italic text-amber-800">"{company.slogan}" · {company.taglineBn}</p>
             </div>
           </div>
 
           {/* Right Column: Mission, Vision & Guiding Principles */}
           <div className="space-y-6">
-            <span className="badge-clean badge-red">
+            <span className="badge-clean badge-navy">
               Our Vision & Mission
             </span>
             <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
-              Global Standards • Ethical Counseling • Lasting Success
+              Academic Excellence • Zero Fraud • Proven Scholar Success
             </h2>
             <p className="text-sm leading-relaxed text-slate-600">
-              At Alex Global Consultancy (AGC), we believe that global education and international migration should be transparent, accessible, and free of false promises. With our corporate base in Aftabnagar, Dhaka, and an active UK branch in London (The Arches Cranberry Lane), we maintain end-to-end stewardship of every student's journey.
+              Academic Allies was established with a singular mission: to protect aspiring students from fraudulent middlemen and deliver transparent, world-class pathways to prestigious European and global universities. Operating out of our corporate headquarters at Finlay Square (7th Floor), CDA Avenue, Chattogram, we manage the entire academic life cycle with rigorous precision.
             </p>
             <p className="text-sm leading-relaxed text-slate-600">
-              Beyond university placements, AGC operates a dedicated English Language Academy offering rigorous IELTS preparation, spoken fluency for professionals, and fun foundational English for young children. Furthermore, our visa division processes 8 core visa categories ensuring complete family and corporate mobility.
+              From Italian Universitaly portals and DSU Regional Scholarships (€7,000/year living grant with zero tuition) to Nordic admissions in Sweden and Finland, our students receive accredited guidance. Simultaneously, our in-house Language Academy prepares candidates for British Council/IDP certified IELTS Band 7.0+, executive Spoken English, and Kids English Foundation.
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2 pt-2">
@@ -153,7 +153,7 @@ function About() {
                   🎯 Our Mission
                 </h4>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  To empower Bangladeshi students and professionals with ethical guidance, high-standard language skills, and seamless visa processing to achieve their global aspirations.
+                  To provide transparent, 100% genuine higher education pathways to European and world-ranked universities while delivering premier English language training.
                 </p>
               </div>
 
@@ -162,21 +162,21 @@ function About() {
                   🔭 Our Vision
                 </h4>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  To be Bangladesh's most reliable dual-hub consultancy, recognized for genuine international presence, high visa success rates, and zero hidden costs.
+                  To be Bangladesh's most trusted educational bridge to Europe, renowned for scholarship excellence, anti-fraud standards, and proven student success.
                 </p>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-linear-to-r from-red-50/60 via-slate-50 to-blue-50/60 border border-slate-200 p-5">
-              <h4 className="font-display text-sm font-bold text-red-700 mb-2">
-                🌟 The Alex Global Pillars:
+            <div className="rounded-2xl bg-linear-to-r from-amber-50/60 via-slate-50 to-blue-50/60 border border-slate-200 p-5">
+              <h4 className="font-display text-sm font-bold text-[#0C2340] mb-2">
+                🌟 The Academic Allies Pillars:
               </h4>
               <BulletList
                 items={[
-                  "Dual Hub Support: Direct physical offices in Dhaka (Aftabnagar) and London (Cranberry Lane).",
-                  "Zero File-Opening Charge: 100% free profile evaluation, university shortlisting, and career advice.",
-                  "Comprehensive Language Academy: Expert IELTS coaching (Band 7.0+), Spoken English, and Kids English.",
-                  "Full Spectrum Visa Processing: 8 categories including Student, Spouse, Tourist, Business, and Work permits.",
+                  "Zero Fake Visa Traps: 100% genuine direct university and embassy portal processing.",
+                  "European Scholarship Leadership: Expert Italian DSU scholarship filing (€7,000/year + €0 tuition).",
+                  "British Council Partner Academy: Proven IELTS coaching (Target Band 7.0+), Spoken English, and Kids English.",
+                  "Chattogram Central Location: Easily accessible at Finlay Square (7th Floor), 2 No. Gate, East Nasirabad.",
                 ]}
               />
             </div>
@@ -184,38 +184,38 @@ function About() {
         </div>
       </section>
 
-      {/* Dual Global Presence Spotlight */}
+      {/* Corporate Presence Spotlight */}
       <section className="section-shell py-12 border-t border-slate-200">
-        <div className="rounded-3xl bg-slate-950 border border-slate-800 p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+        <div className="rounded-3xl bg-[#0C2340] border border-slate-800 p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div>
-              <span className="badge-clean badge-red text-xs">
-                Direct Global Infrastructure
+              <span className="badge-clean badge-gold text-xs">
+                Chattogram Headquarters & Branch Network
               </span>
               <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-white">
-                Dhaka Corporate Hub & London Branch Desk
+                Finlay Square Corporate Center & Zeenat Abad Branch
               </h3>
               <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Most agencies end their responsibility when a student boards the flight. At Alex Global Consultancy, our London office at The Arches Cranberry Lane (London E16 4BJ) welcomes students on the ground, assisting with accommodation, local transportation, university registration, and ongoing student welfare.
+                Academic Allies welcomes students and guardians to our state-of-the-art counseling suites at Finlay Square (7th Floor), CDA Avenue, East Nasirabad, Chattogram. Here, certified counselors evaluate your academic transcripts, map out European scholarship eligibility, and guide you through each stage of the application.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <div className="rounded-2xl border border-slate-700 bg-slate-900/80 p-4">
-                  <p className="text-xs font-bold text-red-400">📍 Dhaka Corporate Campus</p>
-                  <p className="text-[0.75rem] text-slate-300 mt-1">{company.offices.dhaka.address}</p>
+                  <p className="text-xs font-bold text-[#D4AF37]">📍 Corporate Headquarters</p>
+                  <p className="text-[0.75rem] text-slate-300 mt-1">{company.headquarters.full}</p>
                   <p className="text-[0.75rem] text-slate-400 mt-1">📞 {company.phones[0]} / {company.phones[1]}</p>
                 </div>
                 <div className="rounded-2xl border border-slate-700 bg-slate-900/80 p-4">
-                  <p className="text-xs font-bold text-blue-400">🇬🇧 London Branch Office</p>
-                  <p className="text-[0.75rem] text-slate-300 mt-1">{company.offices.london.address}</p>
-                  <p className="text-[0.75rem] text-slate-400 mt-1">📞 {company.offices.london.phone}</p>
+                  <p className="text-xs font-bold text-emerald-400">🏛️ Branch Office</p>
+                  <p className="text-[0.75rem] text-slate-300 mt-1">{company.offices.chattogramBranch.address}</p>
+                  <p className="text-[0.75rem] text-slate-400 mt-1">📞 {company.phones[2]} / {company.phones[3]}</p>
                 </div>
               </div>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900">
+            <div className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 bg-slate-900">
               <img
-                src="/latest-assets/banner.png"
-                alt="Alex Global Consultancy dual hubs in Dhaka and London"
+                src="/assets/banner.jpg"
+                alt="Academic Allies Corporate Headquarters at Finlay Square Chattogram"
                 width={800}
                 height={500}
                 className="w-full h-full object-cover"
@@ -235,14 +235,14 @@ function About() {
         <SectionHeading
           eyebrow="Specialized Advisory Wings"
           title="Our Operational Divisions"
-          subtitle="Experienced professionals dedicated to university admissions, language training, visa processing, and student logistics."
+          subtitle="Experienced professionals dedicated to European admissions, language training, scholarship filing, and pre-departure settlement."
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {advisoryWings.map((wing) => (
             <div
               key={wing.title}
-              className="card-clean rounded-3xl p-6 flex flex-col justify-between border border-slate-200 hover:border-red-300 shadow-sm hover:shadow-md transition-all bg-white"
+              className="card-clean rounded-3xl p-6 flex flex-col justify-between border border-slate-200 hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all bg-white"
             >
               <div>
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -252,7 +252,7 @@ function About() {
                 <h3 className="mt-4 font-display text-base font-bold text-slate-900 leading-snug">
                   {wing.title}
                 </h3>
-                <p className="text-[0.68rem] font-bold text-red-700 mt-0.5">
+                <p className="text-[0.68rem] font-bold text-[#0C2340] mt-0.5">
                   📍 {wing.hub}
                 </p>
                 <p className="mt-3 text-xs text-slate-600 leading-relaxed">
@@ -262,10 +262,10 @@ function About() {
 
               <div className="mt-6 pt-4 border-t border-slate-100">
                 <a
-                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Alex Global Consultancy, I want to consult your "${wing.title}" division.`)}`}
+                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Academic Allies, I want to consult your "${wing.title}" division.`)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs font-bold text-red-700 hover:underline flex items-center justify-center gap-1.5"
+                  className="text-xs font-bold text-[#0C2340] hover:text-[#D4AF37] hover:underline flex items-center justify-center gap-1.5"
                 >
                   <span>Connect with Division →</span>
                 </a>
@@ -278,9 +278,9 @@ function About() {
       {/* Campus & Video Gallery */}
       <section className="section-shell py-14 sm:py-20 border-t border-slate-200 bg-slate-50/50">
         <SectionHeading
-          eyebrow="Dual-Hub Presence"
-          title="Offices, Videos & Global Network"
-          subtitle="Discover our verified Dhaka and London facilities, student orientations, and official video broadcasts."
+          eyebrow="Verified Community"
+          title="Offices, Videos & Scholar Testimonials"
+          subtitle="Discover our verified Chattogram headquarters at Finlay Square, student visa celebrations, and official Facebook broadcasts."
         />
         <div className="mt-10">
           <OfficeGallery />
@@ -292,4 +292,3 @@ function About() {
     </>
   );
 }
-

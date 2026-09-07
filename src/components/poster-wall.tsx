@@ -6,13 +6,28 @@ import { company } from "@/lib/site-data";
 const posters = [
   {
     key: "banner",
-    src: "/latest-assets/banner.png",
-    label: "Alex Global Consultancy — Official Corporate Banner & Global Destinies",
+    src: "/assets/banner.jpg",
+    label: "Academic Allies — Official Corporate Headquarters & Advancing Education",
   },
   {
     key: "logo",
-    src: "/latest-assets/logo.jpg",
-    label: "Alex Global Consultancy — Official Brand Emblem",
+    src: "/assets/logo.jpg",
+    label: "Academic Allies — Official Crest & Brand Emblem",
+  },
+  {
+    key: "success1",
+    src: "/assets/succes.jpg",
+    label: "Academic Allies — Verified European Visa Success (Italy & Europe)",
+  },
+  {
+    key: "success2",
+    src: "/assets/succes 2.jpg",
+    label: "Academic Allies — Student Visa & DSU Scholarship Grant Celebration",
+  },
+  {
+    key: "success3",
+    src: "/assets/succes 3 revwie.jpg",
+    label: "Academic Allies — 100% Recommended Student Review & Testimonial",
   },
 ];
 
@@ -24,9 +39,9 @@ export function PosterWall() {
     <section className="bg-slate-50 py-14 sm:py-20 border-y border-slate-200">
       <Reveal className="section-shell">
         <SectionHeading
-          eyebrow="Official Brand Assets"
-          title="Official Visuals & Brand Memorabilia"
-          subtitle="Explore official assets and brand emblems from Alex Global Consultancy — click any asset to enlarge."
+          eyebrow="Verified Brand Assets"
+          title="Official Visuals, Visas & Testimonials"
+          subtitle="Explore official assets, visa celebrations, and brand emblems from Academic Allies — click any asset to enlarge."
         />
       </Reveal>
 
@@ -36,7 +51,7 @@ export function PosterWall() {
             <button
               type="button"
               onClick={() => setActive(p.key)}
-              className="card-clean group block w-64 sm:w-72 overflow-hidden rounded-3xl text-left transition-all hover:scale-[1.02] cursor-pointer border border-slate-200 hover:border-red-300"
+              className="card-clean group block w-64 sm:w-72 overflow-hidden rounded-3xl text-left transition-all hover:scale-[1.02] cursor-pointer border border-slate-200 hover:border-[#D4AF37]"
             >
               <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
                 <img
@@ -50,8 +65,8 @@ export function PosterWall() {
                 <span className="block text-xs font-bold text-slate-900 leading-snug line-clamp-2">
                   {p.label}
                 </span>
-                <span className="mt-2 inline-flex items-center gap-1 text-[0.68rem] font-bold text-red-700">
-                  <span>✨</span> AGC Verified Brand Asset
+                <span className="mt-2 inline-flex items-center gap-1 text-[0.68rem] font-bold text-[#0C2340]">
+                  <span>✨</span> Verified Academic Allies Asset
                 </span>
               </div>
             </button>
@@ -76,13 +91,13 @@ export function PosterWall() {
             />
             <div className="p-3 text-center">
               <p className="text-sm font-bold text-white">{activePoster.label}</p>
-              <p className="text-xs text-slate-300 mt-0.5">{company.legalName} · {company.offices.dhaka.address}</p>
+              <p className="text-xs text-slate-300 mt-0.5">{company.name} · {company.headquarters.full}</p>
             </div>
             <button
               type="button"
               aria-label="Close"
               onClick={() => setActive(null)}
-              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/80 text-white border border-slate-700 shadow-md hover:bg-red-600 hover:text-white transition-colors"
+              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950/80 text-white border border-slate-700 shadow-md hover:bg-[#0C2340] hover:text-[#D4AF37] transition-colors"
             >
               ✕
             </button>
@@ -92,4 +107,3 @@ export function PosterWall() {
     </section>
   );
 }
-

@@ -19,17 +19,17 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services & Courses | Alex Global Consultancy — Study Abroad, IELTS, Spoken & Kids English" },
+      { title: "Services & Language Academy | Academic Allies — European Admissions & IELTS" },
       {
         name: "description",
         content:
-          "Explore Alex Global Consultancy services: 100% Free Profile Assessment, Higher Education Abroad Admissions, IELTS Masterclass (Band 7+), Spoken English, Kids English & 8 Visa Categories. Dhaka & London Offices.",
+          "Explore Academic Allies services: 100% Genuine Portal Processing, European Higher Education (Italy Padova, Sweden, Finland, UK, Canada, USA), DSU Regional Scholarships up to €7,000/yr, British Council Certified IELTS (Band 7+), Spoken English & Kids English. Headquarters: Finlay Square (7th Floor), Chattogram.",
       },
-      { property: "og:title", content: "Services & Courses | Alex Global Consultancy" },
+      { property: "og:title", content: "Services & Academy | Academic Allies — Advancing Education" },
       {
         property: "og:description",
         content:
-          "Comprehensive Study Abroad Admissions, IELTS Preparation, Spoken English, Kids English & Visa Guidance. Dhaka (Aftabnagar) & London (Cranberry Lane). Hotline: 01886 91 33 91.",
+          "Comprehensive European University Admissions, DSU Scholarships, Certified IELTS Coaching, and Genuine Portal Visa Guidance. Finlay Square (7th Floor), CDA Avenue, Chattogram. Hotline: 01859-870936.",
       },
     ],
   }),
@@ -38,71 +38,71 @@ export const Route = createFileRoute("/services")({
 
 const serviceCategories = [
   { id: "all", label: "All Offerings" },
-  { id: "study-abroad", label: "Study Abroad Admissions" },
+  { id: "study-abroad", label: "European & Global Admissions" },
   { id: "language-courses", label: "Language Academy (IELTS & English)" },
-  { id: "visa-guidance", label: "8 Visa Categories" },
-  { id: "logistics", label: "Pre-Departure & London Hub" },
+  { id: "scholarships", label: "DSU & European Scholarships" },
+  { id: "visa-guidance", label: "Embassy Portals & Mocks" },
 ];
 
 const comparisonData = [
   {
-    feature: "File-Opening & Initial Counseling",
-    alexGlobal: "100% Free (Zero File-Opening Charge)",
-    traditional: "৳15,000 – ৳30,000 upfront non-refundable fee",
+    feature: "Ethical Standards & Integrity",
+    academicAllies: "100% Genuine Portals (Zero Fake Visas / 'Dalaler Fake Visa Noy')",
+    traditional: "Fraudulent fake work permit schemes resulting in embassy bans",
     highlight: true,
   },
   {
-    feature: "Direct UK & European Presence",
-    alexGlobal: "London Branch Office (The Arches Cranberry Lane E16)",
-    traditional: "No overseas office; students are left on their own after flying",
+    feature: "European DSU Scholarship Support",
+    academicAllies: "Up to €7,000/yr stipend + 100% tuition waiver (Padova/Rome/Milan)",
+    traditional: "Zero knowledge of Italian regional welfare (DSU / ER.GO)",
     highlight: true,
   },
   {
     feature: "In-House Language Academy",
-    alexGlobal: "IELTS Band 7+, Spoken English & Kids English Batches",
-    traditional: "Consultancy only; no dedicated coaching or mock test facility",
+    academicAllies: "British Council & IDP Certified IELTS (Band 7+), Spoken & Kids English",
+    traditional: "Consultancy only; no dedicated language lab or mock facility",
     highlight: true,
   },
   {
-    feature: "Visa Categories Handled",
-    alexGlobal: "8 Visa Types: Student, Spouse, Visit, Business, Work, Medical, Migration, Sports",
-    traditional: "Strictly student visas only; unable to assist families or visits",
+    feature: "Application Transparency",
+    academicAllies: "Direct Universitaly, CIMEA, DOV and Embassy portal credentials",
+    traditional: "Hidden application accounts managed by unverified third parties",
+    highlight: true,
+  },
+  {
+    feature: "Partner University Direct Access",
+    academicAllies: "100+ Accredited Universities across Italy, Sweden, Finland, UK, Canada, USA",
+    traditional: "Restricted to a few aggressive commission-based colleges",
     highlight: false,
   },
   {
-    feature: "University Network & Support",
-    alexGlobal: "100+ Accredited Universities in UK, USA, Canada, Australia, Cyprus, Europe",
-    traditional: "Limited to a few commercial private colleges",
-    highlight: false,
-  },
-  {
-    feature: "Post-Arrival Care",
-    alexGlobal: "Airport Pickup, Student Accommodation, Bank Account & London Office Welcome",
-    traditional: "Service stops once the visa stamp is received in Dhaka",
+    feature: "Physical Chattogram Accessibility",
+    academicAllies: "Corporate HQ: Finlay Square (7th Floor), CDA Avenue + Zeenat Abad Branch",
+    traditional: "Temporary rented spaces without long-term local accountability",
     highlight: true,
   },
 ];
 
 const serviceFaqs = [
   {
-    q: "Is Alex Global Consultancy truly 100% free with no hidden charges?",
-    a: "Yes, absolutely. We do not charge any file-opening fees, processing fees, or profile assessment charges for higher education admissions. Official statutory expenses (such as university tuition deposits, embassy visa application fees, and medical tests) are paid directly to the respective institutions.",
+    q: "How does Academic Allies assist with Italian University admissions?",
+    a: "We guide you through the entire Italian academic cycle: course selection at top universities like University of Padova, Universitaly pre-enrollment portal filing, CIMEA/DOV document legalization, and regional DSU scholarship applications for up to €7,000/year living allowance.",
+  },
+  {
+    q: "What is your stance against fraudulent visa agencies?",
+    a: "We actively campaign against fake visa traps ('Dalaler Fake Visa Noy'). Every application processed through Academic Allies is submitted directly to official government portals, accredited universities, and authorized embassy visa centers with verified documentation.",
   },
   {
     q: "What language training batches are currently available?",
-    a: "We offer three core programs at our Dhaka Aftabnagar campus and online: 1) IELTS Preparation Masterclass (Academic & General Training with weekly mock tests), 2) Spoken English & Communication Fluency (24 live interactive sessions), and 3) Kids English & Spoken Foundation for children aged 5 to 14 years.",
+    a: "Our Language Academy offers three core programs at our Chattogram center and online: 1) IELTS Preparation Masterclass (target Band 7.0+ with British Council/IDP certified trainers), 2) Spoken English & Workplace Communication, and 3) Kids English Foundation for young learners.",
   },
   {
-    q: "How does your London office assist Bangladeshi students?",
-    a: "Our London Branch Office (The Arches Cranberry Lane, London E16 4BJ, UK) provides on-ground guidance after you land in the UK: airport pickup coordination, safe student accommodation search, UK bank account opening advice, and ongoing academic support.",
+    q: "Can I apply to European universities without IELTS?",
+    a: "Yes! Many European universities accept Medium of Instruction (MOI) certificates from accredited institutions if your prior degree was taught in English. Additionally, we evaluate internal university English proficiency tests and Duolingo where permitted.",
   },
   {
-    q: "Which visa categories can Alex Global Consultancy process?",
-    a: "We process 8 core categories: Student Visa, Spouse & Dependent Visa, Tourist/Visit Visa (Europe Schengen 27, UK, USA, Canada, Asia), Business Visa, Work Permit Visa, Medical Visa, Migration Visa, and Sports Visa.",
-  },
-  {
-    q: "Can I apply to study in the UK or Europe without IELTS?",
-    a: "Yes! If you graduated from an accredited institution where English was the Medium of Instruction (MOI), we provide verified admission pathways at partner universities in the UK, Cyprus, Malaysia, and selected European destinations.",
+    q: "Where is Academic Allies located in Chittagong?",
+    a: "Our corporate headquarters is located at Finlay Square (7th Floor), CDA Avenue, 2 No. Gate, East Nasirabad, Chattogram. We also operate our Zeenat Abad branch in Chittagong-4203.",
   },
 ];
 
@@ -115,11 +115,11 @@ function Services() {
     <>
       {/* 1. High-Impact Page Hero with Breadcrumbs */}
       <PageHero
-        eyebrow="Admissions, Courses & Visas"
-        title="Comprehensive Education & Travel Advisory"
-        subtitle="100% free profile evaluation, university admissions across 100+ global partners, certified IELTS & Spoken English coaching, and all 8 visa categories backed by our Dhaka and London offices."
-        image="/latest-assets/banner.png"
-        imageAlt="Alex Global Consultancy study abroad admissions and language academy"
+        eyebrow="European Admissions, Scholarships & Academy"
+        title="Comprehensive Education Advisory & Language Training"
+        subtitle="100% genuine portal processing, Italian DSU scholarships up to €7,000/yr, top Nordic and UK admissions, and British Council certified IELTS coaching at our Chattogram corporate headquarters."
+        image="/assets/banner.jpg"
+        imageAlt="Academic Allies European study abroad and language academy"
       >
         <div className="space-y-6">
           <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Services" }]} />
@@ -127,21 +127,21 @@ function Services() {
             <button
               type="button"
               onClick={open}
-              className="btn-luxury-primary text-xs sm:text-sm py-3.5 px-8 shadow-xl hover:shadow-red-600/30"
+              className="btn-luxury-primary text-xs sm:text-sm py-3.5 px-8 shadow-xl"
             >
               <span>Book Free Profile Assessment</span>
               <IconSparkles className="w-4 h-4" />
             </button>
             <a
               href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-                "Hello Alex Global Consultancy! I would like to inquire about your services and courses.",
+                "Hello Academic Allies! I would like to inquire about your European admissions, DSU scholarships, and language academy batches.",
               )}`}
               target="_blank"
               rel="noreferrer"
               className="btn-luxury-secondary text-xs sm:text-sm py-3.5 px-7 shadow-xl text-slate-900"
             >
               <IconWhatsApp className="w-4 h-4 text-emerald-600" />
-              <span>WhatsApp: 01886 91 33 91</span>
+              <span>WhatsApp: {company.phones[0]}</span>
             </a>
           </div>
         </div>
@@ -159,7 +159,7 @@ function Services() {
                 className={cn(
                   "rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer",
                   activeCategory === cat.id
-                    ? "bg-red-600 text-white shadow-md border border-red-500"
+                    ? "bg-[#0C2340] text-[#D4AF37] shadow-md border border-[#0C2340]"
                     : "bg-slate-100 text-slate-700 hover:bg-slate-200",
                 )}
               >
@@ -174,15 +174,15 @@ function Services() {
       {(activeCategory === "all" || activeCategory === "language-courses") && (
         <section className="section-shell py-16">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 mb-3">
-              <IconSparkles className="w-3.5 h-3.5 text-red-600" />
-              <span>Alex Global Language Academy</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200 px-3.5 py-1 text-xs font-bold text-amber-900 mb-3">
+              <IconSparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Academic Allies Language Academy</span>
             </div>
             <h2 className="font-display text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              IELTS, Spoken English & <span className="text-red-600">Kids English</span>
+              IELTS, Spoken English & <span className="text-[#0C2340]">Kids English</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-2">
-              Certified instructors, small batch sizes, and modern interactive classrooms located at our Dhaka Aftabnagar campus and live online.
+              British Council & IDP certified faculty, interactive language labs, and small batches at Finlay Square (7th Floor), Chattogram and online.
             </p>
           </div>
 
@@ -190,14 +190,14 @@ function Services() {
             {courses.map((course) => (
               <div
                 key={course.slug}
-                className="rounded-3xl border border-slate-200 bg-white p-7 shadow-md flex flex-col justify-between hover:border-red-500/50 hover:shadow-xl transition-all"
+                className="rounded-3xl border border-slate-200 bg-white p-7 shadow-md flex flex-col justify-between hover:border-[#D4AF37] hover:shadow-xl transition-all"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-4xl p-2 rounded-2xl bg-red-50 border border-red-200/80">
+                    <span className="text-4xl p-2 rounded-2xl bg-amber-50 border border-amber-200/80">
                       {course.icon}
                     </span>
-                    <span className="rounded-full bg-red-100 text-red-700 border border-red-200 px-3 py-1 text-xs font-bold">
+                    <span className="rounded-full bg-[#0C2340] text-[#D4AF37] px-3 py-1 text-xs font-bold">
                       {course.badge}
                     </span>
                   </div>
@@ -206,7 +206,7 @@ function Services() {
                     <h3 className="font-display text-xl font-black text-slate-900">
                       {course.title}
                     </h3>
-                    <p className="text-xs font-semibold text-red-600 mt-0.5">
+                    <p className="text-xs font-semibold text-amber-800 mt-0.5">
                       {course.subtitle}
                     </p>
                   </div>
@@ -249,14 +249,14 @@ function Services() {
                   <button
                     type="button"
                     onClick={open}
-                    className="btn-luxury-primary w-full text-xs py-3 justify-center shadow-md hover:shadow-red-600/30"
+                    className="btn-luxury-primary w-full text-xs py-3 justify-center shadow-md"
                   >
                     <span>Enroll / Free Diagnostic Test</span>
                     <span>→</span>
                   </button>
                   <a
                     href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-                      `Hello Alex Global Language Academy! I want to join the next ${course.title} batch. Please send fee and schedule.`,
+                      `Hello Academic Allies Language Academy! I want to join the next ${course.title} batch. Please send fee and schedule.`,
                     )}`}
                     target="_blank"
                     rel="noreferrer"
@@ -273,18 +273,18 @@ function Services() {
       )}
 
       {/* 4. Core Educational Services Grid */}
-      {(activeCategory === "all" || activeCategory === "study-abroad" || activeCategory === "logistics") && (
+      {(activeCategory === "all" || activeCategory === "study-abroad" || activeCategory === "scholarships") && (
         <section className="section-shell py-16 border-t border-slate-200">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 mb-3">
-              <IconSparkles className="w-3.5 h-3.5 text-red-600" />
-              <span>Full Lifecycle Advisory</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200 px-3.5 py-1 text-xs font-bold text-amber-900 mb-3">
+              <IconSparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Full Lifecycle Guidance</span>
             </div>
             <h2 className="font-display text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Higher Education Admissions & <span className="text-red-600">Student Care</span>
+              European Admissions, DSU Scholarships & <span className="text-[#0C2340]">Student Care</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-2">
-              From university course matching in Dhaka to accommodation finding in London, we provide honest end-to-end guidance.
+              From Universitaly portal filing in Chattogram to Italian Codice Fiscale and DSU scholarship disbursement in Europe, we provide 100% verified guidance.
             </p>
           </div>
 
@@ -292,13 +292,13 @@ function Services() {
             {services.map((service) => (
               <div
                 key={service.slug}
-                className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm flex flex-col justify-between hover:border-red-500/40 hover:shadow-lg transition-all"
+                className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm flex flex-col justify-between hover:border-[#D4AF37] hover:shadow-lg transition-all"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">{service.icon}</span>
                     {service.highlightBadge && (
-                      <span className="rounded-full bg-red-50 text-red-700 border border-red-200 px-2.5 py-0.5 text-[0.68rem] font-bold">
+                      <span className="rounded-full bg-amber-50 text-amber-900 border border-amber-200 px-2.5 py-0.5 text-[0.68rem] font-bold">
                         {service.highlightBadge}
                       </span>
                     )}
@@ -322,7 +322,7 @@ function Services() {
                   <button
                     type="button"
                     onClick={open}
-                    className="text-red-600 font-bold hover:underline flex items-center gap-1 cursor-pointer"
+                    className="text-[#0C2340] font-bold hover:text-[#D4AF37] hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     <span>Apply Now</span>
                     <span>→</span>
@@ -334,99 +334,44 @@ function Services() {
         </section>
       )}
 
-      {/* 5. All 8 Visa Categories Comprehensive Showcase */}
-      {(activeCategory === "all" || activeCategory === "visa-guidance") && (
-        <section className="section-shell py-16 border-t border-slate-200">
-          <div className="rounded-3xl border border-slate-800 bg-[#0F172A] p-8 sm:p-12 text-white shadow-2xl">
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <span className="rounded-full bg-red-600/20 text-red-400 border border-red-500/30 px-3.5 py-1 text-xs font-bold inline-block mb-3">
-                Global Travel & Immigration
-              </span>
-              <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight">
-                All 8 Visa Categories Processed
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2">
-                As featured in our verified video reels, Alex Global Consultancy handles complex immigration files with precision.
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { title: "Student Visa", icon: "🎓", desc: "Full CAS, I-20 & COE file assembly for UK, USA, Canada, Aus, Cyprus & Europe.", badge: "Core Service" },
-                { title: "Spouse & Family Visa", icon: "💍", desc: "Dependent work rights and child schooling documentation alongside primary applicant.", badge: "High Approval" },
-                { title: "Tourist & Visit Visa", icon: "✈️", desc: "Europe Schengen (27 countries), UK standard visitor, USA B1/B2 & Canada visitor visas.", badge: "Worldwide" },
-                { title: "Business Visa", icon: "💼", desc: "Commercial delegations, overseas conference attendance, and corporate travel files.", badge: "Fast Track" },
-                { title: "Work Permit Visa", icon: "🛠️", desc: "Post-study work permit compliance, employer sponsorship, and overseas job seeker visas.", badge: "Post-Study" },
-                { title: "Medical Visa", icon: "🏥", desc: "Expedited medical appointment verification, hospital invitations, and treatment visas.", badge: "Priority" },
-                { title: "Migration Visa", icon: "🌍", desc: "Skilled migration points audit, regional programs, and residency pathways.", badge: "PR Roadmap" },
-                { title: "Sports Visa", icon: "⚽", desc: "Athletic trials, tournament participation, and international sporting club delegations.", badge: "Athletic" },
-              ].map((v) => (
-                <div
-                  key={v.title}
-                  className="rounded-2xl bg-slate-800/80 border border-slate-700/80 p-5 space-y-2.5 flex flex-col justify-between hover:border-red-500/50 transition-colors"
-                >
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl">{v.icon}</span>
-                      <span className="text-[0.65rem] font-bold text-red-400 bg-red-500/20 px-2 py-0.5 rounded-full border border-red-500/30">
-                        {v.badge}
-                      </span>
-                    </div>
-                    <h3 className="font-display font-bold text-sm text-white">{v.title}</h3>
-                    <p className="text-[0.72rem] text-slate-300 leading-relaxed">{v.desc}</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={open}
-                    className="text-[0.72rem] font-bold text-red-400 hover:text-red-300 text-left pt-2 border-t border-slate-700 cursor-pointer"
-                  >
-                    Check Eligibility →
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 6. Transparency Comparison Table */}
+      {/* 5. Transparency Comparison Table */}
       <section className="section-shell py-16 border-t border-slate-200">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 mb-2.5">
-            <IconSparkles className="w-3.5 h-3.5 text-red-600" />
-            <span>Honesty & Transparency</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200 px-3.5 py-1 text-xs font-bold text-amber-900 mb-2.5">
+            <IconSparkles className="w-3.5 h-3.5 text-amber-600" />
+            <span>Honesty & Anti-Fraud Standards</span>
           </div>
           <h2 className="font-display text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Why Students Choose <span className="text-red-600">Alex Global</span>
+            Why Students Trust <span className="text-[#0C2340]">Academic Allies</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 mt-1">
-            Compare our verified zero-file-fee model and dual-hub presence against traditional agencies.
+            Compare our verified official portal filing and scholarship expertise against fraudulent middlemen.
           </p>
         </div>
 
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm max-w-4xl mx-auto">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-slate-900 text-white font-display uppercase tracking-wider text-[0.7rem]">
+              <thead className="bg-[#0C2340] text-white font-display uppercase tracking-wider text-[0.7rem]">
                 <tr>
                   <th className="p-4 sm:p-5">Key Parameter</th>
-                  <th className="p-4 sm:p-5 text-red-400 font-extrabold bg-slate-800">
-                    ★ Alex Global Consultancy
+                  <th className="p-4 sm:p-5 text-[#D4AF37] font-extrabold bg-[#07172B]">
+                    ★ Academic Allies
                   </th>
-                  <th className="p-4 sm:p-5 text-slate-400">Traditional Agencies</th>
+                  <th className="p-4 sm:p-5 text-slate-400">Traditional / Fraudulent Middlemen</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {comparisonData.map((row) => (
                   <tr
                     key={row.feature}
-                    className={cn("transition-colors hover:bg-slate-50", row.highlight && "bg-red-50/20")}
+                    className={cn("transition-colors hover:bg-slate-50", row.highlight && "bg-amber-50/20")}
                   >
                     <td className="p-4 sm:p-5 font-bold text-slate-900">{row.feature}</td>
-                    <td className="p-4 sm:p-5 font-bold text-red-700 bg-red-50/40">
+                    <td className="p-4 sm:p-5 font-bold text-[#0C2340] bg-amber-50/40">
                       <div className="flex items-center gap-2">
                         <IconCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                        <span>{row.alexGlobal}</span>
+                        <span>{row.academicAllies}</span>
                       </div>
                     </td>
                     <td className="p-4 sm:p-5 text-slate-500">{row.traditional}</td>
@@ -438,18 +383,18 @@ function Services() {
         </div>
       </section>
 
-      {/* 7. Step-by-Step 6-Stage Process */}
+      {/* 6. Step-by-Step 5-Stage Process */}
       <section className="section-shell py-16 border-t border-slate-200">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 mb-2.5">
-            <IconSparkles className="w-3.5 h-3.5 text-red-600" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200 px-3.5 py-1 text-xs font-bold text-amber-900 mb-2.5">
+            <IconSparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Structured Process</span>
           </div>
           <h2 className="font-display text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Our Proven 6-Step Admission Roadmap
+            Our Proven 5-Step European Roadmap
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 mt-1">
-            Meticulous file preparation to ensure seamless university admission and visa clearance.
+            Meticulous file preparation to ensure university admission, DSU scholarship approval, and visa issuance.
           </p>
         </div>
 
@@ -457,13 +402,13 @@ function Services() {
           {processSteps.map((step) => (
             <div
               key={step.step}
-              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm space-y-3 relative hover:border-red-500/50 hover:shadow-md transition-all"
+              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm space-y-3 relative hover:border-[#D4AF37] hover:shadow-md transition-all"
             >
               <div className="flex items-center justify-between">
-                <span className="font-display font-black text-2xl text-red-600">
+                <span className="font-display font-black text-2xl text-[#0C2340]">
                   {step.step}
                 </span>
-                <span className="rounded-full bg-slate-100 text-slate-700 text-[0.68rem] font-bold px-2.5 py-0.5">
+                <span className="rounded-full bg-amber-100 text-amber-900 text-[0.68rem] font-bold px-2.5 py-0.5">
                   {step.badge}
                 </span>
               </div>
@@ -478,14 +423,14 @@ function Services() {
         </div>
       </section>
 
-      {/* 8. Service FAQs Accordion */}
+      {/* 7. Service FAQs Accordion */}
       <section className="section-shell py-16 border-t border-slate-200">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="font-display text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Frequently Asked Questions on Services
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 mt-1">
-            Clear, transparent answers about our fee policy, language academy, and visa procedures.
+            Clear, transparent answers about our European admissions, DSU scholarships, and language academy.
           </p>
         </div>
 
@@ -498,7 +443,7 @@ function Services() {
                 className={cn(
                   "rounded-2xl border transition-all duration-300 overflow-hidden",
                   isOpen
-                    ? "bg-white border-red-500 shadow-md ring-1 ring-red-500/20"
+                    ? "bg-white border-[#D4AF37] shadow-md ring-1 ring-[#D4AF37]/30"
                     : "bg-white border-slate-200 hover:border-slate-300",
                 )}
               >
@@ -511,7 +456,7 @@ function Services() {
                   <span
                     className={cn(
                       "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-transform duration-300",
-                      isOpen ? "bg-red-600 text-white rotate-180" : "bg-slate-100 text-slate-600",
+                      isOpen ? "bg-[#0C2340] text-[#D4AF37] rotate-180" : "bg-slate-100 text-slate-600",
                     )}
                   >
                     ↓
@@ -528,7 +473,7 @@ function Services() {
         </div>
       </section>
 
-      {/* 9. Bottom CTA */}
+      {/* 8. Bottom CTA */}
       <CtaBand />
     </>
   );

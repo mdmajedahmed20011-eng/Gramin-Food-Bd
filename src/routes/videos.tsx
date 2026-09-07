@@ -11,17 +11,17 @@ import { FbReel } from "@/components/fb-reel";
 export const Route = createFileRoute("/videos")({
   head: () => ({
     meta: [
-      { title: "Official Videos & Reels | Alex Global Consultancy (AGC)" },
+      { title: "Official Videos & Reels | Academic Allies — Chattogram" },
       {
         name: "description",
         content:
-          "Watch official video reels, dual-hub office updates (Dhaka & London), visa categories, and destination guides from Alex Global Consultancy.",
+          "Watch official video reels, European university admissions, Italian DSU scholarship guides, visa celebrations, and IELTS language academy updates from Academic Allies in Chattogram.",
       },
-      { property: "og:title", content: "Official Videos & Reels | Alex Global Consultancy" },
+      { property: "og:title", content: "Official Videos & Reels | Academic Allies" },
       {
         property: "og:description",
         content:
-          "Explore study abroad pathways, IELTS & Spoken English academy updates, and dual-hub guidance from our Dhaka and London offices.",
+          "Explore European study pathways, Italian Padova admissions, DSU scholarships (€7,000/yr), and British Council certified IELTS updates from our Finlay Square Chattogram corporate headquarters.",
       },
     ],
   }),
@@ -31,53 +31,53 @@ export const Route = createFileRoute("/videos")({
 const officialReels = [
   {
     reelId: "1027311573740581",
-    url: "https://www.facebook.com/reel/1027311573740581/",
-    title: "Corporate Profile & Dual Office Network",
-    desc: "Comprehensive introduction to Alex Global Consultancy featuring our Dhaka Corporate Office in Aftabnagar and London Branch in Cranberry Lane.",
-    category: "Office Profile",
-    hub: "Dhaka & London",
+    url: "https://www.facebook.com/academicalliesofficial/",
+    title: "Advancing Education & Chattogram Corporate Headquarters",
+    desc: "Introduction to Academic Allies corporate facilities at Finlay Square (7th Floor), CDA Avenue, East Nasirabad, Chattogram.",
+    category: "Corporate Profile",
+    hub: "Finlay Square HQ",
   },
   {
     reelId: "2176784273273108",
-    url: "https://www.facebook.com/reel/2176784273273108/",
-    title: "Global Services & 8 Visa Categories",
-    desc: "In-depth overview of our 8 processed visa categories including Student, Spouse, Visit/Tourist, Business, Work Permit, Medical, Migration, and Sports.",
-    category: "Visa Services",
-    hub: "Global Reach",
+    url: "https://www.facebook.com/academicalliesofficial/",
+    title: "100% Genuine Portal Processing & Anti-Fraud Standards",
+    desc: "Why Academic Allies strictly operates on official government and university portals ('Dalaler Fake Visa Noy') with verified documentation.",
+    category: "Visa Integrity",
+    hub: "Compliance Cell",
   },
   {
     reelId: "2055573665047655",
-    url: "https://www.facebook.com/reel/2055573665047655/",
-    title: "Top Student-Friendly Destinations",
-    desc: "Country selection guide highlighting study in Canada, UK, Australia, Finland, Cyprus, and Germany with fast processing and scholarship support.",
-    category: "Study Abroad",
-    hub: "Worldwide",
+    url: "https://www.facebook.com/academicalliesofficial/",
+    title: "Italy DSU Scholarship & Padova University Direct Pathway",
+    desc: "Complete breakdown of Italian public universities, Universitaly pre-enrollment, and regional DSU scholarships up to €7,000/year living allowance.",
+    category: "European Admissions",
+    hub: "Italy & Europe",
   },
 ];
 
 const videoHighlights = [
   {
-    title: "IELTS & Spoken English Academy Masterclass",
-    desc: "Interactive speaking drills, band-scoring strategies, and small-batch mentoring conducted at our Aftabnagar Dhaka facility.",
+    title: "Academic Allies IELTS Masterclass (Target Band 7.0+)",
+    desc: "Interactive speaking drills, Cambridge practice materials, and mock exam evaluations led by British Council & IDP certified trainers.",
     category: "Language Academy",
-    venue: "Dhaka Corporate Hub",
+    venue: "Chattogram Language Studio",
   },
   {
     title: "Kids English & Spoken Foundation Showcase",
-    desc: "Child-friendly phonics, confidence building, and conversational mastery designed for young learners aged 5-14.",
+    desc: "Child-friendly phonics, public speaking confidence, and interactive conversational English designed for young learners aged 5-14.",
     category: "Junior Academy",
-    venue: "Language Studio",
+    venue: "Finlay Square Suites",
   },
   {
-    title: "UK & European Admissions Briefing",
-    desc: "Detailed roadmap on university selection, CAS issuance, and tuition payment safety coordinated directly with our London office.",
-    category: "Admissions Guidance",
-    venue: "London & Dhaka Liaison",
+    title: "European Visa Success & Scholar Testimonials",
+    desc: "Real stories and celebrations of students securing admission and visas for Italy, Sweden, Finland, UK, and Canada.",
+    category: "Scholar Success",
+    venue: "Chattogram Corporate Desk",
   },
   {
-    title: "Document Verification & Mock Visa Interviews",
-    desc: "How AGC counselors conduct 1-on-1 embassy mock interviews and rigorous documentation checks to maximize visa success rates.",
-    category: "Visa Preparation",
+    title: "Embassy Mock Interviews & Financial Documentation",
+    desc: "How Academic Allies counselors conduct rigorous 1-on-1 embassy mock interview sessions and bank file verification.",
+    category: "Embassy Prep",
     venue: "Executive Boardroom",
   },
 ];
@@ -86,27 +86,27 @@ function Videos() {
   return (
     <>
       <PageHero
-        eyebrow="Multimedia & Official Broadcasts"
-        title="Official Video Reels & Insights"
-        subtitle="Watch official broadcasts, dual-hub office features, destination walkthroughs, and language academy highlights from Alex Global Consultancy."
-        image="/latest-assets/banner.png"
-        imageAlt="Alex Global Consultancy official video showcase"
+        eyebrow="Multimedia & Official Community"
+        title="Official Videos, Reels & Broadcasts"
+        subtitle="Watch official broadcasts, European university guidance, Italian DSU scholarship orientations, and language academy highlights from Academic Allies."
+        image="/assets/banner.jpg"
+        imageAlt="Academic Allies official video showcase"
       >
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Official Videos" }]} />
       </PageHero>
 
       {/* Social Community Callout */}
       <section className="section-shell py-12">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl border border-red-200 bg-linear-to-r from-red-50/70 via-white to-blue-50/70 p-6 sm:p-8 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl border border-[#D4AF37]/40 bg-linear-to-r from-amber-50/70 via-white to-blue-50/70 p-6 sm:p-8 shadow-sm">
           <div>
-            <span className="badge-clean badge-red">
-              Official Facebook Channel · Alex Global Consultancy
+            <span className="badge-clean badge-navy">
+              Official Facebook Channel · Academic Allies
             </span>
             <h2 className="mt-2 font-display text-xl sm:text-2xl font-bold text-slate-900">
-              Follow @AlexGlobalConsultancy for Daily Updates
+              Follow @AcademicAlliesOfficial for Daily Updates
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
-              Stay connected for live admission announcements, upcoming intake deadlines, IELTS batch schedules, and student visa updates.
+              Join 47,000+ followers and stay connected for upcoming European intake deadlines, Italian DSU scholarship updates, and IELTS batch schedules.
             </p>
           </div>
 
@@ -136,22 +136,22 @@ function Videos() {
         <SectionHeading
           eyebrow="Verified Broadcasts"
           title="Featured Facebook Reels"
-          subtitle="Watch our official Facebook reels directly here. Learn about our dual offices, complete service spectrum, and top study abroad destinations."
+          subtitle="Watch our official Facebook reels directly here. Learn about our European admission portals, anti-fraud standards, and Language Academy."
         />
 
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {officialReels.map((reel) => (
             <div
               key={reel.reelId}
-              className="rounded-3xl border border-slate-200/90 bg-white p-5 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex flex-col justify-between"
+              className="rounded-3xl border border-slate-200/90 bg-white p-5 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
-                  <span className="badge-clean badge-red text-[0.68rem]">{reel.category}</span>
+                  <span className="badge-clean badge-navy text-[0.68rem]">{reel.category}</span>
                   <span className="text-[0.68rem] font-bold text-slate-500">📍 {reel.hub}</span>
                 </div>
 
-                <div className="flex justify-center bg-slate-950 rounded-2xl overflow-hidden p-2">
+                <div className="flex justify-center bg-[#0C2340] rounded-2xl overflow-hidden p-2">
                   <FbReel reelId={reel.reelId} url={reel.url} title={reel.title} />
                 </div>
 
@@ -173,7 +173,7 @@ function Videos() {
                   <span>▶ View on Facebook</span>
                 </a>
                 <a
-                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Alex Global Consultancy, I watched your reel "${reel.title}" and would like counseling.`)}`}
+                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Academic Allies, I watched your reel "${reel.title}" and would like counseling.`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="text-xs font-bold text-emerald-700 hover:underline"
@@ -191,14 +191,14 @@ function Videos() {
         <SectionHeading
           eyebrow="Academy & Advisory"
           title="Educational Highlights & Seminars"
-          subtitle="Explore key sessions and learning modules conducted across our Dhaka corporate campus and London advisory desk."
+          subtitle="Explore key sessions and learning modules conducted across our Finlay Square Chattogram corporate suites and digital classroom."
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {videoHighlights.map((v) => (
             <div
               key={v.title}
-              className="card-clean rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-slate-200 hover:border-red-300 shadow-sm hover:shadow-md transition-all bg-white"
+              className="card-clean rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-slate-200 hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all bg-white"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -228,7 +228,7 @@ function Videos() {
                   <span>▶ Watch on Facebook</span>
                 </a>
                 <a
-                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Alex Global Consultancy, I would like more information about "${v.title}".`)}`}
+                  href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Academic Allies, I would like more information about "${v.title}".`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="text-xs font-bold text-emerald-700 hover:underline"
@@ -246,4 +246,3 @@ function Videos() {
     </>
   );
 }
-

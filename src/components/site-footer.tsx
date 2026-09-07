@@ -3,6 +3,7 @@ import { BrandLogo } from "@/components/brand-logo";
 import { company, destinations, courses } from "@/lib/site-data";
 import { useState } from "react";
 import { StaggerContainer, StaggerItem } from "@/components/motion-wrapper";
+import { IconPhone, IconWhatsApp } from "@/components/ui-blocks";
 
 export function SiteFooter() {
   const [email, setEmail] = useState("");
@@ -18,237 +19,273 @@ export function SiteFooter() {
   };
 
   return (
-    <footer className="bg-[#043E8B] text-white pt-16 pb-24 md:pb-16 text-xs relative overflow-hidden">
-      {/* Subtle Blueprint Radial / Dot Pattern */}
-      <div className="absolute inset-0 bg-blueprint-radial opacity-30 pointer-events-none" />
+    <footer className="bg-[#071527] text-white pt-16 pb-24 md:pb-16 text-xs relative overflow-hidden border-t border-[#D4AF37]/20">
+      {/* Subtle Blueprint Radial Pattern */}
+      <div className="absolute inset-0 bg-blueprint-radial opacity-20 pointer-events-none" />
 
       <div className="section-shell relative z-10">
-        {/* Main 3-Column Footer Grid matching DSA */}
-        <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.8fr_1.1fr] gap-10 lg:gap-14 pb-14 border-b border-blue-400/20">
-          {/* Column 1: Brand Info & Newsletter Subscription */}
+        {/* Main 3-Column Footer Grid */}
+        <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.8fr_1.1fr] gap-10 lg:gap-14 pb-14 border-b border-slate-800">
+          {/* Column 1: Brand Info & Newsletter */}
           <StaggerItem direction="up" distance={24}>
-          <div className="space-y-6">
-            <Link to="/" className="inline-flex items-center gap-3">
-              <BrandLogo size={46} withText textClassName="flex text-white" />
-            </Link>
+            <div className="space-y-6">
+              <Link to="/" className="inline-flex items-center gap-3">
+                <BrandLogo size={48} withText variant="dark" textClassName="flex text-white" />
+              </Link>
 
-            <p className="text-xs sm:text-sm text-blue-100/90 leading-relaxed max-w-md font-medium">
-              Empowering Bangladeshi students to study at top global universities. Dual direct hubs in Dhaka (Aftabnagar) and London (Cranberry Lane) guiding you every step of the way to unlock your abroad journey.
-            </p>
-
-            {/* Newsletter Subscription Box */}
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md max-w-md">
-              <div className="text-sm font-bold text-white mb-1">
-                Subscribe for Updates
-              </div>
-              <p className="text-[0.73rem] text-blue-100/80 mb-3.5">
-                Get the latest news on scholarships, upcoming intakes, and study visa tips.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md font-medium">
+                {company.tagline}
               </p>
 
-              {subscribed ? (
-                <div className="rounded-xl bg-emerald-500/20 border border-emerald-400/40 p-2.5 text-center text-xs font-bold text-emerald-200">
-                  ✓ Thank you! You are subscribed to updates.
+              {/* Newsletter Subscription Box */}
+              <div className="rounded-2xl border border-[#D4AF37]/30 bg-white/5 p-5 backdrop-blur-md max-w-md">
+                <div className="text-sm font-bold text-amber-300 mb-1 flex items-center gap-2">
+                  <span>✦</span>
+                  <span>Stay Updated on European Intakes</span>
                 </div>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex gap-2">
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    className="flex-1 rounded-xl border border-white/20 bg-black/20 px-3.5 py-2.5 text-xs text-white placeholder:text-blue-200/50 outline-none focus:border-white focus:ring-1 focus:ring-white/30"
-                  />
-                  <button
-                    type="submit"
-                    className="rounded-xl bg-red-600 hover:bg-red-700 px-4 py-2.5 text-xs font-bold text-white shadow-md transition-colors flex items-center gap-1.5 shrink-0 cursor-pointer"
-                  >
-                    <span>Subscribe</span>
-                    <span>→</span>
-                  </button>
-                </form>
-              )}
+                <p className="text-[0.73rem] text-slate-300 mb-3.5">
+                  Get prompt updates on Italy Universitaly deadlines, DSU regional scholarships, and British Council IELTS exam batches.
+                </p>
+
+                {subscribed ? (
+                  <div className="rounded-xl bg-emerald-500/20 border border-emerald-400/40 p-2.5 text-center text-xs font-bold text-emerald-200">
+                    ✓ Thank you! You will receive verified Academic Allies updates.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubscribe} className="flex gap-2">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email address"
+                      className="flex-1 rounded-xl border border-white/20 bg-black/40 px-3.5 py-2.5 text-xs text-white placeholder:text-slate-400 outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                    />
+                    <button
+                      type="submit"
+                      className="btn-gold rounded-xl px-4 py-2.5 text-xs font-bold transition-all shadow-md shrink-0 cursor-pointer"
+                    >
+                      <span>Join</span>
+                      <span>→</span>
+                    </button>
+                  </form>
+                )}
+              </div>
             </div>
-          </div>
           </StaggerItem>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Navigation Links */}
           <StaggerItem direction="up" distance={24}>
-          <div className="space-y-4">
-            <div className="text-sm font-bold text-white tracking-wide uppercase">
-              Quick Links
+            <div className="space-y-4">
+              <div className="text-sm font-bold text-amber-300 tracking-wide uppercase flex items-center gap-1.5">
+                <span>✦</span>
+                <span>Quick Navigation</span>
+              </div>
+              <ul className="space-y-2.5 text-xs text-slate-300 font-medium">
+                <li>
+                  <Link to="/" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>Home Page</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>About Academic Allies</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/destinations" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>Europe & Study Abroad</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>5-Step Europe Pathway</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>IELTS Coaching (Band 7+)</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>Spoken & Kids English</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/videos" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>Verified Facebook Reels</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/offers" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>Upcoming Intakes & Waivers</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                    <span className="text-[#D4AF37]">›</span>
+                    <span>Contact Chattogram Office</span>
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <ul className="space-y-2.5 text-xs text-blue-100/90 font-medium">
-              <li>
-                <Link to="/" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-red-400">›</span>
-                  <span>Home</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-red-400">›</span>
-                  <span>About Us</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-red-400">›</span>
-                  <span>Admissions & Services</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/destinations" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-red-400">›</span>
-                  <span>Study Abroad Destinations</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-red-400">›</span>
-                  <span>Language Academy (IELTS Band 7+)</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/videos" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-red-400">›</span>
-                  <span>Official Facebook Reels</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/offers" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-red-400">›</span>
-                  <span>Intakes & Blog Updates</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-red-400">›</span>
-                  <span>Contact Us</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
           </StaggerItem>
 
-          {/* Column 3: Contact & Dual Hubs */}
+          {/* Column 3: Contact & Office Details */}
           <StaggerItem direction="up" distance={24}>
-          <div className="space-y-4">
-            <div className="text-sm font-bold text-white tracking-wide uppercase">
-              Contact Us
-            </div>
-            <div className="space-y-3.5 text-xs text-blue-100/90 font-medium">
-              {/* Dhaka Address */}
-              <div className="flex items-start gap-2.5">
-                <span className="text-red-400 text-sm mt-0.5">📍</span>
-                <div>
-                  <strong className="text-white block">Dhaka Headquarters:</strong>
-                  <span>House - 03, Road - 03, Block: H, Section - 02, Merul Badda, Aftabnagar EHL Project, Dhaka</span>
-                </div>
+            <div className="space-y-4">
+              <div className="text-sm font-bold text-amber-300 tracking-wide uppercase flex items-center gap-1.5">
+                <span>✦</span>
+                <span>Contact Information</span>
               </div>
-
-              {/* London Address */}
-              <div className="flex items-start gap-2.5">
-                <span className="text-red-400 text-sm mt-0.5">📍</span>
-                <div>
-                  <strong className="text-white block">London Branch:</strong>
-                  <span>The Arches Cranberry Lane, London E16 4BJ, United Kingdom</span>
-                </div>
-              </div>
-
-              {/* Phones */}
-              <div className="flex items-start gap-2.5">
-                <span className="text-red-400 text-sm mt-0.5">📞</span>
-                <div className="space-y-0.5">
+              <div className="space-y-3.5 text-xs text-slate-300 font-medium">
+                {/* Chattogram Headquarters */}
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#D4AF37] text-sm mt-0.5">📍</span>
                   <div>
-                    <a href="tel:01886913391" className="hover:text-white font-bold">
-                      01886 91 33 91
-                    </a>{" "}
-                    /{" "}
-                    <a href="tel:+8801611402093" className="hover:text-white font-bold">
-                      01611 40 20 93
+                    <strong className="text-white block">Corporate Headquarters:</strong>
+                    <span>Finlay Square (7th Floor), CDA Avenue, 2 No. Gate, East Nasirabad, Chattogram, Bangladesh</span>
+                  </div>
+                </div>
+
+                {/* City Branch */}
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#D4AF37] text-sm mt-0.5">📍</span>
+                  <div>
+                    <strong className="text-white block">Chattogram City Branch:</strong>
+                    <span>Zeenat Abad, Chittagong-4203, Bangladesh</span>
+                  </div>
+                </div>
+
+                {/* Phones & WhatsApp */}
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#D4AF37] text-sm mt-0.5">📞</span>
+                  <div className="space-y-0.5">
+                    <div>
+                      <a href="tel:01859870936" className="hover:text-amber-300 font-bold text-white">
+                        01859-870936
+                      </a>{" "}
+                      /{" "}
+                      <a href="tel:01812386307" className="hover:text-amber-300 font-bold text-white">
+                        01812-386307
+                      </a>{" "}
+                      /{" "}
+                      <a href="tel:01812386318" className="hover:text-amber-300 font-bold text-white">
+                        01812-386318
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        href={`https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-emerald-400 font-bold hover:text-emerald-300 inline-flex items-center gap-1 mt-0.5"
+                      >
+                        <IconWhatsApp className="w-3.5 h-3.5" />
+                        <span>WhatsApp: {company.whatsappFormatted}</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#D4AF37] text-sm mt-0.5">✉</span>
+                  <a href={`mailto:${company.email}`} className="hover:text-amber-300 font-semibold text-white">
+                    {company.email}
+                  </a>
+                </div>
+
+                {/* Social Channels */}
+                <div className="pt-2">
+                  <div className="text-xs font-bold text-slate-400 mb-2 uppercase tracking-wider">
+                    Official Social Channels (47K+ Community)
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={company.social.facebook}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex h-9 px-3 items-center justify-center rounded-xl bg-white/10 hover:bg-[#D4AF37] hover:text-slate-950 text-white font-bold transition-colors gap-1.5"
+                      aria-label="Facebook"
+                    >
+                      <span>Facebook</span>
+                      <span className="text-[0.65rem] opacity-75">47K</span>
+                    </a>
+                    <a
+                      href={company.social.instagram}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-[#D4AF37] hover:text-slate-950 text-white font-bold transition-colors"
+                      aria-label="Instagram"
+                    >
+                      IG
+                    </a>
+                    <a
+                      href={company.social.youtube}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-[#D4AF37] hover:text-slate-950 text-white font-bold transition-colors"
+                      aria-label="YouTube"
+                    >
+                      YT
+                    </a>
+                    <a
+                      href={company.social.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-[#D4AF37] hover:text-slate-950 text-white font-bold transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      IN
                     </a>
                   </div>
-                  <div className="text-emerald-300 font-bold">
-                    UK / WhatsApp: +44 07539228276
-                  </div>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-start gap-2.5">
-                <span className="text-red-400 text-sm mt-0.5">✉</span>
-                <a href={`mailto:${company.email}`} className="hover:text-white font-semibold">
-                  {company.email}
-                </a>
-              </div>
-
-              {/* Social Media Links */}
-              <div className="pt-2">
-                <div className="text-xs font-bold text-white mb-2 uppercase tracking-wider">
-                  Follow Us
-                </div>
-                <div className="flex items-center gap-2">
-                  <a
-                    href={company.social.facebook}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
-                    aria-label="Facebook"
-                  >
-                    FB
-                  </a>
-                  <a
-                    href={company.social.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
-                    aria-label="Instagram"
-                  >
-                    IG
-                  </a>
-                  <a
-                    href={company.social.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    IN
-                  </a>
-                  <a
-                    href={company.social.youtube}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
-                    aria-label="YouTube"
-                  >
-                    YT
-                  </a>
                 </div>
               </div>
             </div>
-          </div>
           </StaggerItem>
         </StaggerContainer>
 
-        {/* Bottom Accreditations & Copyright Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[0.73rem] text-blue-200/80">
+        {/* Bottom Accreditations Strip */}
+        <div className="py-6 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <span className="font-semibold text-white">Trusted Partner of:</span>
-            <span className="rounded-full bg-white/10 px-3 py-1 text-white border border-white/10 font-bold">
-              British Council
-            </span>
-            <span className="rounded-full bg-white/10 px-3 py-1 text-white border border-white/10 font-bold">
-              BAIRA Member
-            </span>
-            <span className="rounded-full bg-white/10 px-3 py-1 text-white border border-white/10 font-bold">
-              ICEF Certified
-            </span>
+            <span className="font-bold text-amber-300">Official Partners & Accreditations:</span>
+            {company.accreditations.map((acc) => (
+              <span
+                key={acc.name}
+                className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-slate-200 font-bold hover:border-[#D4AF37]/50 transition-colors"
+              >
+                {acc.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Copyright & Legal Links */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[0.73rem] text-slate-400">
+          <div className="text-center sm:text-left font-medium">
+            © 2026 Academic Allies. All Rights Reserved. Advancing Education.
           </div>
 
-          <div className="text-center sm:text-right font-medium">
-            © 2026 Alex Global Consultancy. All Rights Reserved.
+          <div className="flex items-center gap-4 text-[0.73rem]">
+            <Link to="/privacy-policy" className="hover:text-amber-300 transition-colors">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link to="/terms-of-use" className="hover:text-amber-300 transition-colors">
+              Terms & Conditions
+            </Link>
+            <span>•</span>
+            <span className="text-slate-500">Official Visa Disclaimer Applied</span>
           </div>
         </div>
       </div>

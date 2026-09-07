@@ -11,63 +11,64 @@ const flightStages = [
     title: "100% Free Profile Audit",
     timeline: "Day 0 – 2",
     badge: "Zero File Opening Fee",
-    desc: "Comprehensive evaluation of your GPA, English proficiency (or without IELTS / MOI eligibility), and career objectives by Alex Global advisors.",
-    checklist: ["Academic Transcript Verification", "English Test / MOI Assessment", "Target Country Shortlisting"],
-    counselorTip: "Bring your original transcripts or digital PDFs to our Aftabnagar office or send on WhatsApp.",
+    desc: "Comprehensive evaluation of your GPA, study gap, and language proficiency by Academic Allies counselors at Finlay Square, Chattogram.",
+    checklist: ["Academic Transcript Verification", "English Test / MOI Assessment", "European Country Shortlisting"],
+    counselorTip: "Bring your original academic papers to our Finlay Square (7th Fl) Chattogram office or send PDFs via WhatsApp.",
   },
   {
     step: "02",
-    title: "University Offer & Scholarship",
+    title: "Universitaly & European Admissions",
     timeline: "Days 3 – 7",
     badge: "Official Acceptance",
-    desc: "Direct applications to accredited partner universities across UK, Canada, Australia, Cyprus, and Europe with automatic tuition scholarships.",
-    checklist: ["SOP & Recommendation Review", "Offer Letter Issued in 48-72h", "Scholarship Grants Applied"],
-    counselorTip: "Qualifying applicants can secure up to £4,000 / 30% to 50% tuition reduction.",
+    desc: "Direct applications to accredited public universities across Italy (Padova, Rome), Sweden, Finland, and UK with scholarship matching.",
+    checklist: ["Universitaly Portal Submission", "SOP & Reference Letters", "Scholarship Grants Applied"],
+    counselorTip: "Qualifying applicants can secure up to 100% tuition waivers and regional DSU scholarship stipends.",
   },
   {
     step: "03",
-    title: "Financial & Compliance Vetting",
+    title: "DOV & Document Legalization",
     timeline: "Days 8 – 14",
-    badge: "Bank & Compliance",
-    desc: "Thorough documentation of bank statements, sponsor solvency, and CAS/I-20 issuance according to current embassy requirements.",
-    checklist: ["28-Day Bank Statement Audit", "Pre-CAS Interview Coaching", "Unconditional CAS / Acceptance Released"],
-    counselorTip: "Our 100% compliance record ensures your file has zero documentary flaws before submission.",
+    badge: "Compliance & Apostille",
+    desc: "Thorough attestation of certificates, CIMEA statement of comparability, and Italian Embassy Declaration of Value (DOV).",
+    checklist: ["Ministry & Board Attestation", "CIMEA Document Verification", "Bank Solvency Compliance"],
+    counselorTip: "Our 100% genuine portal compliance ensures your file has zero documentary flaws before embassy submission.",
   },
   {
     step: "04",
     title: "Visa Lodgement & Mock Interview",
     timeline: "Days 15 – 25",
-    badge: "8 Visa Categories",
-    desc: "Expert biometrics booking and embassy submission across Student, Spouse, Tourist, Business, and Schengen Visas.",
-    checklist: ["Biometrics Priority Appointment", "1-on-1 Embassy Mock Interview", "Passport Stamped with Visa"],
-    counselorTip: "Simulate real consular questions with our experienced visa specialists in Dhaka.",
+    badge: "Embassy Ready",
+    desc: "Official embassy appointment booking, verified sponsor documentation, and rigorous 1-on-1 consular mock interviews.",
+    checklist: ["Embassy Slot Booking", "1-on-1 Consular Mock Interview", "Passport Stamped with Visa"],
+    counselorTip: "Simulate real consular questions with our experienced European visa specialists in Chattogram.",
   },
   {
     step: "05",
-    title: "Pre-Departure & London Arrival",
+    title: "DSU Scholarship & Campus Arrival",
     timeline: "Prior to Departure",
     badge: "Fly With Confidence",
-    desc: "Student airfare booking, housing search near university, forex student file creation, and London office arrival welcome.",
-    checklist: ["Student Air Ticket Booking", "Accommodation Assistance", "London E16 Arrival Guidance"],
-    counselorTip: "Our London branch (The Arches Cranberry Lane) provides on-ground support when you land in the UK!",
+    desc: "Regional scholarship disbursement up to €7,000/year, university accommodation support, student flight booking, and airport reception.",
+    checklist: ["Student Air Ticket Booking", "DSU Housing Assistance", "Residency Permit Registration"],
+    counselorTip: "Our European scholar community assists you with university enrollment and local residence registration when you arrive!",
   },
 ];
 
 export function IlluminatedFlightPath() {
   const [activeStage, setActiveStage] = useState(0);
   const { open } = useRegisterModal();
-  const current = flightStages[activeStage];
+  const current = flightStages[activeStage] ?? flightStages[0];
+  if (!current) return null;
 
   return (
     <section className="section-shell py-14 sm:py-20 border-t border-slate-200">
       <SlideIn direction="up" distance={30}>
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 mb-2.5">
-            <IconSparkles className="w-3.5 h-3.5 text-red-600" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200 px-3.5 py-1 text-xs font-bold text-amber-900 mb-2.5">
+            <IconSparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Transparent 5-Stage Roadmap</span>
           </div>
           <h2 className="font-display text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            From Free Assessment to <span className="text-red-600">Global Campus</span>
+            From Free Assessment to <span className="text-[#0C2340]">European Campus</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 mt-1">
             Tap each milestone below to explore the verified timeline and counselor checkpoints.
@@ -79,7 +80,7 @@ export function IlluminatedFlightPath() {
       <div className="relative mb-8">
         <div className="hidden md:block absolute top-6 left-12 right-12 h-0.5 bg-slate-200 -z-0" />
         <div
-          className="hidden md:block absolute top-6 left-12 h-0.5 bg-red-600 transition-all duration-500 -z-0"
+          className="hidden md:block absolute top-6 left-12 h-0.5 bg-amber-500 transition-all duration-500 -z-0"
           style={{ width: `${(activeStage / (flightStages.length - 1)) * 80}%` }}
         />
 
@@ -92,7 +93,7 @@ export function IlluminatedFlightPath() {
                 className={cn(
                   "w-full rounded-2xl p-3 sm:p-4 text-left transition-all border cursor-pointer flex flex-col justify-between",
                   activeStage === idx
-                    ? "bg-slate-900 text-white border-red-500 shadow-lg scale-102"
+                    ? "bg-[#0C2340] text-white border-amber-400 shadow-lg scale-102"
                     : "bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50",
                 )}
               >
@@ -100,7 +101,7 @@ export function IlluminatedFlightPath() {
                   <span
                     className={cn(
                       "flex h-7 w-7 items-center justify-center rounded-full text-xs font-extrabold transition-colors",
-                      activeStage === idx ? "bg-red-600 text-white" : "bg-slate-100 text-slate-600",
+                      activeStage === idx ? "bg-amber-400 text-slate-950" : "bg-slate-100 text-slate-600",
                     )}
                   >
                     {stage.step}
@@ -122,7 +123,7 @@ export function IlluminatedFlightPath() {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-center">
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <span className="rounded-full bg-red-100 border border-red-200 px-3 py-0.5 text-xs font-extrabold text-red-700">
+              <span className="rounded-full bg-amber-100 border border-amber-200 px-3 py-0.5 text-xs font-extrabold text-amber-900">
                 Stage {current.step} · {current.timeline}
               </span>
               <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[0.68rem] font-bold text-slate-700">
@@ -156,21 +157,21 @@ export function IlluminatedFlightPath() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-red-200/80 bg-red-50/40 p-5 sm:p-6 space-y-4">
+          <div className="rounded-2xl border border-amber-200/80 bg-amber-50/40 p-5 sm:p-6 space-y-4">
             <div>
-              <span className="text-[0.68rem] font-extrabold uppercase tracking-wider text-red-600 block mb-1">
-                💡 Alex Global Advisor Tip
+              <span className="text-[0.68rem] font-extrabold uppercase tracking-wider text-amber-800 block mb-1">
+                💡 Academic Allies Counselor Tip
               </span>
               <p className="text-xs text-slate-700 leading-relaxed font-medium">
                 "{current.counselorTip}"
               </p>
             </div>
 
-            <div className="border-t border-red-200/60 pt-4 flex flex-wrap gap-2.5">
+            <div className="border-t border-amber-200/60 pt-4 flex flex-wrap gap-2.5">
               <button
                 type="button"
                 onClick={open}
-                className="btn-luxury-primary text-xs py-2.5 px-5"
+                className="btn-luxury-primary text-slate-950 font-bold text-xs py-2.5 px-5"
               >
                 <span>Book This Step</span>
                 <IconArrowRight className="w-3 h-3" />
@@ -182,7 +183,7 @@ export function IlluminatedFlightPath() {
                 className="btn-luxury-secondary text-xs py-2.5 px-4"
               >
                 <IconWhatsApp className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Ask Advisor</span>
+                <span>Ask Counselor</span>
               </a>
             </div>
           </div>

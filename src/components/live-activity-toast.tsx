@@ -1,40 +1,39 @@
 import { useState, useEffect } from "react";
-import { BrandLogo } from "@/components/brand-logo";
 
 const recentActivities = [
   {
+    flag: "🇮🇹",
+    student: "Tanvir A. (Chattogram)",
+    action: "Italy Visa Granted with DSU Scholarship",
+    subtext: "University of Padova · Direct Universitaly Entry",
+    time: "4 mins ago",
+  },
+  {
+    flag: "🇸🇪",
+    student: "Sadia K. (Nasirabad)",
+    action: "Sweden Residence Permit Approved",
+    subtext: "Stockholm University · English Taught Master's",
+    time: "12 mins ago",
+  },
+  {
     flag: "🇬🇧",
-    student: "Tanvir A. (Sylhet)",
+    student: "Fahim U. (Chattogram)",
     action: "Secured UK Visa with £3,000 Scholarship",
-    subtext: "University of Greenwich · Sept Intake",
-    time: "3 mins ago",
+    subtext: "University of Greenwich · 2-Yr PSW",
+    time: "25 mins ago",
   },
   {
-    flag: "🇨🇦",
-    student: "Nabila R. (Dhaka)",
-    action: "Received Offer Letter for Post-Grad",
-    subtext: "Fanshawe College, Canada · Paid Co-op",
-    time: "11 mins ago",
-  },
-  {
-    flag: "🇬🇧",
-    student: "Mahfuz H. (Chittagong)",
-    action: "Accepted Without IELTS (MOI)",
-    subtext: "University of East London · 2-Yr PSW",
-    time: "24 mins ago",
-  },
-  {
-    flag: "🇦🇺",
-    student: "Farzana S. (Dhaka)",
-    action: "Granted Australia Subclass 500 Visa",
-    subtext: "Deakin University · Genuine Student Verified",
-    time: "42 mins ago",
+    flag: "🇫🇮",
+    student: "Rashed M. (Agrabad)",
+    action: "Admitted to Finland UAS Master's",
+    subtext: "Tuition Waiver & Post-Study Pathway",
+    time: "38 mins ago",
   },
   {
     flag: "🌟",
-    student: "Kamrul I. (Aftabnagar)",
+    student: "Marzia N. (GEC Circle)",
     action: "Achieved IELTS Overall Band 7.5",
-    subtext: "AGC Language Academy Intensive Masterclass",
+    subtext: "Academic Allies Language Academy Masterclass",
     time: "1 hour ago",
   },
 ];
@@ -70,7 +69,8 @@ export function LiveActivityToast() {
 
   if (isDismissed) return null;
 
-  const current = recentActivities[index];
+  const current = recentActivities[index] ?? recentActivities[0];
+  if (!current) return null;
 
   return (
     <aside
@@ -85,7 +85,7 @@ export function LiveActivityToast() {
     >
       <div className="flex items-start gap-3">
         <div className="relative flex-shrink-0 mt-0.5">
-          <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-xl shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-xl shadow-xs">
             {current.flag}
           </div>
           <span className="absolute -bottom-1 -right-1 flex h-3 w-3">
@@ -96,8 +96,8 @@ export function LiveActivityToast() {
 
         <div className="flex-1 min-w-0 pr-4">
           <div className="flex items-center justify-between gap-1">
-            <span className="text-[0.65rem] font-black uppercase tracking-wider text-red-600 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+            <span className="text-[0.65rem] font-black uppercase tracking-wider text-[#0C2340] flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
               Verified Success
             </span>
             <span className="text-[0.62rem] text-slate-400 font-medium">
@@ -119,7 +119,7 @@ export function LiveActivityToast() {
         <button
           type="button"
           onClick={() => setIsDismissed(true)}
-          className="text-slate-400 hover:text-slate-600 text-xs font-bold p-1 rounded-md transition-colors"
+          className="text-slate-400 hover:text-slate-600 text-xs font-bold p-1 rounded-md transition-colors cursor-pointer"
           title="Dismiss notification"
           aria-label="Dismiss notification"
         >

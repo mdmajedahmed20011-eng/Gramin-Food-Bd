@@ -31,7 +31,7 @@ function NotFoundComponent() {
             to="/"
             className="btn-primary text-xs py-2 px-5"
           >
-            Go to Home
+            Back to Home
           </Link>
         </div>
       </div>
@@ -55,6 +55,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">
           Please try refreshing or head back to the home page.
         </p>
+        {import.meta.env.DEV && error?.message && (
+          <div className="mt-4 p-3 bg-red-50 border border-red-200 text-red-700 text-left text-xs rounded-xl overflow-auto max-h-48 font-mono">
+            <strong>Error:</strong> {error.message}
+            {error.stack && <pre className="mt-2 text-[10px] whitespace-pre-wrap">{error.stack}</pre>}
+          </div>
+        )}
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -82,14 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Alex Global Consultancy" },
+      { name: "author", content: "Academic Allies" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Alex Global Consultancy (AGC)" },
+      { property: "og:site_name", content: "Academic Allies - Advancing Education" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/latest-assets/logo.jpg", type: "image/jpeg" },
+      { rel: "icon", href: "/assets/logo.jpg", type: "image/jpeg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -103,17 +109,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
-          name: company.legalName,
+          name: company.name,
+          legalName: company.legalName,
           slogan: company.slogan,
           description:
-            "Alex Global Consultancy is a premier dual-hub study abroad consultancy and language academy with corporate headquarters in Aftabnagar, Dhaka, and an international branch in London, UK. Providing higher education admissions, IELTS Preparation, Spoken English, Kids English, and 8 processed visa categories.",
+            "Academic Allies is Chittagong's premier European higher education consultancy and language academy headquartered at Finlay Square (7th Floor), CDA Avenue, East Nasirabad, Chattogram. Specializing in Italy (Padova & DSU Scholarship up to €7,000/yr), Sweden, Finland, UK, Canada, USA, and British Council Certified IELTS Academy.",
           foundingDate: company.established,
-          areaServed: ["Bangladesh", "United Kingdom", "Worldwide"],
+          areaServed: ["Chattogram", "Bangladesh", "Europe", "Worldwide"],
           email: company.email,
           telephone: company.phones.map((p) => `+880${p.replace(/[^0-9]/g, "").slice(-10)}`),
           openingHours: "Sa-Th 10:00-19:00",
-          sameAs: [company.social.facebook, company.social.instagram, company.social.linkedin],
-          hasMap: company.offices?.dhaka?.mapsUrl || company.dhakaOffice.mapsUrl,
+          sameAs: [company.social.facebook, company.social.instagram, company.social.youtube],
+          hasMap: company.offices?.chattogramHQ?.mapsUrl || company.headquarters?.mapsUrl || company.mapsUrl,
           geo: {
             "@type": "GeoCoordinates",
             latitude: company.geo.lat,
@@ -121,9 +128,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           },
           address: {
             "@type": "PostalAddress",
-            streetAddress: company.offices?.dhaka?.address || company.dhakaOffice.full,
-            addressLocality: "Dhaka",
-            postalCode: "1212",
+            streetAddress: company.offices?.chattogramHQ?.address || company.headquarters?.full || company.address?.full,
+            addressLocality: "Chattogram",
+            postalCode: "4000",
             addressCountry: "BD",
           },
         }),

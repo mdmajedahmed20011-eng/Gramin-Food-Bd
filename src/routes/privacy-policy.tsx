@@ -5,13 +5,13 @@ import { company } from "@/lib/site-data";
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy | Alex Global Consultancy" },
+      { title: "Privacy Policy | Academic Allies" },
       {
         name: "description",
         content:
-          "How Alex Global Consultancy collects, protects, and handles personal data for study abroad counseling, language academy students, and visa processing.",
+          "How Academic Allies collects, protects, and handles personal data for European study abroad counseling, language academy students, and visa processing.",
       },
-      { property: "og:title", content: "Privacy Policy | Alex Global Consultancy" },
+      { property: "og:title", content: "Privacy Policy | Academic Allies" },
       { property: "og:description", content: "Our commitment to protecting your personal information and academic records." },
     ],
   }),
@@ -21,23 +21,23 @@ export const Route = createFileRoute("/privacy-policy")({
 const sections = [
   {
     title: "1. Information We Collect",
-    body: "When you register with Alex Global Consultancy (AGC) for study abroad admissions, language academy courses (IELTS, Spoken English, Kids English), or visa processing, we collect relevant personal details such as your name, phone/WhatsApp number, email address, academic qualifications, test scores, passports, and destination preferences. We also collect minimal anonymous web analytics to ensure website security and performance.",
+    body: "When you register with Academic Allies for European higher education admissions, language academy courses (IELTS, Spoken English, Kids English), or visa processing, we collect relevant personal details such as your name, phone/WhatsApp number, email address, academic qualifications, test scores, passports, and destination preferences. We also collect minimal anonymous web analytics to ensure website security and performance.",
   },
   {
     title: "2. How We Use Your Information",
-    body: "Your information is used strictly to provide profile evaluations, course shortlisting, university application submissions, IELTS and language coaching scheduling, and visa processing across our 8 official service categories. All handling is coordinated securely between our Dhaka Corporate Office and London Branch.",
+    body: "Your information is used strictly to provide profile evaluations, course shortlisting, university application submissions (e.g. Italian Universitaly portals), DSU regional scholarship applications, and British Council certified IELTS coaching. All data is handled securely at our corporate headquarters at Finlay Square (7th Floor), CDA Avenue, East Nasirabad, Chattogram.",
   },
   {
     title: "3. Information Sharing & Third Parties",
-    body: "We share your documents solely with designated partner universities, awarding bodies, and official immigration authorities (e.g. UKVI, IRCC, Australian Home Affairs). We NEVER sell, rent, or trade your personal information with third-party marketers or brokers.",
+    body: "We share your documents solely with designated partner universities, awarding bodies, and official government or embassy visa authorities. We have a strict anti-fraud policy ('Dalaler Fake Visa Noy') and NEVER share, sell, or rent your personal information with fraudulent middlemen or marketing third parties.",
   },
   {
     title: "4. Data Storage & Confidentiality",
-    body: "Student and client records are stored securely in protected digital repositories accessible only to authorized AGC senior counselors. Physical and electronic records are maintained with high confidentiality.",
+    body: "Student and scholar records are stored securely in protected digital repositories accessible only to authorized Academic Allies senior counselors. Physical and electronic records are maintained with the highest confidentiality.",
   },
   {
     title: "5. Your Privacy Rights",
-    body: `You may request access to, correction of, or deletion of your records at any time by emailing ${company.emails[0]} or contacting our hotlines at ${company.phones[0]} / UK ${company.offices.london.phone}.`,
+    body: `You may request access to, correction of, or deletion of your records at any time by emailing ${company.emails[0]} or contacting our hotlines at ${company.phones[0]} / ${company.phones[1]}.`,
   },
 ];
 
@@ -61,4 +61,3 @@ function PrivacyPage() {
     </>
   );
 }
-

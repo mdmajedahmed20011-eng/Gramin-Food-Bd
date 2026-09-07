@@ -13,9 +13,33 @@ interface DestinationItem {
 
 const destinationsData: DestinationItem[] = [
   {
+    name: "Italy (Padova & Rome)",
+    code: "IT",
+    unis: "30+ Public Universities",
+    image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80",
+    popular: true,
+    slug: "italy",
+  },
+  {
+    name: "Sweden",
+    code: "SE",
+    unis: "40+ Tech Universities",
+    image: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80",
+    popular: true,
+    slug: "sweden",
+  },
+  {
+    name: "Finland",
+    code: "FI",
+    unis: "35+ Universities & UAS",
+    image: "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?auto=format&fit=crop&w=800&q=80",
+    popular: true,
+    slug: "finland",
+  },
+  {
     name: "United Kingdom",
     code: "GB",
-    unis: "150+ Universities",
+    unis: "120+ Universities",
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
     popular: true,
     slug: "uk",
@@ -24,41 +48,17 @@ const destinationsData: DestinationItem[] = [
     name: "Canada",
     code: "CA",
     unis: "80+ DLIs",
-    image: "https://images.unsplash.com/photo-1517935703635-2717090c2210?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80",
     popular: true,
     slug: "canada",
   },
   {
-    name: "Australia",
-    code: "AU",
-    unis: "45+ Universities",
-    image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80",
+    name: "USA",
+    code: "US",
+    unis: "100+ Campuses",
+    image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=800&q=80",
     popular: true,
-    slug: "australia",
-  },
-  {
-    name: "Cyprus (Europe)",
-    code: "CY",
-    unis: "25+ Universities",
-    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80",
-    popular: true,
-    slug: "cyprus",
-  },
-  {
-    name: "Germany",
-    code: "DE",
-    unis: "70+ Universities",
-    image: "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80",
-    popular: false,
-    slug: "germany",
-  },
-  {
-    name: "Finland",
-    code: "FI",
-    unis: "35+ Universities",
-    image: "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?auto=format&fit=crop&w=800&q=80",
-    popular: true,
-    slug: "finland",
+    slug: "usa",
   },
 ];
 
@@ -71,9 +71,9 @@ export function PopularDestinationsSection() {
           tag="— POPULAR DESTINATIONS —"
           title="Where will you"
           highlight="study?"
-          description="Top study destinations with world-class universities, vibrant cultures, and strong post-study work pathways."
-          tagColor="text-[#043E8B]"
-          highlightColor="text-[#043E8B]"
+          description="Signature European pathways and top English-speaking study destinations with world-class universities and genuine visa procedures."
+          tagColor="text-amber-700"
+          highlightColor="text-[#0C2340]"
         />
 
         {/* 6 Country Destination Cards Grid with Stagger Entrance */}
@@ -86,7 +86,7 @@ export function PopularDestinationsSection() {
               <Link
                 to="/study-in-{$country}"
                 params={{ country: dest.slug }}
-                className="group relative overflow-hidden rounded-3xl aspect-[3/4.2] shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between p-4 bg-slate-900 active:scale-[0.98] border border-transparent hover:border-red-500/30"
+                className="group relative overflow-hidden rounded-3xl aspect-[3/4.2] shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between p-4 bg-slate-900 active:scale-[0.98] border border-transparent hover:border-amber-400/50"
               >
                 {/* Card Background Image */}
                 <img
@@ -94,6 +94,9 @@ export function PopularDestinationsSection() {
                   alt={`Study in ${dest.name}`}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-115 opacity-80"
                   loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = "/assets/banner.jpg";
+                  }}
                 />
 
                 {/* Scrim Gradient */}
@@ -102,20 +105,20 @@ export function PopularDestinationsSection() {
                 {/* Top Badges Row */}
                 <div className="relative z-10 flex items-start justify-between gap-1 w-full">
                   {dest.popular ? (
-                    <span className="rounded-full bg-red-600/95 backdrop-blur-xs px-2.5 py-0.5 text-[0.62rem] font-bold text-white shadow-xs animate-pulse">
-                      ✦ Popular
+                    <span className="rounded-full bg-amber-400 px-2.5 py-0.5 text-[0.62rem] font-bold text-slate-950 shadow-xs">
+                      ✦ Top Pick
                     </span>
                   ) : (
                     <span />
                   )}
-                  <span className="rounded-xl bg-white/95 backdrop-blur-xs px-2.5 py-1 text-[0.68rem] font-black text-slate-900 shadow-xs group-hover:bg-red-600 group-hover:text-white transition-colors">
+                  <span className="rounded-xl bg-white/95 backdrop-blur-xs px-2.5 py-1 text-[0.68rem] font-black text-slate-900 shadow-xs group-hover:bg-amber-400 group-hover:text-slate-950 transition-colors">
                     {dest.code}
                   </span>
                 </div>
 
                 {/* Bottom Information */}
                 <div className="relative z-10">
-                  <h3 className="font-display text-sm sm:text-base font-bold text-white tracking-tight leading-snug group-hover:text-red-400 transition-colors">
+                  <h3 className="font-display text-sm sm:text-base font-bold text-white tracking-tight leading-snug group-hover:text-amber-300 transition-colors">
                     {dest.name}
                   </h3>
                   <div className="flex items-center gap-1.5 text-[0.68rem] font-semibold text-slate-300 mt-1">
@@ -132,9 +135,9 @@ export function PopularDestinationsSection() {
         <div className="text-center mt-10 sm:mt-12">
           <Link
             to="/destinations"
-            className="btn-shimmer inline-flex items-center gap-2 rounded-xl bg-[#043E8B] hover:bg-[#032B60] text-white px-8 py-3.5 text-xs sm:text-sm font-bold shadow-lg hover:shadow-blue-900/30 transition-all active:scale-95 cursor-pointer"
+            className="btn-luxury-primary inline-flex items-center gap-2 text-slate-950 px-8 py-3.5 text-xs sm:text-sm font-bold shadow-lg hover:shadow-amber-400/30 transition-all active:scale-95 cursor-pointer"
           >
-            <span>View All Destinations</span>
+            <span>View All European & Global Destinations</span>
             <IconArrowRight className="w-4 h-4" />
           </Link>
         </div>

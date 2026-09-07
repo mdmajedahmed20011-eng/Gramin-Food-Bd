@@ -16,18 +16,18 @@ export function FbReel({
   duration = "0:45",
   className,
 }: {
-  id?: string;
-  reelId?: string;
+  id?: string | undefined;
+  reelId?: string | undefined;
   title: string;
-  reelUrl?: string;
-  url?: string;
-  embedUrl?: string;
-  category?: string;
-  badge?: string;
-  posterUrl?: string;
-  views?: string;
-  duration?: string;
-  className?: string;
+  reelUrl?: string | undefined;
+  url?: string | undefined;
+  embedUrl?: string | undefined;
+  category?: string | undefined;
+  badge?: string | undefined;
+  posterUrl?: string | undefined;
+  views?: string | undefined;
+  duration?: string | undefined;
+  className?: string | undefined;
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -42,26 +42,24 @@ export function FbReel({
       ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(targetUrl)}&show_text=0&t=0&autoplay=true`
       : "");
 
-  // Use Facebook's graph API to get actual video thumbnail for the reel
+  // Use verified local asset
   const fallbackPoster = posterUrl || (
-    actualId
-      ? `https://graph.facebook.com/${actualId}/picture`
-      : badge?.includes("1") || title.includes("Profile")
-      ? "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
-      : badge?.includes("2") || title.includes("Study Gap")
-      ? "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
-      : "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80"
+    badge?.includes("1") || title.includes("Step")
+      ? "/assets/banner.jpg"
+      : badge?.includes("2") || title.includes("Visa")
+      ? "/assets/succes.jpg"
+      : "/assets/succes 2.jpg"
   );
 
   return (
     <figure
       className={cn(
-        "overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-red-500/40 hover:-translate-y-1.5 flex flex-col group",
+        "overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-amber-400/50 hover:-translate-y-1.5 flex flex-col group",
         className,
       )}
     >
       {/* 9:16 Vertical Reel Player Container */}
-      <div className="relative aspect-[9/16] w-full bg-slate-950 overflow-hidden flex items-center justify-center">
+      <div className="relative aspect-[9/16] w-full bg-[#0C2340] overflow-hidden flex items-center justify-center">
         {isPlaying ? (
           <>
             {/* Blurred background so it is NEVER pure black while connecting */}
@@ -72,15 +70,15 @@ export function FbReel({
             />
 
             {!loaded && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/70 backdrop-blur-sm text-slate-300 p-4 text-center z-10">
-                <div className="w-10 h-10 border-3 border-red-500 border-t-transparent rounded-full animate-spin mb-3" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0C2340]/85 backdrop-blur-sm text-slate-300 p-4 text-center z-10">
+                <div className="w-10 h-10 border-3 border-amber-400 border-t-transparent rounded-full animate-spin mb-3" />
                 <span className="text-xs font-bold text-white">Loading Official Facebook Reel...</span>
-                <span className="text-[0.68rem] text-slate-300 mt-1">Alex Global Consultancy Official Feed</span>
+                <span className="text-[0.68rem] text-amber-200 mt-1">Academic Allies Official Feed</span>
                 <a
                   href={targetUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-3 inline-flex items-center gap-1 text-[0.7rem] font-bold text-red-400 hover:text-red-300 underline"
+                  className="mt-3 inline-flex items-center gap-1 text-[0.7rem] font-bold text-amber-400 hover:text-amber-300 underline"
                 >
                   Open Directly on Facebook ↗
                 </a>
@@ -93,7 +91,7 @@ export function FbReel({
                 setIsPlaying(false);
                 setLoaded(false);
               }}
-              className="absolute top-3 right-3 z-30 flex items-center gap-1 rounded-full bg-black/70 backdrop-blur-md px-2.5 py-1 text-[0.68rem] font-bold text-white border border-white/25 hover:bg-red-600 transition-colors shadow-lg"
+              className="absolute top-3 right-3 z-30 flex items-center gap-1 rounded-full bg-black/70 backdrop-blur-md px-2.5 py-1 text-[0.68rem] font-bold text-white border border-white/25 hover:bg-amber-500 hover:text-slate-950 transition-colors shadow-lg"
               title="Return to poster"
             >
               ✕ Cover
@@ -109,7 +107,7 @@ export function FbReel({
             />
           </>
         ) : (
-          /* High-Resolution Branded Reel Poster Cover (Guaranteed Never Black) */
+          /* High-Resolution Branded Reel Poster Cover */
           <div
             onClick={() => setIsPlaying(true)}
             className="absolute inset-0 cursor-pointer overflow-hidden group/poster"
@@ -120,19 +118,22 @@ export function FbReel({
               alt={title}
               className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/poster:scale-110"
               loading="lazy"
+              onError={(e) => {
+                e.currentTarget.src = "/assets/banner.jpg";
+              }}
             />
 
             {/* Gradient Scrim */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C2340]/95 via-[#0C2340]/40 to-black/30" />
 
             {/* Top Bar inside Reel */}
             <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-              <div className="flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/20">
+              <div className="flex items-center gap-2 rounded-full bg-slate-950/70 backdrop-blur-md px-2.5 py-1 border border-amber-400/30">
                 <BrandLogo size={20} />
-                <span className="text-[0.65rem] font-bold text-white tracking-wide">Alex Global</span>
+                <span className="text-[0.65rem] font-bold text-white tracking-wide">Academic Allies</span>
               </div>
 
-              <div className="flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-2.5 py-1 text-[0.65rem] font-bold text-white border border-white/20">
+              <div className="flex items-center gap-1.5 rounded-full bg-slate-950/70 backdrop-blur-md px-2.5 py-1 text-[0.65rem] font-bold text-amber-300 border border-amber-400/30">
                 <span>👁</span>
                 <span>{views}</span>
               </div>
@@ -142,28 +143,28 @@ export function FbReel({
             <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
               <div className="relative flex items-center justify-center">
                 {/* Ripple ring */}
-                <div className="absolute h-20 w-20 rounded-full bg-red-600/40 animate-ping" />
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-red-600 shadow-2xl transition-transform duration-300 group-hover/poster:scale-115">
+                <div className="absolute h-20 w-20 rounded-full bg-amber-400/30 animate-ping" />
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-amber-400 text-[#0C2340] shadow-2xl transition-transform duration-300 group-hover/poster:scale-115">
                   <svg className="w-7 h-7 ml-1 fill-current" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
-              <span className="mt-3 text-xs font-bold text-white tracking-wider uppercase drop-shadow-md bg-black/50 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
-                Click to Play
+              <span className="mt-3 text-xs font-bold text-amber-200 tracking-wider uppercase drop-shadow-md bg-slate-950/70 backdrop-blur-xs px-3 py-1 rounded-full border border-amber-400/25">
+                Click to Watch Reel
               </span>
             </div>
 
             {/* Bottom Floating Info inside Reel Frame */}
             <div className="absolute bottom-4 left-4 right-4 z-10 space-y-1">
-              <span className="inline-block rounded-md bg-red-600 px-2 py-0.5 text-[0.62rem] font-black text-white uppercase tracking-wider">
+              <span className="inline-block rounded-md bg-amber-400 px-2 py-0.5 text-[0.62rem] font-black text-slate-950 uppercase tracking-wider">
                 {badge || "Official Video"}
               </span>
               <p className="text-xs font-bold text-white leading-snug drop-shadow-sm line-clamp-2">
                 {title}
               </p>
               <div className="flex items-center justify-between text-[0.68rem] text-slate-300 pt-1">
-                <span>Alex Global Consultancy</span>
+                <span>Academic Allies Official</span>
                 <span className="font-mono text-[0.65rem] bg-black/50 px-2 py-0.5 rounded-md border border-white/20">
                   {duration}
                 </span>
@@ -178,17 +179,17 @@ export function FbReel({
         <div>
           <div className="flex items-center justify-between gap-2 mb-1.5">
             {badge && (
-              <span className="inline-flex items-center rounded-full bg-red-50 border border-red-200 px-2.5 py-0.5 text-[0.68rem] font-bold text-red-700">
+              <span className="inline-flex items-center rounded-full bg-amber-50 border border-amber-200 px-2.5 py-0.5 text-[0.68rem] font-bold text-amber-800">
                 {badge}
               </span>
             )}
             {category && (
-              <span className="text-[0.7rem] font-bold text-[#043E8B]">
+              <span className="text-[0.7rem] font-bold text-[#0C2340]">
                 {category}
               </span>
             )}
           </div>
-          <h4 className="font-display font-bold text-sm text-slate-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
+          <h4 className="font-display font-bold text-sm text-slate-900 leading-snug group-hover:text-amber-600 transition-colors line-clamp-2">
             {title}
           </h4>
         </div>
@@ -199,12 +200,12 @@ export function FbReel({
               href={targetUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0C2340] hover:text-amber-600 transition-colors"
             >
               <span>Watch on Facebook</span>
               <span>↗</span>
             </a>
-            <span className="text-[0.65rem] text-slate-500 font-medium">Verified Reel</span>
+            <span className="text-[0.65rem] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Verified Reel</span>
           </div>
         )}
       </figcaption>

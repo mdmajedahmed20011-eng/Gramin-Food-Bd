@@ -7,11 +7,13 @@ export function Testimonials() {
 
   const reviews = verifiedStudentReviews.map((r) => ({
     name: r.name,
-    role: "Student",
+    role: "Student / Guardian",
     university: r.destination ? `${r.course} (${r.destination})` : r.course,
     quote: r.text,
-    stars: 5,
-    countryCode: r.destination?.includes("UK") ? "GB" : r.destination?.includes("Canada") ? "CA" : r.destination?.includes("Australia") ? "AU" : "BD",
+    stars: r.rating || 5,
+    highlight: r.highlight,
+    countryCode: r.country === "Italy" ? "IT" : r.country === "Europe" ? "EU" : r.country === "Bangladesh" ? "BD" : "GLOBAL",
+    image: r.image,
     initials: r.name
       .split(" ")
       .map((n) => n[0])
@@ -29,12 +31,12 @@ export function Testimonials() {
       <div className="section-shell">
         {/* Animated Section Header */}
         <MotionHeading
-          tag="— VERIFIED REVIEWS —"
-          title="What our students"
+          tag="— VERIFIED STUDENT & GUARDIAN REVIEWS —"
+          title="What our students & families"
           highlight="say"
-          description="Real feedback from students successfully enrolled at leading institutions across the UK, Canada, Australia, and Europe."
-          tagColor="text-red-600"
-          highlightColor="text-[#043E8B]"
+          description="Authentic feedback from students and parents successfully guided to European universities and IELTS Band 7+ scores."
+          tagColor="text-[#D4AF37]"
+          highlightColor="text-[#0C2340]"
         />
 
         {/* Testimonials Carousel Container with Navigation Arrows */}
@@ -45,7 +47,7 @@ export function Testimonials() {
             aria-label="Previous Testimonial"
             onClick={prev}
             disabled={currentIndex === 0}
-            className="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:bg-slate-50 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer font-bold active:scale-95"
+            className="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:bg-amber-50 hover:text-[#0C2340] hover:border-[#D4AF37] transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer font-bold active:scale-95"
           >
             ‹
           </button>
@@ -54,7 +56,7 @@ export function Testimonials() {
             aria-label="Next Testimonial"
             onClick={next}
             disabled={currentIndex >= maxIndex}
-            className="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:bg-slate-50 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer font-bold active:scale-95"
+            className="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:bg-amber-50 hover:text-[#0C2340] hover:border-[#D4AF37] transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer font-bold active:scale-95"
           >
             ›
           </button>
@@ -67,19 +69,25 @@ export function Testimonials() {
           >
             {reviews.slice(currentIndex, currentIndex + 3).map((r) => (
               <StaggerItem key={r.name} className="h-full">
-                <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full hover-lift">
+                <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full hover-lift border-t-2 hover:border-t-[#D4AF37]">
                   <div>
-                    {/* Top Quote Icon & 5 Red Stars */}
-                    <div className="flex items-center justify-between mb-5">
-                      <span className="font-serif-editorial text-4xl text-slate-300 leading-none select-none">
+                    {/* Top Quote Icon & 5 Gold Stars */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-serif-editorial text-4xl text-amber-200 leading-none select-none">
                         “
                       </span>
-                      <div className="flex items-center gap-1 text-red-600 text-sm">
+                      <div className="flex items-center gap-1 text-[#D4AF37] text-sm">
                         {Array.from({ length: r.stars }).map((_, i) => (
                           <span key={i}>★</span>
                         ))}
                       </div>
                     </div>
+
+                    {r.highlight && (
+                      <div className="inline-block rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-[0.68rem] font-bold text-amber-900 mb-3">
+                        {r.highlight}
+                      </div>
+                    )}
 
                     {/* Review Text */}
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
@@ -90,11 +98,19 @@ export function Testimonials() {
                   {/* Bottom Author Row */}
                   <div className="flex items-center justify-between border-t border-slate-100 pt-5 mt-6">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#043E8B] to-slate-900 text-white font-bold text-xs shadow-xs">
-                        {r.initials}
-                      </div>
+                      {r.image ? (
+                        <img
+                          src={r.image}
+                          alt={r.name}
+                          className="h-11 w-11 shrink-0 rounded-full object-cover border border-[#D4AF37]/50"
+                        />
+                      ) : (
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#0C2340] to-[#16325B] text-amber-300 font-bold text-xs shadow-xs border border-[#D4AF37]/40">
+                          {r.initials}
+                        </div>
+                      )}
                       <div className="min-w-0">
-                        <div className="text-sm font-bold text-slate-900 truncate">
+                        <div className="text-sm font-bold text-[#0C2340] truncate">
                           {r.name}
                         </div>
                         <div className="text-[0.7rem] text-slate-500 truncate">
@@ -103,7 +119,7 @@ export function Testimonials() {
                       </div>
                     </div>
 
-                    <span className="shrink-0 rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-black text-slate-700 border border-slate-200">
+                    <span className="shrink-0 rounded-lg bg-amber-50 px-2.5 py-1 text-xs font-black text-amber-900 border border-amber-200">
                       {r.countryCode}
                     </span>
                   </div>
@@ -118,9 +134,10 @@ export function Testimonials() {
               <button
                 key={idx}
                 type="button"
+                aria-label={`Go to slide ${idx + 1}`}
                 onClick={() => setCurrentIndex(idx)}
                 className={`h-2 rounded-full transition-all ${
-                  currentIndex === idx ? "w-6 bg-red-600" : "w-2 bg-slate-300"
+                  currentIndex === idx ? "w-6 bg-[#D4AF37]" : "w-2 bg-slate-300"
                 }`}
               />
             ))}
@@ -130,4 +147,3 @@ export function Testimonials() {
     </section>
   );
 }
-

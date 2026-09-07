@@ -18,20 +18,25 @@ export function InteractiveMatcher() {
         return d.withoutIelts;
       }
       // Low/Zero tuition budget matching
+      if (budget === "Low Cost / Europe Grants") {
+        if (["italy", "finland", "sweden", "malaysia"].includes(d.slug)) {
+          return true;
+        }
+      }
       if (budget === "Affordable (৳8L – ৳15L)") {
-        if (["malaysia", "cyprus", "germany", "uk"].includes(d.slug)) {
+        if (["italy", "malaysia", "finland", "uk"].includes(d.slug)) {
           return true;
         }
       }
       if (budget === "Premium (৳18L+)") {
-        return ["australia", "canada", "usa", "uk"].includes(d.slug);
+        return ["canada", "usa", "uk", "sweden"].includes(d.slug);
       }
       return true;
     }).slice(0, 6);
   }, [budget, ielts]);
 
   const whatsappHref = () => {
-    const text = `Hello Alex Global Consultancy! I used your Study Abroad Eligibility Calculator.\n\nMy Profile:\n• Desired Level: ${level}\n• Academic Result: ${score}\n• English Proficiency: ${ielts}\n• Tuition Budget: ${budget}\n\nMatched Destinations: ${matchedDestinations.map((m) => m.name).join(", ")}\n\nPlease schedule a free consultation with an Alex Global advisor for me!`;
+    const text = `Hello Academic Allies! I used your Study Abroad Eligibility Calculator.\n\nMy Profile:\n• Desired Level: ${level}\n• Academic Result: ${score}\n• English Proficiency: ${ielts}\n• Tuition Budget: ${budget}\n\nMatched Destinations: ${matchedDestinations.map((m) => m.name).join(", ")}\n\nPlease schedule a free consultation with an Academic Allies advisor for me!`;
     return `https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(text)}`;
   };
 
@@ -39,18 +44,18 @@ export function InteractiveMatcher() {
     <div className="card-clean p-6 sm:p-10 border border-slate-200/90 shadow-md bg-white rounded-3xl">
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-6">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-3.5 py-1 text-xs font-bold text-red-700">
-            <IconSparkles className="w-3.5 h-3.5 text-red-600" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1 text-xs font-bold text-amber-900">
+            <IconSparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Interactive Tool · 100% Free Consultation</span>
           </div>
           <h2 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
-            Study Abroad <span className="text-red-700">Eligibility Calculator</span>
+            Study Abroad <span className="text-[#0C2340]">Eligibility Calculator</span>
           </h2>
           <p className="mt-1 max-w-2xl text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Select your academic degree level, GPA, English status (with or without IELTS/MOI), and budget to instantly discover matched destinations across UK, Canada, Australia, Cyprus, USA, Germany & Finland.
+            Select your academic degree level, GPA, English status (with or without IELTS/MOI), and budget to instantly discover matched destinations across Italy (Padova & DSU), Sweden, Finland, UK, Canada, USA & Malaysia.
           </p>
         </div>
-        <div className="rounded-2xl border border-slate-800 bg-slate-950 px-4 py-2 text-xs font-bold text-white">
+        <div className="rounded-2xl border border-slate-800 bg-[#0C2340] px-4 py-2 text-xs font-bold text-[#D4AF37]">
           Verified 2026/2027 Intakes
         </div>
       </div>
@@ -70,7 +75,7 @@ export function InteractiveMatcher() {
                 onClick={() => setLevel(opt)}
                 className={`w-full rounded-xl px-3.5 py-2.5 text-left text-xs font-bold transition-all cursor-pointer ${
                   level === opt
-                    ? "bg-slate-900 text-white shadow-sm border border-red-600"
+                    ? "bg-[#0C2340] text-[#D4AF37] shadow-sm border border-[#D4AF37]"
                     : "border border-slate-200 bg-slate-50/80 text-slate-700 hover:bg-slate-100"
                 }`}
               >
@@ -93,7 +98,7 @@ export function InteractiveMatcher() {
                 onClick={() => setScore(opt)}
                 className={`w-full rounded-xl px-3.5 py-2.5 text-left text-xs font-bold transition-all cursor-pointer ${
                   score === opt
-                    ? "bg-slate-900 text-white shadow-sm border border-red-600"
+                    ? "bg-[#0C2340] text-[#D4AF37] shadow-sm border border-[#D4AF37]"
                     : "border border-slate-200 bg-slate-50/80 text-slate-700 hover:bg-slate-100"
                 }`}
               >
@@ -116,7 +121,7 @@ export function InteractiveMatcher() {
                 onClick={() => setIelts(opt)}
                 className={`w-full rounded-xl px-3.5 py-2.5 text-left text-xs font-bold transition-all cursor-pointer ${
                   ielts === opt
-                    ? "bg-slate-900 text-white shadow-sm border border-red-600"
+                    ? "bg-[#0C2340] text-[#D4AF37] shadow-sm border border-[#D4AF37]"
                     : "border border-slate-200 bg-slate-50/80 text-slate-700 hover:bg-slate-100"
                 }`}
               >
@@ -139,7 +144,7 @@ export function InteractiveMatcher() {
                 onClick={() => setBudget(opt)}
                 className={`w-full rounded-xl px-3.5 py-2.5 text-left text-xs font-bold transition-all cursor-pointer ${
                   budget === opt
-                    ? "bg-slate-900 text-white shadow-sm border border-red-600"
+                    ? "bg-[#0C2340] text-[#D4AF37] shadow-sm border border-[#D4AF37]"
                     : "border border-slate-200 bg-slate-50/80 text-slate-700 hover:bg-slate-100"
                 }`}
               >
@@ -165,13 +170,13 @@ export function InteractiveMatcher() {
           {matchedDestinations.map((d) => (
             <div
               key={d.slug}
-              className="rounded-2xl border border-slate-200 bg-slate-50/60 p-4 transition-all hover:bg-white hover:border-red-300 hover:shadow-md"
+              className="rounded-2xl border border-slate-200 bg-slate-50/60 p-4 transition-all hover:bg-white hover:border-[#D4AF37] hover:shadow-md"
             >
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-2 text-sm sm:text-base font-bold text-slate-900">
                   <span className="text-xl">{d.flag}</span> {d.name}
                 </span>
-                <span className="rounded-full bg-red-50 border border-red-200 px-2 py-0.5 text-[0.62rem] font-bold text-red-700">
+                <span className="rounded-full bg-amber-50 border border-amber-200 px-2 py-0.5 text-[0.62rem] font-bold text-amber-900">
                   {d.pswv}
                 </span>
               </div>
@@ -181,7 +186,7 @@ export function InteractiveMatcher() {
                 <Link
                   to="/study-in-{$country}"
                   params={{ country: d.slug }}
-                  className="font-bold text-red-700 hover:underline flex items-center gap-1"
+                  className="font-bold text-[#0C2340] hover:text-[#D4AF37] hover:underline flex items-center gap-1"
                 >
                   <span>Explore</span>
                   <IconArrowRight className="w-3 h-3" />
@@ -191,13 +196,13 @@ export function InteractiveMatcher() {
           ))}
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-slate-950 border border-slate-800 p-5 sm:p-6 text-white shadow-lg">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-[#0C2340] border border-slate-800 p-5 sm:p-6 text-white shadow-lg">
           <div>
             <p className="font-display text-sm sm:text-base font-bold text-white">
-              Want a 100% Free Profile Audit by Alex Global Consultancy Advisors?
+              Want a 100% Free Profile Audit by Academic Allies Advisors?
             </p>
             <p className="text-xs text-slate-300 mt-0.5">
-              Walk into our Dhaka Corporate Office (Aftabnagar EHL Project) or London Branch (Cranberry Lane), or connect on WhatsApp for an instant evaluation.
+              Walk into our Chattogram Corporate Headquarters at Finlay Square (7th Floor), CDA Avenue, or connect on WhatsApp for an instant evaluation.
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -223,4 +228,3 @@ export function InteractiveMatcher() {
     </div>
   );
 }
-

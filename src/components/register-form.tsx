@@ -2,23 +2,26 @@ import { useState } from "react";
 import { company, destinations } from "@/lib/site-data";
 
 const field =
-  "w-full rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm text-slate-900 outline-none transition-all hover:bg-white focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-500/10";
+  "w-full rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm text-slate-900 outline-none transition-all hover:bg-white focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20";
 const label = "mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700";
 
 const serviceOptions = [
-  "100% Free Profile Assessment & Counseling",
-  "Study Abroad Admissions (UK, USA, Canada, Australia, Europe)",
-  "IELTS Preparation Masterclass (Target Band 7.0+)",
+  "100% Free Profile Assessment & European Eligibility",
+  "Italy Study & DSU Scholarship (University of Padova / Universitaly)",
+  "Sweden & Finland Higher Education Admissions",
+  "UK University Admissions (1-Yr Masters / 2-Yr PSW)",
+  "Canada / USA Study Visa & Embassy Mock Prep",
+  "IELTS Academic Masterclass (Band 7.0+ Strategy)",
   "Spoken English & Communication Fluency",
-  "Kids English & Spoken Foundation",
-  "Student & Spouse Visa Filing",
-  "Tourist & Visit Visa (Schengen 27, UK, USA, Canada)",
-  "Business & Work Permit Visa Advisory",
+  "Kids English Foundation (Ages 5–14)",
+  "Malaysia Partner Transfer Programs",
 ];
 
 const officeOptions = [
-  "Dhaka Corporate Office (Merul Badda, Aftabnagar)",
-  "London Branch Office (The Arches Cranberry Lane)",
+  "Chattogram Head Office (Finlay Square, 7th Floor, 2 No. Gate)",
+  "Chattogram Zeenat Abad Branch (Chittagong-4203)",
+  "Dhaka Liaison Desk",
+  "Noakhali Liaison Desk",
   "Online Consultation (WhatsApp / Zoom)",
 ];
 
@@ -28,10 +31,10 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
     name: "",
     email: "",
     phone: "",
-    service: "100% Free Profile Assessment & Counseling",
-    destination: "United Kingdom",
+    service: "100% Free Profile Assessment & European Eligibility",
+    destination: "Italy",
     currentStatus: "Bachelor's Graduate (Masters Aspirant)",
-    office: "Dhaka Corporate Office (Merul Badda, Aftabnagar)",
+    office: "Chattogram Head Office (Finlay Square, 7th Floor, 2 No. Gate)",
     message: "",
   });
 
@@ -40,7 +43,7 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
 
   const whatsappHref = () => {
     const lines = [
-      "✨ Free Consultation Request — Alex Global Consultancy",
+      "✨ Free Consultation Request — Academic Allies",
       `👤 Name: ${form.name}`,
       `📞 Phone: ${form.phone}`,
       form.email ? `✉️ Email: ${form.email}` : "",
@@ -49,7 +52,7 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
       `🎓 Status/Background: ${form.currentStatus}`,
       `🏢 Preferred Office: ${form.office}`,
       form.message ? `📝 Notes: ${form.message}` : "",
-      "\nI would like to schedule a free counseling session with an Alex Global advisor.",
+      "\nI would like to schedule a free counseling session with an Academic Allies advisor.",
     ].filter(Boolean);
     return `https://wa.me/${company.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(lines.join("\n"))}`;
   };
@@ -70,20 +73,20 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
           Booking Confirmed! 🎉
         </h3>
         <p className="mx-auto max-w-md text-sm text-slate-600 leading-relaxed">
-          Thank you, <strong className="text-slate-900">{form.name}</strong>! Your free consultation has been booked. An{" "}
-          <strong>{company.name}</strong> senior advisor will contact you on{" "}
+          Thank you, <strong className="text-slate-900">{form.name}</strong>! Your free consultation has been registered. An{" "}
+          <strong>Academic Allies</strong> senior advisor will contact you on{" "}
           <strong className="text-emerald-700">{form.phone}</strong> shortly.
         </p>
         <div className="mt-2 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-xs text-emerald-800 text-left space-y-1">
-          <p>✔ Zero file-opening fee · Free profile evaluation</p>
-          <p>✔ Dhaka (Aftabnagar) &amp; London (Cranberry Lane) offices</p>
-          <p>✔ Response typically within 1 business hour</p>
+          <p>✔ Zero file-opening fee · 100% genuine documentation</p>
+          <p>✔ Finlay Square (7th Floor), 2 No. Gate, Chattogram</p>
+          <p>✔ Quick response via WhatsApp ({company.phones[0]})</p>
         </div>
         {onDone && (
           <button
             type="button"
             onClick={onDone}
-            className="mt-4 btn-luxury-primary text-xs py-3 px-8 justify-center shadow-md"
+            className="mt-4 btn-luxury-primary text-xs py-3 px-8 justify-center shadow-md text-slate-950 font-bold"
           >
             Close
           </button>
@@ -95,14 +98,14 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 text-left">
       <div className="border-b border-slate-100 pb-3 mb-2">
-        <span className="text-[0.68rem] font-extrabold uppercase tracking-wider text-red-600">
-          Alex Global Consultancy · Free Evaluation
+        <span className="text-[0.68rem] font-extrabold uppercase tracking-wider text-amber-700">
+          Academic Allies · Advancing Education
         </span>
         <h3 className="font-display text-xl font-black text-slate-900">
           Book Your Free Assessment
         </h3>
         <p className="text-xs text-slate-500 mt-0.5">
-          Zero file-opening fee · Honest advice from Dhaka & London
+          Zero file-opening fee · Honest counseling at Finlay Square, Chattogram
         </p>
       </div>
 
@@ -132,7 +135,7 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
             required
             value={form.phone}
             onChange={set("phone")}
-            placeholder="e.g. 01886-XXXXXX"
+            placeholder="e.g. 01859-870936"
             className={field}
           />
         </div>
@@ -174,7 +177,7 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
             ))}
             <option value="Europe / Schengen 27">🇪🇺 Europe / Schengen 27</option>
             <option value="Language Course (IELTS / Spoken / Kids)">🎯 Language Training Only</option>
-            <option value="Other / Not Decided">🌍 Other / Need Advice</option>
+            <option value="Other / Need Advice">🌍 Other / Need Advice</option>
           </select>
         </div>
       </div>
@@ -190,9 +193,9 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
             onChange={set("currentStatus")}
             className={field}
           >
-            <option value="HSC / A-Level Completed (Bachelor's Aspirant)">HSC / A-Level Completed (Bachelor's)</option>
+            <option value="HSC / Alim / A-Level Completed (Bachelor's Aspirant)">HSC / Alim / A-Level Completed</option>
             <option value="Bachelor's Graduate (Master's Aspirant)">Bachelor's Graduate (Master's)</option>
-            <option value="Diploma / Polytechnic Holder">Diploma / Polytechnic Graduate</option>
+            <option value="Diploma / Polytechnic Graduate">Diploma / Polytechnic Graduate</option>
             <option value="Working Professional (Visa / Language)">Working Professional (Visa / Language)</option>
             <option value="Parent for Kids English Course">Parent inquiring for Kids English</option>
             <option value="Other">Other</option>
@@ -241,21 +244,21 @@ export function RegisterForm({ onDone }: { onDone?: () => void }) {
           rows={2}
           value={form.message}
           onChange={set("message")}
-          placeholder="Tell us your GPA, IELTS score (or without IELTS), target intake, etc."
+          placeholder="Tell us your GPA, IELTS score (or without IELTS), study gap, target intake, etc."
           className={field}
         />
       </div>
 
       <button
         type="submit"
-        className="btn-luxury-primary w-full text-xs py-3.5 mt-2 justify-center shadow-lg hover:shadow-red-600/30"
+        className="btn-luxury-primary w-full text-xs py-3.5 mt-2 justify-center shadow-lg hover:shadow-amber-400/30 text-slate-950 font-bold"
       >
         <span>Book Free Appointment</span>
         <span>→</span>
       </button>
 
       <p className="text-center text-[0.7rem] text-slate-600">
-        🔒 100% Privacy Guaranteed · Zero File Opening Fees · Instant Counselor Response
+        🔒 100% Privacy Guaranteed · Zero Fake Visa Risks · Direct Official Guidance
       </p>
     </form>
   );

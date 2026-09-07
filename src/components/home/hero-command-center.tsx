@@ -20,13 +20,35 @@ interface SlideData {
 
 const heroSlides: SlideData[] = [
   {
+    country: "Italy",
+    code: "IT",
+    flag: "🇮🇹",
+    slogan: "Study at prestigious public universities including University of Padova with English-taught Bachelor's & Master's, up to 100% tuition waivers, and regional DSU scholarships.",
+    perks: ["Padova & Top Public Unis", "DSU Scholarship Guidance", "100% English-Taught Programs", "Universitaly Portal Assistance"],
+    image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "30+ Public Universities",
+    intakes: "2026/2027 Intakes Open",
+    slug: "italy",
+  },
+  {
+    country: "Sweden & Finland",
+    code: "SE",
+    flag: "🇸🇪",
+    slogan: "Experience world-leading Nordic innovation, tuition waivers for high-achievers, generous post-study residence permits, and vibrant tech research opportunities.",
+    perks: ["World #1 Innovation Hubs", "Post-Study Residence Rights", "Family Relocation Friendly", "English-Taught Master's"],
+    image: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "40+ Nordic Universities",
+    intakes: "Autumn 2026 Admissions Open",
+    slug: "sweden",
+  },
+  {
     country: "United Kingdom",
     code: "GB",
     flag: "🇬🇧",
-    slogan: "World-class Russell Group universities, 1-year Master's, 2-Year Post-Study Work Visa, and direct local support from our London branch.",
-    perks: ["100% Free Processing", "Russell Group Representation", "Direct London Arrival Care", "Scholarships up to £4,000"],
+    slogan: "Top-ranking UK institutions with 1-year fast-track Master's, 2-Year Post-Study Work (PSW) visas, and specialized British Council certified application guidance.",
+    perks: ["British Council Certified", "1-Year Master's Programs", "2-Year PSW Rights", "Merit Scholarships up to £4,000"],
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1400&q=85",
-    uniCount: "150+ Universities",
+    uniCount: "120+ Universities",
     intakes: "Jan & Sep 2026 Intakes Open",
     slug: "uk",
   },
@@ -34,77 +56,43 @@ const heroSlides: SlideData[] = [
     country: "Canada",
     code: "CA",
     flag: "🇨🇦",
-    slogan: "Top public Designated Learning Institutions (DLIs), paid co-op internships, and up to 3-year Post-Graduation Work Permits (PGWP).",
+    slogan: "Top public Designated Learning Institutions (DLIs), career-accelerating paid co-op internships, and up to 3-year Post-Graduation Work Permits (PGWP).",
     perks: ["Direct DLI Admissions", "Paid Co-Op Internships", "Up to 3-Year PGWP", "Spouse Work Permit Eligible"],
-    image: "https://images.unsplash.com/photo-1517935703635-2717090c2210?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1400&q=85",
     uniCount: "80+ DLIs & Universities",
     intakes: "Jan, May & Sep 2026 Open",
     slug: "canada",
   },
   {
-    country: "Australia",
-    code: "AU",
-    flag: "🇦🇺",
-    slogan: "World-ranking universities, lucrative student work rights, vibrant multicultural cities, and attractive regional migration pathways.",
-    perks: ["Go8 & Top Universities", "High Student Hourly Wages", "Subclass 500 Fast-Track", "Regional PR Pathways"],
-    image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1400&q=85",
-    uniCount: "45+ Universities",
-    intakes: "Feb & Jul 2026 Open",
-    slug: "australia",
-  },
-  {
-    country: "Cyprus (Europe)",
-    code: "CY",
-    flag: "🇨🇾",
-    slogan: "Affordable European higher education with 100% English-medium curricula, flexible entry criteria, and a high visa issuance ratio.",
-    perks: ["Low Tuition (€3,000–€5,000)", "High Visa Grant Ratio", "100% English-Medium Degrees", "No Blocked Account Required"],
-    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1400&q=85",
-    uniCount: "25+ Universities",
-    intakes: "Feb & Oct 2026 Open",
-    slug: "cyprus",
-  },
-  {
-    country: "Germany",
-    code: "DE",
-    flag: "🇩🇪",
-    slogan: "Tuition-free public universities, world-leading research in engineering and IT, and an 18-month post-study jobseeker residence permit.",
-    perks: ["Tuition-Free Public Higher Ed", "English-Taught Master's", "18-Month Jobseeker Permit", "Top Engineering Hub of Europe"],
-    image: "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1400&q=85",
-    uniCount: "70+ Public Universities",
-    intakes: "Summer & Winter 2026 Open",
-    slug: "germany",
-  },
-  {
-    country: "Finland",
-    code: "FI",
-    flag: "🇫🇮",
-    slogan: "The world's happiest country offering high-tech innovation, generous student work benefits, and clear family relocation policies.",
-    perks: ["World #1 Education Standard", "Post-Study Residence Rights", "Family Relocation Permitted", "Thriving Tech & Clean Energy Sector"],
-    image: "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?auto=format&fit=crop&w=1400&q=85",
-    uniCount: "35+ Universities",
-    intakes: "Autumn 2026 Open",
-    slug: "finland",
-  },
-  {
     country: "USA",
     code: "US",
     flag: "🇺🇸",
-    slogan: "Home to Ivy League and Tier-1 research institutions, 3-year STEM OPT extensions, and life-changing global networking opportunities.",
-    perks: ["Tier-1 Global Institutions", "3-Year STEM OPT Extension", "1-on-1 Visa Mock Preparation", "Merit-Based Scholarships"],
+    slogan: "Tier-1 research institutions, 3-year STEM OPT extensions, generous university assistantships, and rigorous 1-on-1 embassy visa mock interviews.",
+    perks: ["Tier-1 Global Campuses", "3-Year STEM OPT Extension", "1-on-1 Visa Mock Preparation", "Direct I-20 Processing"],
     image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1400&q=85",
-    uniCount: "120+ Universities",
+    uniCount: "100+ Universities",
     intakes: "Spring & Fall 2026 Open",
     slug: "usa",
+  },
+  {
+    country: "Malaysia",
+    code: "MY",
+    flag: "🇲🇾",
+    slogan: "Globally recognized UK and Australian branch campuses in Malaysia with affordable tuition, simplified EMGS visa processing, and smooth international pathways.",
+    perks: ["Affordable Living & Tuition", "Direct UK/Aus Degree Dual Awards", "Fast EMGS Approval", "Ideal for Credit Transfer"],
+    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1400&q=85",
+    uniCount: "25+ Leading Campuses",
+    intakes: "Multiple Intakes Throughout Year",
+    slug: "malaysia",
   },
 ];
 
 const liveSuccessToasts = [
-  { student: "Ahmed", action: "enrolled at University of Birmingham", countryCode: "GB", flag: "🇬🇧", time: "8 minutes ago" },
-  { student: "Nadia", action: "granted Study Permit for Canada", countryCode: "CA", flag: "🇨🇦", time: "14 minutes ago" },
-  { student: "Tanvir", action: "accepted at University of Melbourne", countryCode: "AU", flag: "🇦🇺", time: "22 minutes ago" },
-  { student: "Sadia", action: "received Visa for Cyprus", countryCode: "CY", flag: "🇨🇾", time: "35 minutes ago" },
-  { student: "Farhan", action: "admitted to TU Munich, Germany", countryCode: "DE", flag: "🇩🇪", time: "42 minutes ago" },
-  { student: "Raihan", action: "admitted to Aalto University, Finland", countryCode: "FI", flag: "🇫🇮", time: "50 minutes ago" },
+  { student: "Tanvir A.", action: "visa granted for University of Padova", countryCode: "IT", flag: "🇮🇹", time: "6 minutes ago" },
+  { student: "Sadia K.", action: "approved for Sweden Residence Permit", countryCode: "SE", flag: "🇸🇪", time: "12 minutes ago" },
+  { student: "Fahim U.", action: "secured UK Visa with Scholarship", countryCode: "GB", flag: "🇬🇧", time: "20 minutes ago" },
+  { student: "Rashed M.", action: "admitted to Finland UAS Master's", countryCode: "FI", flag: "🇫🇮", time: "31 minutes ago" },
+  { student: "Marzia N.", action: "achieved IELTS Overall Band 7.5", countryCode: "BD", flag: "🌟", time: "45 minutes ago" },
 ];
 
 export function HeroCommandCenter() {
@@ -128,24 +116,25 @@ export function HeroCommandCenter() {
     return () => clearInterval(toastTimer);
   }, []);
 
-  const slide = heroSlides[currentSlide];
-  const activeToast = liveSuccessToasts[toastIndex];
+  const slide = heroSlides[currentSlide] ?? heroSlides[0];
+  const activeToast = liveSuccessToasts[toastIndex] ?? liveSuccessToasts[0];
+  if (!slide) return null;
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#F0F5FC]/60 via-[#FAFAFC] to-[#FAFAFC] pt-8 pb-14 sm:pt-14 sm:pb-20 border-b border-slate-200/80">
       {/* Subtle Ambient Backdrop Glows */}
       <div className="pointer-events-none absolute -left-28 -top-28 h-96 w-96 rounded-full bg-blue-500/10 blur-[130px]" />
-      <div className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-red-500/8 blur-[130px]" />
+      <div className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-amber-400/15 blur-[130px]" />
 
       <div className="section-shell relative z-10">
         {/* Main 2-Column Hero Showcase */}
         <div className="grid gap-8 lg:gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center min-h-[500px]">
-          {/* Left Column: DSA-Style Editorial Text Hierarchy (Slides in from Left) */}
+          {/* Left Column */}
           <SlideIn direction="left" distance={45} className="space-y-6">
             {/* Top Brand Over-Title */}
             <div className="flex items-center gap-2">
-              <span className="text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#043E8B]">
-                — ALEX GLOBAL CONSULTANCY · DHAKA & LONDON —
+              <span className="text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#0C2340]">
+                — ACADEMIC ALLIES · ADVANCING EDUCATION · CHATTOGRAM —
               </span>
             </div>
 
@@ -157,17 +146,17 @@ export function HeroCommandCenter() {
               <h1 className="font-serif-editorial text-4xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-none tracking-tight">
                 {slide.country}
               </h1>
-              {/* Red Accent Bar */}
-              <div className="h-1.5 w-24 bg-gradient-to-r from-red-600 to-transparent rounded-full mt-3 mb-4" />
+              {/* Gold Brand Accent Bar */}
+              <div className="h-1.5 w-24 bg-gradient-to-r from-amber-500 via-amber-400 to-transparent rounded-full mt-3 mb-4" />
             </div>
 
             {/* Live Applications Intake Pill */}
-            <div className="inline-flex items-center gap-2.5 rounded-full bg-blue-50 border border-blue-200/80 px-4 py-1.5 text-xs font-bold text-[#043E8B] shadow-xs">
+            <div className="inline-flex items-center gap-2.5 rounded-full bg-amber-50 border border-amber-300/80 px-4 py-1.5 text-xs font-bold text-amber-900 shadow-xs">
               <span className="beacon-dot">
-                <span className="beacon-ping bg-blue-500" />
-                <span className="beacon-core bg-[#043E8B]" />
+                <span className="beacon-ping bg-amber-500" />
+                <span className="beacon-core bg-amber-600" />
               </span>
-              <span>Applications Open Now · {slide.intakes}</span>
+              <span>Official 5-Step Europe Admissions · {slide.intakes}</span>
             </div>
 
             {/* Destination Description */}
@@ -180,9 +169,9 @@ export function HeroCommandCenter() {
               {slide.perks.map((perk) => (
                 <span
                   key={perk}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-white border border-slate-200/80 px-3 py-1.5 text-[0.73rem] sm:text-xs font-semibold text-slate-700 shadow-xs hover:border-red-300 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-white border border-slate-200/80 px-3 py-1.5 text-[0.73rem] sm:text-xs font-semibold text-slate-700 shadow-xs hover:border-amber-400 transition-colors"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-red-600" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
                   <span>{perk}</span>
                 </span>
               ))}
@@ -193,45 +182,48 @@ export function HeroCommandCenter() {
               <button
                 type="button"
                 onClick={open}
-                className="btn-shimmer inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 hover:bg-red-700 text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-lg hover:shadow-red-600/30 transition-all cursor-pointer active:scale-95"
+                className="btn-luxury-primary text-slate-950 px-7 py-3.5 text-xs sm:text-sm font-bold shadow-lg hover:shadow-amber-400/30 transition-all cursor-pointer active:scale-95"
               >
-                <span>Start Your Journey</span>
+                <span>Start Your European Application</span>
                 <IconArrowRight className="w-4 h-4" />
               </button>
 
               <a
-                href="tel:01886913391"
+                href={`tel:${company.phones[0].replace(/[^0-9+]/g, "")}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 px-5 py-3.5 text-xs sm:text-sm font-bold transition-all shadow-xs active:scale-95"
               >
-                <IconPhone className="w-3.5 h-3.5 text-red-600" />
-                <span>Or Call: 01886 91 33 91</span>
+                <IconPhone className="w-3.5 h-3.5 text-amber-600" />
+                <span>Call Hotline: {company.phones[0]}</span>
               </a>
             </div>
 
             {/* Social Trust Line */}
             <div className="pt-2 text-xs text-slate-500 font-medium">
-              Join 2,500+ successful students.{" "}
+              Trusted by 47,000+ followers & 100% recommended on Facebook.{" "}
               <button
                 type="button"
                 onClick={open}
-                className="text-red-600 font-bold hover:underline cursor-pointer inline-flex items-center gap-1"
+                className="text-[#0C2340] font-bold hover:underline cursor-pointer inline-flex items-center gap-1"
               >
-                <span>Get Free Consultation</span>
+                <span>Get Free Profile Assessment</span>
                 <span>→</span>
               </button>
             </div>
           </SlideIn>
 
-          {/* Right Column: Large Rounded Photography Card & Country Badge (Slides in from Right) */}
+          {/* Right Column */}
           <SlideIn direction="right" distance={45} className="relative">
             <div className="relative overflow-hidden rounded-[2.2rem] sm:rounded-[2.8rem] shadow-2xl border-4 border-white aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4] bg-slate-100 group">
               {/* Scenic Destination Photography */}
               <img
                 key={slide.country}
                 src={slide.image}
-                alt={`Study in ${slide.country} - Alex Global Consultancy`}
+                alt={`Study in ${slide.country} - Academic Allies`}
                 className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
                 loading="eager"
+                onError={(e) => {
+                  e.currentTarget.src = "/assets/banner.jpg";
+                }}
               />
 
               {/* Gradient Scrim */}
@@ -287,7 +279,7 @@ export function HeroCommandCenter() {
                   className={cn(
                     "h-2 rounded-full transition-all duration-300 cursor-pointer",
                     currentSlide === idx
-                      ? "w-8 bg-red-600"
+                      ? "w-8 bg-amber-500"
                       : "w-2 bg-slate-300 hover:bg-slate-400",
                   )}
                 />

@@ -8,53 +8,53 @@ export function HowItWorksSection() {
   const steps = [
     {
       step: "01",
-      stepColor: "bg-[#043E8B] text-white",
+      stepColor: "bg-[#0C2340] text-amber-300",
       dotPosition: "bottom",
-      dotColor: "bg-[#043E8B]",
+      dotColor: "bg-[#0C2340]",
       icon: "🔍",
-      iconBg: "bg-blue-50 text-[#043E8B]",
-      title: "Research & Discovery",
-      desc: "Explore universities and degree programs that align with your career goals, academic background, and budget.",
+      iconBg: "bg-amber-50 text-amber-800",
+      title: "Profile Assessment & Selection",
+      desc: "Free academic evaluation, study gap assessment, and tailored university shortlisting (Padova, Universitaly, Sweden, Finland).",
     },
     {
       step: "02",
-      stepColor: "bg-red-600 text-white",
+      stepColor: "bg-amber-500 text-slate-950",
       dotPosition: "top",
-      dotColor: "bg-red-600",
-      icon: "💬",
-      iconBg: "bg-red-50 text-red-600",
-      title: "Free Consultation",
-      desc: "Meet our senior advisors in Dhaka or via video call for 1-on-1 profile evaluation and scholarship matching.",
+      dotColor: "bg-amber-500",
+      icon: "🏛️",
+      iconBg: "bg-slate-100 text-slate-900",
+      title: "Universitaly & Pre-Enrollment",
+      desc: "Direct submission through official university portals and Universitaly system for formal pre-enrollment approval.",
     },
     {
       step: "03",
-      stepColor: "bg-[#043E8B] text-white",
+      stepColor: "bg-[#0C2340] text-amber-300",
       dotPosition: "bottom",
-      dotColor: "bg-[#043E8B]",
-      icon: "📄",
-      iconBg: "bg-blue-50 text-[#043E8B]",
-      title: "Application & Documents",
-      desc: "Our admissions team reviews your SOP, transcripts, and references to secure your unconditional offer letter and CAS.",
+      dotColor: "bg-[#0C2340]",
+      icon: "📜",
+      iconBg: "bg-amber-50 text-amber-800",
+      title: "DOV & CIMEA Legalization",
+      desc: "Authentic academic certificate apostille, Ministry attestation, and CIMEA statement of comparability / Declaration of Value.",
     },
     {
       step: "04",
-      stepColor: "bg-red-600 text-white",
+      stepColor: "bg-amber-500 text-slate-950",
       dotPosition: "top",
-      dotColor: "bg-red-600",
-      icon: "✓",
-      iconBg: "bg-red-50 text-red-600",
-      title: "Visa Processing & Mock",
-      desc: "Comprehensive visa filing, financial document verification, and rigorous 1-on-1 mock interview preparation.",
+      dotColor: "bg-amber-500",
+      icon: "🎯",
+      iconBg: "bg-slate-100 text-slate-900",
+      title: "Embassy Visa File & Mock Prep",
+      desc: "Official embassy appointment booking, verified sponsor documentation, and intensive 1-on-1 visa interview simulations.",
     },
     {
       step: "05",
-      stepColor: "bg-[#043E8B] text-white",
+      stepColor: "bg-[#0C2340] text-amber-300",
       dotPosition: "bottom",
-      dotColor: "bg-[#043E8B]",
-      icon: "✈",
-      iconBg: "bg-blue-50 text-[#043E8B]",
-      title: "Pre-Departure & London Hub",
-      desc: "Pre-flight briefing, flight booking support, and on-the-ground assistance from our London Cranberry Lane office.",
+      dotColor: "bg-[#0C2340]",
+      icon: "✈️",
+      iconBg: "bg-emerald-50 text-emerald-700",
+      title: "DSU Scholarship & Departure",
+      desc: "Regional scholarship application for up to €7,000/year living stipend + free tuition, student housing, and flight briefing.",
     },
   ];
 
@@ -63,12 +63,12 @@ export function HowItWorksSection() {
       <div className="section-shell">
         {/* Animated Section Header */}
         <MotionHeading
-          tag="— YOUR JOURNEY —"
-          title="How It"
-          highlight="Works"
-          description="Your path to studying abroad in 5 simple, structured steps."
-          tagColor="text-[#043E8B]"
-          highlightColor="text-[#043E8B]"
+          tag="— SIGNATURE EUROPE METHOD —"
+          title="Our 5 Steps to"
+          highlight="Europe"
+          description="Academic Allies' proven, transparent roadmap from initial profile assessment to European campus arrival."
+          tagColor="text-amber-700"
+          highlightColor="text-[#0C2340]"
         />
 
         {/* 5 Step Roadway Cards with Stagger Animation */}
@@ -82,7 +82,7 @@ export function HowItWorksSection() {
           >
             {steps.map((s) => (
               <StaggerItem key={s.step} className="h-full">
-                <div className="relative rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-red-400/50 flex flex-col justify-between hover-lift group h-full">
+                <div className="relative rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-400/50 flex flex-col justify-between hover-lift group h-full">
                   {/* Step Number Badge */}
                   <div
                     className={`absolute -top-3 -right-3 flex h-9 w-9 items-center justify-center rounded-full text-xs font-black shadow-md transition-transform duration-300 group-hover:scale-110 ${s.stepColor}`}
@@ -99,7 +99,7 @@ export function HowItWorksSection() {
 
                   {/* Content */}
                   <div>
-                    <h3 className="font-display text-base font-bold text-slate-900 mb-1.5 group-hover:text-[#043E8B] transition-colors">
+                    <h3 className="font-display text-base font-bold text-slate-900 mb-1.5 group-hover:text-[#0C2340] transition-colors">
                       {s.title}
                     </h3>
                     <p className="text-xs text-slate-500 leading-relaxed font-medium">
@@ -124,9 +124,9 @@ export function HowItWorksSection() {
           <button
             type="button"
             onClick={open}
-            className="btn-shimmer inline-flex items-center gap-2 rounded-xl bg-[#043E8B] hover:bg-[#032B60] text-white px-8 py-3.5 text-xs sm:text-sm font-bold shadow-lg hover:shadow-blue-900/30 transition-all cursor-pointer active:scale-95"
+            className="btn-luxury-primary inline-flex items-center gap-2 text-slate-950 px-8 py-3.5 text-xs sm:text-sm font-bold shadow-lg hover:shadow-amber-400/30 transition-all cursor-pointer active:scale-95"
           >
-            <span>Start Your Journey</span>
+            <span>Start Your 5-Step Process Today</span>
             <IconArrowRight className="w-4 h-4" />
           </button>
         </div>

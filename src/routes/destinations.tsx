@@ -6,17 +6,17 @@ import { company, destinations } from "@/lib/site-data";
 export const Route = createFileRoute("/destinations")({
   head: () => ({
     meta: [
-      { title: "Study Abroad Destinations | Alex Global Consultancy — Dhaka & London" },
+      { title: "Study Abroad Destinations | Academic Allies — Chattogram" },
       {
         name: "description",
         content:
-          "Explore premier study abroad destinations processed by Alex Global Consultancy: UK, Canada, Australia, Cyprus, Germany, Finland, USA, and Malaysia. Verified tuition fees, post-study work visas, scholarships, and London office support.",
+          "Explore premier European and global study abroad destinations processed by Academic Allies: Italy (Padova & DSU Scholarship), Sweden, Finland, UK, Canada, USA, and Malaysia. Verified tuition fees, post-study work visas, scholarships, and Chattogram HQ guidance.",
       },
-      { property: "og:title", content: "Study Abroad Destinations | Alex Global Consultancy" },
+      { property: "og:title", content: "Study Abroad Destinations | Academic Allies" },
       {
         property: "og:description",
         content:
-          "আপনার স্বপ্নের বিশ্ববিদ্যালয়ের পথে বিশ্বস্ত সঙ্গী! Complete verified guide to international universities, scholarships, and student visas in Dhaka & London.",
+          "আপনার স্বপ্নের ইউরোপীয় বিশ্ববিদ্যালয়ের পথে বিশ্বস্ত সহযোগী! Complete verified guide to Italian, European, and global universities, DSU scholarships, and student visas in Chattogram.",
       },
     ],
   }),
@@ -27,7 +27,7 @@ function Destinations() {
   const [activeRegion, setActiveRegion] = useState<string>("All");
   const [search, setSearch] = useState<string>("");
 
-  const regions = ["All", "Europe", "North America", "Oceania", "Middle East", "Southeast Asia"];
+  const regions = ["All", "Europe", "North America", "Asia-Pacific"];
 
   const filtered = destinations.filter((d) => {
     const matchesRegion =
@@ -44,11 +44,11 @@ function Destinations() {
   return (
     <>
       <PageHero
-        eyebrow="Global University Network"
-        title="Verified Study Abroad Portals"
-        subtitle="Explore admission criteria, post-study work rights (PSW), average living costs, scholarships, and without IELTS (MOI) options across 100+ partner universities represented by Alex Global Consultancy."
-        image="/latest-assets/banner.png"
-        imageAlt="Alex Global Consultancy official global destinations banner"
+        eyebrow="European & Global University Portals"
+        title="Verified Study Abroad Destinations"
+        subtitle="Explore admission criteria, post-study work rights (PSW), living costs, regional scholarships (like Italian DSU up to €7,000/yr), and MOI eligibility across 100+ partner universities represented by Academic Allies."
+        image="/assets/banner.jpg"
+        imageAlt="Academic Allies official global destinations banner"
       >
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Destinations" }]} />
       </PageHero>
@@ -65,7 +65,7 @@ function Destinations() {
                 onClick={() => setActiveRegion(reg)}
                 className={`rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                   activeRegion === reg
-                    ? "bg-slate-900 text-white shadow-sm border border-slate-800"
+                    ? "bg-[#0C2340] text-[#D4AF37] shadow-sm border border-[#0C2340]"
                     : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-100"
                 }`}
               >
@@ -81,7 +81,7 @@ function Destinations() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="🔍 Search country or program..."
-              className="w-full rounded-full border border-slate-300 bg-white px-4 py-2 text-xs text-slate-800 outline-none shadow-sm focus:border-red-500 focus:ring-2 focus:ring-red-500/10"
+              className="w-full rounded-full border border-slate-300 bg-white px-4 py-2 text-xs text-slate-800 outline-none shadow-sm focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20"
             />
           </div>
         </div>
@@ -91,8 +91,8 @@ function Destinations() {
           <p>
             Showing <strong>{filtered.length}</strong> of {destinations.length} verified destinations
           </p>
-          <span className="text-red-600 font-bold">
-            ✓ 100% Free Profile Assessment at our Dhaka Aftabnagar Office & London Hub
+          <span className="text-[#0C2340] font-bold">
+            ✓ 100% Genuine Portals & Free Assessment at our Finlay Square Chattogram HQ
           </span>
         </div>
 
@@ -101,7 +101,7 @@ function Destinations() {
           {filtered.map((d) => (
             <article
               key={d.slug}
-              className="rounded-3xl p-6 flex flex-col justify-between border border-slate-200 bg-white hover:border-red-500/50 shadow-sm hover:shadow-md transition-all"
+              className="rounded-3xl p-6 flex flex-col justify-between border border-slate-200 bg-white hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
@@ -114,7 +114,7 @@ function Destinations() {
                       <span className="text-xs font-semibold text-slate-500">{d.region}</span>
                     </div>
                   </div>
-                  <span className="rounded-full bg-red-50 border border-red-200 px-2.5 py-0.5 text-xs font-bold text-red-700">
+                  <span className="rounded-full bg-amber-50 border border-amber-200 px-2.5 py-0.5 text-xs font-bold text-amber-900">
                     {d.pswv}
                   </span>
                 </div>
@@ -138,7 +138,7 @@ function Destinations() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-medium">Scholarships:</span>
-                    <span className="font-bold text-red-600">{d.scholarships}</span>
+                    <span className="font-bold text-emerald-700">{d.scholarships}</span>
                   </div>
                 </div>
 
@@ -161,7 +161,7 @@ function Destinations() {
                 <Link
                   to="/study-in-{$country}"
                   params={{ country: d.slug }}
-                  className="rounded-full bg-red-600 px-4 py-1.5 text-xs font-bold text-white hover:bg-red-700 transition-colors"
+                  className="rounded-full bg-[#0C2340] px-4 py-1.5 text-xs font-bold text-[#D4AF37] hover:bg-[#07172B] transition-colors"
                 >
                   Explore Guide →
                 </Link>

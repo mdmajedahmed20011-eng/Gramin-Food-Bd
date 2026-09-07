@@ -5,14 +5,14 @@ import { company } from "@/lib/site-data";
 export const Route = createFileRoute("/terms-of-use")({
   head: () => ({
     meta: [
-      { title: "Terms of Use | Alex Global Consultancy" },
+      { title: "Terms of Use | Academic Allies" },
       {
         name: "description",
         content:
-          "Terms and conditions governing educational advisory services, admissions processing, and free study abroad counseling at Alex Global Consultancy.",
+          "Terms and conditions governing educational advisory services, admissions processing, and free study abroad counseling at Academic Allies.",
       },
-      { property: "og:title", content: "Terms of Use | Alex Global Consultancy" },
-      { property: "og:description", content: "Terms governing our overseas education counseling, language academy, and visa processing guidance." },
+      { property: "og:title", content: "Terms of Use | Academic Allies" },
+      { property: "og:description", content: "Terms governing our overseas education counseling, European scholarships, and language academy." },
     ],
   }),
   component: TermsPage,
@@ -21,23 +21,23 @@ export const Route = createFileRoute("/terms-of-use")({
 const sections = [
   {
     title: "1. Scope of Advisory Services",
-    body: "Alex Global Consultancy (AGC) provides 100% free profile evaluation, university selection, admission application processing, language academy enrollment, and visa file preparation across our 8 service categories. We operate on a zero file-opening fee basis. Statutory third-party costs (such as university tuition deposits, official embassy visa fees, tuberculosis medical screening, and courier charges) are paid directly to the respective institutions or authorities.",
+    body: "Academic Allies provides 100% genuine profile evaluation, European university course selection, Universitaly portal pre-enrollment, DSU scholarship filing, language academy coaching, and visa file preparation. We strictly operate via official university and embassy portals. Statutory third-party costs (such as university tuition deposits, official embassy visa fees, medical screening, and translation/legalization charges) are paid directly to the respective institutions or authorities.",
   },
   {
-    title: "2. Document Authenticity & Applicant Responsibility",
-    body: "Applicants are solely responsible for the authenticity and legality of all academic certificates, marksheets, medium of instruction (MOI) certificates, and financial sponsorship documents submitted. AGC maintains a strict zero-tolerance policy against fraudulent documentation.",
+    title: "2. Anti-Fraud Policy & Document Authenticity",
+    body: "Applicants are solely responsible for the authenticity and legality of all academic certificates, transcripts, MOI letters, and financial sponsorship documents submitted. Academic Allies enforces a zero-tolerance policy against fraudulent documentation, fake work offers, or illegal visa schemes ('Dalaler Fake Visa Noy').",
   },
   {
     title: "3. Admissions & Visa Decisions Disclaimer",
-    body: "University admissions and scholarships are decided exclusively by the respective international universities. Visa approvals are determined solely by sovereign immigration authorities (such as UKVI, IRCC, Australian Home Affairs, and European Embassies). While Alex Global Consultancy provides comprehensive preparation and consular mock interviews, sovereign decisions remain with the respective government bodies.",
+    body: "University admissions, tuition waivers, and regional scholarships (including Italian DSU) are decided exclusively by the respective international universities and regional welfare boards. Visa approvals are determined solely by sovereign immigration authorities and embassies. While Academic Allies provides comprehensive mock interviews and verified documentation assembly, sovereign decisions remain with the respective government bodies.",
   },
   {
     title: "4. Language Academy Terms",
-    body: "Students enrolled in our IELTS Preparation, Spoken English, or Kids English programs receive personalized materials and scheduled interactive mock tests. Batch schedules and online session links are coordinated by our Dhaka academic wing.",
+    body: "Students enrolled in our IELTS Preparation, Spoken English, or Kids English programs receive specialized materials and scheduled interactive mock tests conducted by British Council & IDP certified faculty. Batch schedules and diagnostic tests are coordinated through our Chattogram headquarters.",
   },
   {
-    title: "5. Contact & Inquiries",
-    body: `If you have questions regarding these terms, email ${company.emails[0]}, call ${company.phones[0]} / UK ${company.offices.london.phone}, or visit our Dhaka Corporate Office at ${company.offices.dhaka.address}.`,
+    title: "5. Contact & Corporate Headquarters",
+    body: `If you have questions regarding these terms, email ${company.emails[0]}, call ${company.phones[0]} / ${company.phones[1]}, or visit our Corporate Headquarters at Finlay Square (7th Floor), CDA Avenue, 2 No. Gate, East Nasirabad, Chattogram.`,
   },
 ];
 
@@ -61,4 +61,3 @@ function TermsPage() {
     </>
   );
 }
-

@@ -8,24 +8,21 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-bangla: "Hind Siliguri", "Plus Jakarta Sans", sans-serif;
 
-  /* Alex Global Consultancy & DSA Aesthetic Palette */
-  --color-agc-navy: #043E8B;
-  --color-agc-navy-dark: #0A192F;
-  --color-agc-navy-midnight: #061224;
-  --color-agc-navy-light: #1E56A0;
-  --color-agc-navy-soft: #F0F5FC;
+  /* Academic Allies — Prestige Scholastic Navy & Gold Palette */
+  --color-brand-navy: #0C2340;
+  --color-brand-navy-dark: #071527;
+  --color-brand-navy-midnight: #040D1A;
+  --color-brand-navy-light: #16325B;
+  --color-brand-navy-soft: #F0F5FC;
 
-  --color-agc-red: #DC2626;
-  --color-agc-red-dark: #B91C1C;
-  --color-agc-red-light: #EF4444;
-  --color-agc-red-soft: #FEF2F2;
-
-  --color-gold-metallic: #F59E0B;
-  --color-gold-bright: #FBBF24;
-  --color-gold-deep: #D97706;
-  --color-gold-soft: #FFFBEB;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-deep: #C8963E;
+  --color-brand-gold-bright: #F59E0B;
+  --color-brand-gold-light: #FDE68A;
+  --color-brand-gold-soft: #FDF9EE;
 
   --color-emerald-deep: #059669;
+  --color-emerald-bright: #10B981;
   --color-emerald-soft: #ECFDF5;
 
   --color-sand: #FAFAFC;
@@ -63,22 +60,22 @@ html, body {
   line-height: 1.4 !important;
 }
 
-/* Luxury Editorial Serif for DSA-Style Headlines */
+/* Luxury Editorial Serif for Academic Allies Brand Moments */
 .font-serif-editorial {
   font-family: "Playfair Display", Georgia, serif !important;
 }
 
-/* Blueprint Grid Pattern for Impact Stats & Hero */
+/* Blueprint Grid Pattern for Academic Allies Hero & Stats */
 .bg-blueprint-grid {
-  background-color: #0A192F;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-color: #0C2340;
+  background-image: linear-gradient(to right, rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(212, 175, 55, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 .bg-blueprint-radial {
-  background-color: #0A192F;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-color: #0C2340;
+  background-image: radial-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -131,19 +128,19 @@ html, body {
 
 /* Glassmorphism & Elevation */
 .glass-luxury {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  box-shadow: 0 10px 35px -5px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 10px 35px -5px rgba(12, 35, 64, 0.06), 0 2px 6px -1px rgba(12, 35, 64, 0.03);
 }
 
 .glass-luxury-dark {
-  background: rgba(15, 23, 42, 0.94);
+  background: rgba(12, 35, 64, 0.95);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(220, 38, 38, 0.25);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 25px 60px -15px rgba(4, 13, 26, 0.8);
 }
 
 /* Executive Card Styles */
@@ -151,71 +148,70 @@ html, body {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
   border-radius: 1.5rem;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 20px -2px rgba(12, 35, 64, 0.04);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
   will-change: transform, box-shadow;
 }
 
 .card-luxury:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 22px 45px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.03);
+  border-color: #D4AF37;
+  box-shadow: 0 22px 45px -8px rgba(12, 35, 64, 0.12), 0 8px 16px -4px rgba(212, 175, 55, 0.08);
   transform: translate3d(0, -4px, 0);
 }
 
-.card-luxury-gold,
-.card-luxury-red {
+.card-luxury-gold {
   background: #FFFFFF;
-  border: 1px solid rgba(220, 38, 38, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 1.5rem;
-  box-shadow: 0 6px 24px -2px rgba(220, 38, 38, 0.06);
+  box-shadow: 0 6px 24px -2px rgba(212, 175, 55, 0.1);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card-luxury-gold:hover,
-.card-luxury-red:hover {
-  border-color: rgba(220, 38, 38, 0.6);
-  box-shadow: 0 24px 50px -10px rgba(220, 38, 38, 0.16);
+.card-luxury-gold:hover {
+  border-color: #D4AF37;
+  box-shadow: 0 24px 50px -10px rgba(212, 175, 55, 0.25);
   transform: translate3d(0, -4px, 0);
 }
 
 .card-luxury-interactive {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FBFDFF 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF7 100%);
   border: 1px solid #E2E8F0;
   border-radius: 1.5rem;
-  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 10px 30px -5px rgba(12, 35, 64, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-luxury-interactive:hover {
-  border-color: #DC2626;
-  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.15);
+  border-color: #D4AF37;
+  box-shadow: 0 25px 50px -12px rgba(12, 35, 64, 0.15);
   transform: translate3d(0, -4px, 0);
 }
 
-/* Primary AGC Crimson Red Buttons */
+/* Primary Academic Allies Navy Buttons */
 .btn-luxury-primary,
 .btn-primary {
-  background: linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%);
+  background: linear-gradient(135deg, #0C2340 0%, #071527 100%);
   color: #FFFFFF;
   font-weight: 800;
   font-size: 0.875rem;
   border-radius: 9999px;
   padding: 0.875rem 2rem;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px -2px rgba(220, 38, 38, 0.45);
+  box-shadow: 0 4px 20px -2px rgba(12, 35, 64, 0.45);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.4);
 }
 
 .btn-luxury-primary:hover,
 .btn-primary:hover {
-  background: linear-gradient(135deg, #F87171 0%, #EF4444 50%, #DC2626 100%);
-  box-shadow: 0 8px 30px -3px rgba(220, 38, 38, 0.65);
+  background: linear-gradient(135deg, #16325B 0%, #0C2340 100%);
+  border-color: #D4AF37;
+  box-shadow: 0 8px 30px -3px rgba(212, 175, 55, 0.4);
   transform: translate3d(0, -2px, 0);
 }
 
@@ -224,12 +220,39 @@ html, body {
   transform: translate3d(0, 0, 0);
 }
 
+/* Prestige Gold Action Button */
+.btn-gold,
+.btn-luxury-gold {
+  background: linear-gradient(135deg, #F59E0B 0%, #D4AF37 50%, #C8963E 100%);
+  color: #071527;
+  font-weight: 800;
+  font-size: 0.875rem;
+  border-radius: 9999px;
+  padding: 0.875rem 2rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(212, 175, 55, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-gold:hover,
+.btn-luxury-gold:hover {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #D4AF37 100%);
+  box-shadow: 0 8px 30px -3px rgba(212, 175, 55, 0.65);
+  transform: translate3d(0, -2px, 0);
+}
+
 /* Secondary Button */
 .btn-luxury-secondary,
 .btn-secondary {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
-  color: #0F172A;
+  color: #0C2340;
   font-weight: 700;
   font-size: 0.875rem;
   border: 1px solid #CBD5E1;
@@ -241,30 +264,30 @@ html, body {
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 2px 8px rgba(12, 35, 64, 0.04);
 }
 
 .btn-luxury-secondary:hover,
 .btn-secondary:hover {
   background: #FFFFFF;
-  border-color: #DC2626;
-  color: #B91C1C;
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.12);
+  border-color: #D4AF37;
+  color: #071527;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.15);
   transform: translate3d(0, -2px, 0);
 }
 
-/* Royal Navy / Obsidian Button */
+/* Royal Navy Button */
 .btn-obsidian,
 .btn-navy {
-  background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%);
+  background: linear-gradient(135deg, #16325B 0%, #0C2340 100%);
   color: #FFFFFF;
   font-weight: 700;
   font-size: 0.875rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 9999px;
   padding: 0.875rem 1.75rem;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.4);
+  box-shadow: 0 4px 16px -2px rgba(12, 35, 64, 0.4);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -274,12 +297,13 @@ html, body {
 
 .btn-obsidian:hover,
 .btn-navy:hover {
-  background: linear-gradient(135deg, #2563EB 0%, #1E3A8A 100%);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 25px -3px rgba(30, 58, 138, 0.4);
+  background: linear-gradient(135deg, #1E40AF 0%, #16325B 100%);
+  border-color: #D4AF37;
+  box-shadow: 0 8px 25px -3px rgba(212, 175, 55, 0.35);
   transform: translate3d(0, -2px, 0);
 }
 
+/* Emerald Action Button */
 .btn-emerald {
   background: linear-gradient(135deg, #059669 0%, #047857 100%);
   color: #FFFFFF;
@@ -293,6 +317,7 @@ html, body {
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-emerald:hover {
@@ -306,28 +331,28 @@ html, body {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
   border-radius: 1.5rem;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 20px -2px rgba(12, 35, 64, 0.04);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
   will-change: transform, box-shadow;
 }
 
 .card-clean:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 22px 45px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.03);
+  border-color: #D4AF37;
+  box-shadow: 0 22px 45px -8px rgba(12, 35, 64, 0.08), 0 8px 16px -4px rgba(212, 175, 55, 0.04);
   transform: translate3d(0, -4px, 0);
 }
 
 .card-bento {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FBFDFF 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF7 100%);
   border: 1px solid #E2E8F0;
   border-radius: 1.5rem;
-  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 10px 30px -5px rgba(12, 35, 64, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-bento:hover {
-  border-color: #DC2626;
-  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.15);
+  border-color: #D4AF37;
+  box-shadow: 0 25px 50px -12px rgba(12, 35, 64, 0.15);
   transform: translate3d(0, -4px, 0);
 }
 
@@ -344,26 +369,20 @@ html, body {
 }
 
 .badge-gold {
-  background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
-  border: 1px solid rgba(220, 38, 38, 0.3);
-  color: #B91C1C;
-}
-
-.badge-red {
-  background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
-  border: 1px solid rgba(220, 38, 38, 0.4);
-  color: #B91C1C;
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #92400E;
 }
 
 .badge-navy {
   background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-  border: 1px solid rgba(30, 58, 138, 0.3);
-  color: #1E3A8A;
+  border: 1px solid rgba(12, 35, 64, 0.3);
+  color: #0C2340;
 }
 
 .badge-obsidian {
-  background: #0F172A;
-  border: 1px solid rgba(220, 38, 38, 0.4);
+  background: #071527;
+  border: 1px solid rgba(212, 175, 55, 0.4);
   color: #FFFFFF;
 }
 
@@ -381,24 +400,23 @@ html, body {
   padding: 0.45rem 1.15rem;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(220, 38, 38, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.4);
   border-radius: 9999px;
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.08);
+  box-shadow: 0 4px 15px rgba(12, 35, 64, 0.08);
   font-size: 0.8125rem;
   font-weight: 700;
-  color: #1E3A8A;
+  color: #0C2340;
 }
 
 /* Typography Enhancements */
-.text-gradient-gold,
-.text-gradient-red {
-  background: linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #991B1B 100%);
+.text-gradient-gold {
+  background: linear-gradient(135deg, #F59E0B 0%, #D4AF37 50%, #B45309 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-navy {
-  background: linear-gradient(135deg, #2563EB 0%, #1E3A8A 50%, #0F172A 100%);
+  background: linear-gradient(135deg, #1E40AF 0%, #0C2340 50%, #071527 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -425,16 +443,16 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #DC2626;
+  background: #D4AF37;
 }
 
 /* Micro-animations */
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
   }
   50% {
-    box-shadow: 0 0 25px rgba(220, 38, 38, 0.45);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
   }
 }
 
@@ -490,7 +508,7 @@ html {
 
 .hover-lift:hover {
   transform: translate3d(0, -6px, 0);
-  box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 20px 40px -12px rgba(12, 35, 64, 0.12), 0 8px 16px -4px rgba(212, 175, 55, 0.05);
 }
 
 /* Subtle Card Glow on Hover */
@@ -499,8 +517,8 @@ html {
 }
 
 .hover-glow:hover {
-  border-color: rgba(220, 38, 38, 0.5);
-  box-shadow: 0 15px 35px -5px rgba(220, 38, 38, 0.15), 0 0 20px -3px rgba(220, 38, 38, 0.1);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 15px 35px -5px rgba(212, 175, 55, 0.25), 0 0 20px -3px rgba(12, 35, 64, 0.15);
 }
 
 /* Button Press Tactile Feedback */

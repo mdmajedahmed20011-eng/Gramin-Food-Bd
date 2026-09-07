@@ -4,47 +4,47 @@ export function WhyChooseSection() {
   const features = [
     {
       icon: "🛡️",
-      iconBg: "bg-blue-50 text-[#043E8B]",
+      iconBg: "bg-emerald-50 text-emerald-700",
       value: 100,
       suffix: "%",
       label: "",
-      metricColor: "text-[#043E8B]",
-      tag: "FREE SERVICE",
-      title: "Free End-to-End Counseling",
-      desc: "Complete guidance from profile assessment and university shortlisting to visa lodging with zero hidden service charges.",
+      metricColor: "text-emerald-700",
+      tag: "NO FAKE VISA TRAPS",
+      title: "100% Genuine Portals",
+      desc: "Zero fake visa traps or intermediary scams. Direct applications through official European university portals (Padova, Universitaly) and verified embassies.",
     },
     {
-      icon: "🎗️",
-      iconBg: "bg-rose-50 text-red-600",
-      value: 250,
-      suffix: "+",
+      icon: "🏛️",
+      iconBg: "bg-amber-50 text-amber-800",
+      value: 5,
+      suffix: " Steps",
       label: "",
-      metricColor: "text-red-600",
-      tag: "VISA APPROVALS",
-      title: "98% Visa Success Rate",
-      desc: "Proven track record of successful student and family visa approvals with professional SOP reviews and mock interviews.",
+      metricColor: "text-amber-800",
+      tag: "SIGNATURE METHOD",
+      title: "Official 5 Steps to Europe",
+      desc: "Structured guidance from profile evaluation and university pre-enrollment to embassy interview preparation and post-arrival settlement.",
     },
     {
-      icon: "👥",
-      iconBg: "bg-blue-50 text-[#043E8B]",
-      value: 2,
-      suffix: " Hubs",
+      icon: "📜",
+      iconBg: "bg-blue-50 text-[#0C2340]",
+      value: 1,
+      suffix: " Partner",
       label: "",
-      metricColor: "text-[#043E8B]",
-      tag: "DHAKA & LONDON",
-      title: "Direct London Arrival Care",
-      desc: "Unlike local-only agencies, our London branch (E16) provides airport guidance, accommodation assistance, and PSW transition.",
+      metricColor: "text-[#0C2340]",
+      tag: "BRITISH COUNCIL & ICEF",
+      title: "Certified Language Academy",
+      desc: "Authorized British Council IELTS partnership providing Band 7.0+ coaching, Spoken English, and Foundation English for Kids in Chattogram.",
     },
     {
       icon: "🤝",
-      iconBg: "bg-rose-50 text-red-600",
-      value: 150,
-      suffix: "+",
+      iconBg: "bg-slate-50 text-slate-800",
+      value: 47,
+      suffix: "K+",
       label: "",
-      metricColor: "text-red-600",
-      tag: "PARTNER UNIS",
-      title: "Direct University Representation",
-      desc: "Direct agreements with top UK, Canadian, Australian, European, and Scandinavian institutions for expedited offer letters.",
+      metricColor: "text-slate-900",
+      tag: "CHATTOGRAM HEADQUARTERS",
+      title: "47K+ Follower Community",
+      desc: "100% recommended on Facebook with thousands of active students and guardians visiting our Finlay Square (7th Floor) headquarters.",
     },
   ];
 
@@ -53,12 +53,12 @@ export function WhyChooseSection() {
       <div className="section-shell">
         {/* Title with Editorial Italic Serif & Framer Motion */}
         <MotionHeading
-          tag="— WHY ALEX GLOBAL —"
+          tag="— WHY ACADEMIC ALLIES —"
           title="Why choose"
-          highlight="Alex Global Consultancy?"
-          description="We are committed to making your study-abroad dream a reality — with expert guidance, free counseling, and a proven track record."
-          tagColor="text-[#043E8B]"
-          highlightColor="text-red-600"
+          highlight="Academic Allies?"
+          description="Advancing Education from Finlay Square, Chattogram — zero fake visa traps, official European university portals, and certified language training."
+          tagColor="text-amber-700"
+          highlightColor="text-[#0C2340]"
         />
 
         {/* 4 Feature Cards Grid with Staggered Entrance & CountUp */}
@@ -68,7 +68,7 @@ export function WhyChooseSection() {
         >
           {features.map((f) => (
             <StaggerItem key={f.title}>
-              <div className="rounded-3xl border border-slate-200/70 bg-slate-50/40 p-7 text-center flex flex-col items-center hover:bg-white hover:border-red-200 hover:shadow-2xl transition-all duration-300 group hover-lift h-full">
+              <div className="rounded-3xl border border-slate-200/70 bg-slate-50/40 p-7 text-center flex flex-col items-center hover:bg-white hover:border-amber-400/50 hover:shadow-2xl transition-all duration-300 group hover-lift h-full">
                 {/* Icon Container */}
                 <div
                   className={`flex h-14 w-14 items-center justify-center rounded-2xl text-2xl mb-4 transition-transform duration-300 group-hover:scale-110 ${f.iconBg}`}
